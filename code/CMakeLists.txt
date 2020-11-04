@@ -15,5 +15,3 @@ add_subdirectory( utility )
 add_subdirectory( workers )
 
 add_subdirectory( _dependencies )
-
-add_subdirectory( _executables )

@@ -44,16 +44,26 @@ endfunction()
 #    ██    ██   ██ ██          ██      ██   ██ ██    ██ ██   ██ ██      ██         ██
 #    ██    ██   ██ ███████     ██      ██   ██  ██████   █████  ███████  ██████    ██
 
-project ( Unotu CXX ASM )
+project ( UnotUI CXX ASM )
 set( APP_NAME ${CMAKE_PROJECT_NAME} )
-set( APP_LIBRARY_NAME ${APP_NAME}Library )
+set( APP_LIBRARY_NAME ${APP_NAME}Static )
+set( APP_DYNAMIC_LIBRARY_NAME ${APP_NAME} )
 
 add_library( ${APP_LIBRARY_NAME} STATIC )
+add_library( ${APP_DYNAMIC_LIBRARY_NAME} SHARED )
 set_property(TARGET ${APP_LIBRARY_NAME} PROPERTY CXX_STANDARD 11)
 target_compile_options(
         ${APP_LIBRARY_NAME}
         PRIVATE
                 "-Wall"
+)
+target_link_options(
+        ${APP_LIBRARY_NAME}
+        PRIVATE
+                "-static"
+                "-lpthread"
+                "-static-libgcc"
+                "-static-libstdc++"
 )
 
 target_include_directories(
@@ -64,3 +74,5 @@ target_include_directories(
 
 add_subdirectory(code)
 add_subdirectory(data)
+
+target_link_libraries( ${APP_DYNAMIC_LIBRARY_NAME} PUBLIC ${APP_LIBRARY_NAME} )
