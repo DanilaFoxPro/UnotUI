@@ -3,8 +3,6 @@ ${APP_LIBRARY_NAME}
         PUBLIC
                 clipboard.h
                 colors.h
-                data.h
-                executable_enum.h
                 fpoint.h
                 general.h
                 packed_data.h
@@ -17,7 +15,6 @@ ${APP_LIBRARY_NAME}
                 window.h
         PRIVATE
                 clipboard.cpp
-                data.cpp
                 fpoint.cpp
                 general.cpp
                 point.cpp
@@ -30,4 +27,3 @@ ${APP_LIBRARY_NAME}
 
 add_subdirectory( classes )
 add_subdirectory( deps )
-add_subdirectory( tab_presets )

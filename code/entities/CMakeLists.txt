@@ -12,6 +12,5 @@ target_sources_local(
     ent_window.cpp
 )
 
-add_subdirectory( chat )
 add_subdirectory( modules )
 add_subdirectory( widgets )
