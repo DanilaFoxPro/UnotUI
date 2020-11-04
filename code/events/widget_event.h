@@ -7,8 +7,6 @@
 struct widget;
 struct widget_event;
 
-#include <entities\chat\ent_chatconnection.h>
-
 struct widget_event
 {
 //:: Data.
@@ -67,14 +65,6 @@ struct we_textupdated : public widget_event
 {
         we_textupdated() = default;
         virtual ~we_textupdated() = default;
-};
-
-struct we_logupdated : public we_textupdated
-{
-        // I'll probably extract log stuff from ENTChatConnection to some log module later.
-        ent_chatconnection* Log;
-        we_logupdated( const ent_chatconnection* );
-        virtual ~we_logupdated() = default;
 };
 
 struct we_textcommit : public we_textupdated

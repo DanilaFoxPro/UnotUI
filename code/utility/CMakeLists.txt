@@ -8,7 +8,6 @@ ${APP_LIBRARY_NAME}
                 packed_data.h
                 point.h
                 shortcuts.h
-                tab_presets.h
                 text.h
                 unit.h
                 widget.h

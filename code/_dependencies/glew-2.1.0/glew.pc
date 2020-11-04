@@ -1,6 +1,6 @@
-prefix=C:/Program Files (x86)/Unotu
+prefix=C:/Program Files (x86)/UnotUI
 exec_prefix=${prefix}
-libdir=C:/Program Files (x86)/Unotu/lib
+libdir=C:/Program Files (x86)/UnotUI/lib
 includedir=${prefix}/include
 
 Name: glew

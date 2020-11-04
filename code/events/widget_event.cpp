@@ -23,12 +23,6 @@ we_scrollpages::we_scrollpages( float Pages )
         this->Pages = Pages;
 }
 
-
-we_logupdated::we_logupdated( const ent_chatconnection* Log )
-{
-        this->Log = const_cast<ent_chatconnection*>( Log );
-}
-
 we_textcommit::we_textcommit( std::string* const Text )
 {
 	this->Text = Text;

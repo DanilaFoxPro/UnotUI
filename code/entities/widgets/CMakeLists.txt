@@ -9,7 +9,6 @@ target_sources_local(
     w_genericscrollbox.h
     w_horizontalbox.h
     w_editabletextbox.h
-    w_minicard.h
     w_overlay.h
     w_rectangle.h
     w_scrollbar.h
@@ -27,7 +26,6 @@ target_sources_local(
     w_genericscrollbox.cpp
     w_horizontalbox.cpp
     w_editabletextbox.cpp
-    w_minicard.cpp
     w_overlay.cpp
     w_rectangle.cpp
     w_scrollbar.cpp

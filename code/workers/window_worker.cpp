@@ -7,7 +7,6 @@
 #include <workers\widget_worker.h>
 #include <utility\packed_data.h>
 #include <utility\general.h>
-#include <utility\tab_presets.h>
 
 #include <stdio.h> //TODO: DEBUG.
 #include <system_error> // For throwing exeptions around.
@@ -68,29 +67,6 @@ void CreateWindow()
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         //Wireframe mode.
         //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-        
-        //:: Open initial tab.
-        
-        switch( TheApplication.Executable ) {
-                case Executable::Main: {
-                        TheWindow.SwitchTab( new TabPresets::CardSearch() );
-                        break;
-                }
-                case Executable::Test: {
-                        TheWindow.SwitchTab( new TabPresets::Test() );
-                        break;
-                }
-                case Executable::Chat: {
-                        //Runs chat server.
-                        TheWindow.SwitchTab( new TabPresets::ChatSelect() );
-                        break;
-                }
-                default: {
-                        printf( "  Application was run from undefined executable.\n"
-                                "  I haven't created a tab to represent that yet.\n" );
-                        break;
-                }
-        }
         
 }
 
