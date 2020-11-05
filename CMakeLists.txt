@@ -70,6 +70,8 @@ target_include_directories(
   ${APP_LIBRARY_NAME}
   PUBLIC
     code
+  INTERFACE
+    include
 )
 
 add_subdirectory(code)
