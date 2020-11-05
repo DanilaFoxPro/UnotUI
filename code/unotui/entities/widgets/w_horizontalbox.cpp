@@ -2,6 +2,8 @@
 
 #include <unotui\utility\widget.h>
 
+namespace unotui {
+
 void w_horizontalbox::OnRefresh( ValidityState_t Reason )
 {
         if( !( Reason & (ValidityState::Resized | ValidityState::ChildrenUpdated) ) ) {
@@ -59,3 +61,5 @@ void w_horizontalbox::OnRefresh( ValidityState_t Reason )
         }
         
 }
+
+} // namespace unotui

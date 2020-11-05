@@ -9,6 +9,8 @@
 #include <unotui\utility\colors.h>
 #include <unotui\utility\classes\simple_timer.h>
 
+namespace unotui {
+
 struct w_textscrollbox : public widget, public m_textlines
 {
 //:: Data.
@@ -78,5 +80,6 @@ struct w_textscrollbox : public widget, public m_textlines
         
 };
 
+} // namespace unotui
 
 #endif

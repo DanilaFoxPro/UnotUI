@@ -7,6 +7,8 @@
 
 #include <unotui\utility\shortcuts.h>
 
+namespace unotui {
+
 //::Constructors.
 
 unit::unit( int pixels_, float ratio_ )
@@ -186,3 +188,5 @@ unit percent( float percent )
 {
 	return unit( 0, percent*100.0f );
 }
+
+} // namespace unotui

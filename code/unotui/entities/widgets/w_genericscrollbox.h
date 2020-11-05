@@ -7,6 +7,8 @@
 
 #include <unotui\utility\classes\simple_timer.h>
 
+namespace unotui {
+
 struct w_genericscrollbox : public widget
 {
 //:: Constructors.
@@ -47,5 +49,7 @@ struct w_genericscrollbox : public widget
         void SetBackgroundColor( const rgba& Color );
         
 };
+
+} // namespace unotui
 
 #endif

@@ -7,6 +7,8 @@
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\widgets\w_tab.h>
 
+namespace unotui {
+
 void CreatePendingWindow();
 void CreateWindow();
 void UpdateWindows();
@@ -16,5 +18,7 @@ void CheckMouseInput( const std::size_t window );
 bool AnyWindowVisible();
 
 point MousePosition( const ent_window& Window = TheWindowManager.Cur() );
+
+} // namespace unotui
 
 #endif

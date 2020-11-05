@@ -7,6 +7,7 @@
 
 #include <unotui\utility\types.h>
 
+namespace unotui {
 
 struct color_geometry : geometry
 {
@@ -23,5 +24,7 @@ struct color_geometry : geometry
         void AddOutline( const rectangle& Bounds, int Thickness, rgba Left, rgba Right, rgba Top, rgba Bottom );
         void AddOutline( const colored_rectangle&, int = 5);
 };
+
+} // namespace unotui
 
 #endif

@@ -8,6 +8,8 @@
 
 #include <unotui\utility\colors.h>
 
+namespace unotui {
+
 void w_overlay::CheckpointFrame()
 {
         
@@ -180,3 +182,5 @@ void w_overlay::OnDraw()
         //:: Draw text.
         this->gText.Draw();
 }
+
+} // namespace unotui

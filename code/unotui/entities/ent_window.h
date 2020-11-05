@@ -11,6 +11,8 @@
 #include <atomic>
 #include <unotui\entities\ent_tab.h>
 
+namespace unotui {
+
 struct key_item
 {
 	key_item( int Key, int Modifier )
@@ -113,5 +115,7 @@ struct ent_window_manager
 
 extern ent_window_manager TheWindowManager;
 extern theme& TheTheme;
+
+} // namespace unotui
 
 #endif

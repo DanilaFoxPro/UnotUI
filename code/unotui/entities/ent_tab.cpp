@@ -1,5 +1,7 @@
 #include <unotui\entities\ent_tab.h>
 
+namespace unotui {
+
 std::weak_ptr<widget> ent_tab::AddWidget( widget* const widget_ )
 {
         const std::shared_ptr<widget> SharedPointer =  std::shared_ptr<widget>( widget_ );
@@ -25,3 +27,5 @@ std::shared_ptr<widget>& ent_tab::operator[]( std::size_t index )
 {
 	return this->Widgets[index];
 }
+
+} // namespace unotui

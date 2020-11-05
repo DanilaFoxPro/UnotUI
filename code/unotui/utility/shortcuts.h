@@ -7,6 +7,8 @@
 
 #include <unotui\utility\point.h>
 
+namespace unotui {
+
 //:: Mathematics.
 
 //float clamp( const float& value, const float& minlim, const float& maxlim );
@@ -134,5 +136,7 @@ std::string ClassName( const T& Class )
 {
 	return DemangleClassName( typeid(Class).name() );
 }
+
+} // namespace unotui
 
 #endif

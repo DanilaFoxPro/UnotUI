@@ -1,5 +1,7 @@
 #include <unotui\utility\fpoint.h>
 
+namespace unotui {
+
 //:: Constructors.
 
 fpoint::fpoint()
@@ -111,3 +113,5 @@ fpoint operator/( const float Float, const fpoint Point )
 {
         return fpoint( Point.x/Float, Point.y/Float );
 }
+
+} // namespace unotui

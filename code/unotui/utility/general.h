@@ -9,6 +9,8 @@
 
 #include <unotui\utility\coordinates.h> // For coordinates. Come on. (Unit, point.)
 
+namespace unotui {
+
         //:: Textures.
 unsigned int loadTexture( const uint8_t* Data, int Length, GLint internal_format, GLenum format, const std::string& = "NO_NAME", bool mipmaps = true );
 
@@ -22,5 +24,7 @@ GLuint compileAndLinkShaders( GLchar*, GLchar*, std::string = "" );
         //:: Point.
 
 point Localize( const point& origin, const point& position );
+
+} // namespace unotui
 
 #endif

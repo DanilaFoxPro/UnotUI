@@ -3,6 +3,8 @@
 
 #include <unotui\entities\widgets\widget.h>
 
+namespace unotui {
+
 struct w_rectangle : widget
 {
 	//Data.
@@ -29,5 +31,7 @@ struct w_rectangle : widget
 	void OnRefresh( ValidityState_t );
 	std::vector<colored_rectangle> getRectangles();
 };
+
+} // namespace unotui
 
 #endif

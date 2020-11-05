@@ -1,6 +1,8 @@
 #ifndef __FONT_SYMBOLS_H_
 #define __FONT_SYMBOLS_H_
 
+namespace unotui {
+
 namespace fsym
 {
 	enum
@@ -10,5 +12,7 @@ namespace fsym
 		caret
 	};
 }//namespace fsym
+
+} // namespace unotui
 
 #endif

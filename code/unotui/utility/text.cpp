@@ -5,6 +5,8 @@
 
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
+
 std::string SplitText( std::string String, std::size_t Limit )
 {
         
@@ -636,3 +638,4 @@ std::size_t LongestLine( const std::string& String )
         
 }
 
+} // namespace unotui

@@ -18,7 +18,7 @@
 #include <cmath>
 #include <stdio.h> //TODO: DEBUG.
 
-using namespace unotui;
+namespace unotui {
 
 void w_scrollbar::OnMousePressed( const int button )
 {
@@ -357,3 +357,4 @@ double w_scrollbar::OffsetRatio() const
         }
 }
 
+} // namespace unotui

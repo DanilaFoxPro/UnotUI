@@ -3,6 +3,8 @@
 
 #include <unotui\entities\widgets\widget.h>
 
+namespace unotui {
+
 /**
  * @brief Evenly distrubutes the space between the children, horizontally.
  * @note  Children sorted by layer.
@@ -18,5 +20,7 @@ struct w_horizontalbox : public widget
 //:: Overrides.
         virtual void OnRefresh( ValidityState_t );
 };
+
+} // namespace unotui
 
 #endif

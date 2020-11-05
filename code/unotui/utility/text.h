@@ -8,6 +8,8 @@
 #include <vector>
 #include <climits>
 
+namespace unotui {
+
 /**
  * @brief Text cursor flash period.
  * The time it takes to complete the cycle.
@@ -101,5 +103,7 @@ std::size_t CountCharacter( const std::string& String, const char Character );
 std::size_t CountCharacterBefore( const std::string& String, const char Character, const std::size_t Length );
 char* ZeroTerminate( const char*, const int );
 std::size_t LongestLine( const std::string& String );
+
+} // namespace unotui
 
 #endif /* CODE_UTILITY_TEXT_H_ */

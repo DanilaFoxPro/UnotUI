@@ -7,6 +7,8 @@
 #include <unotui\utility\colors.h>
 #include <unotui\utility\types.h>
 
+namespace unotui {
+
 /*
  * @brief Editable one-line text.
  *
@@ -78,5 +80,7 @@ struct w_editabletext : public widget, public m_caret, public m_text
         virtual std::string* TextGetRef();
                 
 };
+
+} // namespace unotui
 
 #endif

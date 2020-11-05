@@ -7,6 +7,8 @@
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\entities\widgets\w_button.h>
 
+namespace unotui {
+
         //:: Shortcuts
 
 point SecondPosition( const point& position, const point& size );
@@ -60,5 +62,7 @@ void PrintWidgetHierarchy( const std::vector< std::shared_ptr<widget> >& Widgets
 
 void SortWidgets( std::vector<std::shared_ptr<widget>>& );
 void RecursivePostConstruct( const std::vector< std::shared_ptr<widget> >& );
+
+} // namespace unotui
 
 #endif

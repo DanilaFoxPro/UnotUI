@@ -3,6 +3,8 @@
 
 #include <unotui\utility\fpoint.h>
 
+namespace unotui {
+
 /** Type to use for text coordinates, in YX format. */
 using text_coord = std::pair<std::size_t, std::size_t>;
 using line_coord = std::size_t;
@@ -132,5 +134,7 @@ struct textured_rectangle : public rectangle
 	textured_rectangle( point, point, rectangle_tc );
 	textured_rectangle( float, float, float, float, rectangle_tc );
 };
+
+} // namespace unotui
 
 #endif

@@ -3,6 +3,8 @@
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\ent_opengl.h>
 
+namespace unotui {
+
 //:: Geometry
 color_geometry::color_geometry( GLenum usage_ )
 {
@@ -285,3 +287,5 @@ void color_geometry::AddOutline( const colored_rectangle& Area, int Thickness )
 	}
 	
 }
+
+} // namespace unotui

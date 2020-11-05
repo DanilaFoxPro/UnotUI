@@ -8,7 +8,9 @@
 #include <string> // 'std::string::npos', 'std::size_t'.
 #include <memory>
 
-using caret_coord = line_coord;
+namespace unotui {
+
+using caret_coord = unotui::line_coord;
 
 /**
  * @brief Tries to aid in adding caret to things as much as possible.
@@ -79,6 +81,8 @@ public:
         bool ProcessCharacterInput( const std::string& );
 
 };
+
+} // namespace unotui
 
 #endif
 

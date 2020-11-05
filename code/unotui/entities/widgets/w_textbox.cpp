@@ -14,6 +14,8 @@
 #include <stdio.h> //TODO: DEBUG.
 #include <cmath>
 
+namespace unotui {
+
 void w_textbox::OnRefresh( ValidityState_t Reason )
 {
         
@@ -323,3 +325,4 @@ std::size_t w_textbox::LineCountGet()
         return this->SplitTextCache.size();
 }
 
+} // namespace unotui

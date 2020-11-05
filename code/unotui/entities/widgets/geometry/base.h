@@ -3,6 +3,8 @@
 
 #include <unotui\utility\deps\opengl_includes.h>
 
+namespace unotui {
+
 struct geometry
 {
 	unsigned int VAO, VBO, EBO;
@@ -20,5 +22,7 @@ struct geometry
 	virtual void Draw(void) {};
 	virtual void Clear(void) {};
 };
+
+} // namespace unotui
 
 #endif

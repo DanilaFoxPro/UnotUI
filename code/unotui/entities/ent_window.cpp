@@ -1,5 +1,10 @@
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
+
+ent_window_manager TheWindowManager;
+theme& TheTheme = TheWindowManager.Theme;
+
 void ent_window::SwitchTab( w_tab* Tab )
 {
         if( Tab == nullptr ){
@@ -16,10 +21,6 @@ bool ent_window::Visible()
 {
         return !glfwGetWindowAttrib( this->Reference, GLFW_ICONIFIED );
 }
-
-
-ent_window_manager TheWindowManager;
-theme& TheTheme = TheWindowManager.Theme;
 
 ent_window& ent_window_manager::operator[]( std::size_t index )
 {
@@ -98,5 +99,5 @@ bool ent_window_manager::SetCurrent( ent_window *const Window )
         return false;
 }
 
+} // namespace unotui
 
-//Yay.

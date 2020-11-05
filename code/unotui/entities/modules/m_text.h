@@ -8,6 +8,8 @@
 
 #include <unotui\utility\text.h>
 
+namespace unotui {
+
 struct m_text
 {
         m_text() = default;
@@ -32,5 +34,7 @@ struct m_textlines : public m_text
         virtual std::vector<split_line>  LineMapGet() { return {}; }
         virtual std::size_t LineCountGet() { return this->LinesGet().size(); }
 };
+
+} // namespace unotui
 
 #endif

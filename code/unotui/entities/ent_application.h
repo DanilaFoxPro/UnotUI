@@ -5,6 +5,8 @@
 
 #include <unotui\utility\classes\simple_timer.h>
 
+namespace unotui {
+
 struct ent_application
 {
         const std::string Name = "Unotu";
@@ -13,5 +15,7 @@ struct ent_application
 };
 
 extern ent_application TheApplication;
+
+} // namespace unotui
 
 #endif

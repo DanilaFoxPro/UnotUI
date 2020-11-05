@@ -27,6 +27,8 @@
 #include <unotui\utility\coordinates.h> // For coordinates. Come on. (Unit, point.)
 #include <unotui\entities\ent_tab.h>
 
+namespace unotui {
+
 namespace systems
 {
         void entry();
@@ -290,4 +292,6 @@ namespace systems
         {
                 exit(0);
         }
-}// Namepsace system.
+}// namepsace systems
+
+} // namespace unotui

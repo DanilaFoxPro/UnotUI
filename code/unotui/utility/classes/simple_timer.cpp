@@ -1,5 +1,7 @@
 #include <unotui\utility\classes\simple_timer.h>
 
+namespace unotui {
+
 namespace chrono = std::chrono;
 
 simple_timer::simple_timer()
@@ -30,3 +32,5 @@ uint32_t simple_timer::ElapsedMilliseconds()
 {
         return chrono::duration_cast<chrono::milliseconds>( this->ElapsedTime() ).count();
 }
+
+} // namespace unotui

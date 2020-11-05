@@ -8,7 +8,7 @@
 
 #include <math.h> // floor
 
-using namespace unotui;
+namespace unotui {
 
 w_textscrollbox::w_textscrollbox
 (
@@ -276,4 +276,4 @@ std::vector<split_line> w_textscrollbox::LineMapGet() const
         return this->TextBox->LineMapGet();
 }
 
-
+} // namespace unotui

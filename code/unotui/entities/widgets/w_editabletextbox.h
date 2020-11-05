@@ -5,6 +5,8 @@
 #include <unotui\entities\widgets\w_textscrollbox.h>
 #include <unotui\entities\modules\m_caret.h>
 
+namespace unotui {
+
 struct w_editabletextbox : public w_textscrollbox, public m_caret
 {
 //:: Constructors.
@@ -44,5 +46,7 @@ struct w_editabletextbox : public w_textscrollbox, public m_caret
 //:: Geometry.
 	text_geometry gText; // Only for a caret. What a waste.
 };
+
+} // namespace unotui
 
 #endif

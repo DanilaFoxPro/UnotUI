@@ -4,6 +4,8 @@
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\utility\colors.h>
 
+namespace unotui {
+
 /**
  * @brief Caches all child widgets in a buffer on refresh.
  *        Draws the buffer on draw.
@@ -31,6 +33,8 @@ struct w_buffer : widget
 //:: Helpers.
         void SetOffset( const fpoint& );
 };
+
+} // namespace unotui
 
 #endif
 

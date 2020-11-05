@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+namespace unotui {
+
 //:: Other.
 
 #ifdef __GNUG__
@@ -26,3 +28,5 @@ std::string DemangleClassName( const char* Name )
     
 #endif
 }
+
+} // namespace unotui

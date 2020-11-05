@@ -6,6 +6,8 @@
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
+
 //:: Interface actions.
 
 void ProcessWidgetInput();
@@ -36,5 +38,7 @@ void mouseButtonTrace( int Button, const std::vector< std::weak_ptr<widget> >&  
 void mouseButtonRelease( int Button );
 
 void ScrollTrace( const std::vector< std::weak_ptr<widget> >& );
+
+} // namespace unotui
 
 #endif

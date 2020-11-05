@@ -5,6 +5,8 @@
 #include <unotui\utility\widget.h>
 #include <unotui\utility\window.h>
 
+namespace unotui {
+
         //:: Constructors.
 
 w_buffer::w_buffer()
@@ -148,3 +150,4 @@ void w_buffer::SetOffset( const fpoint& Offset )
         this->Offset = std::make_pair( (int)Offset.x/Pixel.x, (int)Offset.y/Pixel.y );
 }
 
+} // namespace unotui
