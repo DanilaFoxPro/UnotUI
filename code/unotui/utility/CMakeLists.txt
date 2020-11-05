@@ -3,12 +3,15 @@ ${APP_LIBRARY_NAME}
         PUBLIC
                 clipboard.h
                 colors.h
+                coordinates.h
+                font_symbols.h
                 fpoint.h
                 general.h
                 packed_data.h
                 point.h
                 shortcuts.h
                 text.h
+                types.h
                 unit.h
                 widget.h
                 window.h
@@ -19,6 +22,7 @@ ${APP_LIBRARY_NAME}
                 point.cpp
                 shortcuts.cpp
                 text.cpp
+                types.cpp
                 unit.cpp
                 widget.cpp
                 window.cpp

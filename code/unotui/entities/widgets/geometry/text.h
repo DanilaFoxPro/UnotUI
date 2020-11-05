@@ -5,7 +5,7 @@
 
 #include <vector>
 
-#include <unotui\types.h>
+#include <unotui\utility\types.h>
 #include <unotui\utility\colors.h>
 #include <unotui\utility\text.h>
 

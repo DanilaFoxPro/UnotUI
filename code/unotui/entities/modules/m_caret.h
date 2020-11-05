@@ -3,7 +3,7 @@
 
 #include <unotui\entities\modules\module.h>
 #include <unotui\entities\modules\m_text.h>
-#include <unotui\types.h>
+#include <unotui\utility\types.h>
 
 #include <string> // 'std::string::npos', 'std::size_t'.
 #include <memory>

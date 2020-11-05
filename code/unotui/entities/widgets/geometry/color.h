@@ -5,7 +5,7 @@
 
 #include <vector>
 
-#include <unotui\types.h>
+#include <unotui\utility\types.h>
 
 
 struct color_geometry : geometry

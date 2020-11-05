@@ -13,8 +13,8 @@
 //Mine.
 
 #include <unotui\entities\events\widget_event.h>
-#include <unotui\coordinates.h>
-#include <unotui\types.h>
+#include <unotui\utility\coordinates.h>
+#include <unotui\utility\types.h>
 
 #include <unotui\entities\widgets\geometry\base.h>
 #include <unotui\entities\widgets\geometry\color.h>

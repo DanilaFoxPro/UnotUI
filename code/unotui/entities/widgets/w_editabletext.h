@@ -5,7 +5,7 @@
 #include <unotui\entities\modules\m_caret.h>
 #include <unotui\entities\modules\m_text.h>
 #include <unotui\utility\colors.h>
-#include <unotui\types.h>
+#include <unotui\utility\types.h>
 
 /*
  * @brief Editable one-line text.

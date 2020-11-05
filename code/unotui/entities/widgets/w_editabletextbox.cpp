@@ -3,7 +3,7 @@
 #include <unotui\workers\window_worker.h>
 #include <unotui\utility\text.h>
 #include <unotui\utility\widget.h>
-#include <unotui\font_symbols.h>
+#include <unotui\utility\font_symbols.h>
 
 #include <cmath>
 

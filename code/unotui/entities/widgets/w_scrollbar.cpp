@@ -13,7 +13,7 @@
 
 #include <unotui\entities\events\widget_event.h>
 
-#include <unotui\font_symbols.h>
+#include <unotui\utility\font_symbols.h>
 
 #include <cmath>
 #include <stdio.h> //TODO: DEBUG.

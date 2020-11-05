@@ -24,7 +24,7 @@
 #include <unotui\utility\text.h>
 #include <unotui\utility\packed_data.h>
 
-#include <unotui\coordinates.h> // For coordinates. Come on. (Unit, point.)
+#include <unotui\utility\coordinates.h> // For coordinates. Come on. (Unit, point.)
 #include <unotui\entities\ent_tab.h>
 
 namespace systems

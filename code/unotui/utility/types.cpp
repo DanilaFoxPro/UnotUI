@@ -1,6 +1,6 @@
-#include <unotui\types.h>
+#include <unotui\utility\types.h>
 
-#include <unotui\coordinates.h>
+#include <unotui\utility\coordinates.h>
 #include <unotui\entities\ent_window.h>
 
 //:: RGB operators.

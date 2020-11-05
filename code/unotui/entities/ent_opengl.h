@@ -5,7 +5,7 @@
 #include <vector>
 #include <chrono>
 
-#include <unotui\types.h>
+#include <unotui\utility\types.h>
 
 namespace chrono = std::chrono;
 

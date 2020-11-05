@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <unotui\coordinates.h>
+#include <unotui\utility\coordinates.h>
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\widgets\w_tab.h>
 
