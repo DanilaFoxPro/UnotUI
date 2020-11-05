@@ -1,5 +1,5 @@
 # UnotUI
-My attempt at a GUI engine. Used in Unotu.
+My attempt at a GUI engine. Used in [Unotu](https://github.com/DanilaFoxPro/Unotu).
  
 ## Current control scheme
  
