@@ -4,6 +4,8 @@
 #include <unotui\utility\shortcuts.h>
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
+
 text_geometry::text_geometry( GLenum Usage )
 {
         this->Usage = Usage;
@@ -241,3 +243,5 @@ void text_geometry::AddText(
         }
         
 }
+
+} // namespace unotui

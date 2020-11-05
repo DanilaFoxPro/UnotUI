@@ -1,5 +1,7 @@
 #include <unotui\entities\widgets\geometry\base.h>
 
+namespace unotui {
+
 geometry::geometry()
 {
         this->ValidBuffers = false;
@@ -52,3 +54,5 @@ geometry::~geometry()
 {
         this->DestroyBuffers();
 }
+
+} // namespace unotui

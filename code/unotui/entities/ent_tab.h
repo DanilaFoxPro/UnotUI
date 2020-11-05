@@ -8,6 +8,8 @@
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\entities\widgets\w_tab.h>
 
+namespace unotui {
+
 struct release_listener
 {
 	std::weak_ptr<widget> Listener;
@@ -36,5 +38,7 @@ struct ent_tab
         std::shared_ptr<widget>& operator[]( std::size_t index );
                 
 };
+
+} // namespace unotui
 
 #endif

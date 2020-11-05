@@ -5,6 +5,8 @@
 #include <unotui\utility\colors.h>
 #include <stdio.h>
 
+namespace unotui {
+
 struct w_text : widget
 {
 	//Data.
@@ -52,5 +54,7 @@ struct w_text : widget
 	void OnRefresh( ValidityState_t );
 	
 };
+
+} // namespace unotui
 
 #endif

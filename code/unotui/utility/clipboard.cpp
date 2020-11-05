@@ -2,6 +2,8 @@
 
 #include <unotui\utility\deps\opengl_includes.h>
 
+namespace unotui {
+
 std::string GetClipboard()
 {
         const char* UTF8_String = glfwGetClipboardString(nullptr);
@@ -23,3 +25,4 @@ void SetClipboard( const std::string& String )
         glfwSetClipboardString( nullptr, String.data() );
 }
 
+} // namespace unotui

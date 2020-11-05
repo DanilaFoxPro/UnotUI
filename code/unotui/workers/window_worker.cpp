@@ -11,6 +11,8 @@
 #include <stdio.h> //TODO: DEBUG.
 #include <system_error> // For throwing exeptions around.
 
+namespace unotui {
+
 /** Doesn't create the window right away, but schedules its
 *  creation to an appropriate time.
 */
@@ -194,3 +196,5 @@ point MousePosition( const ent_window& Window )
         
         return point( ratio( Position.first / (double)Window.x ), ratio(1.0f)-ratio( Position.second / (double)Window.y ) );
 }
+
+} // namespace unotui

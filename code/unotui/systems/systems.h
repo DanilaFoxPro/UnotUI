@@ -3,10 +3,14 @@
 
 #include <stdint.h>
 
+namespace unotui {
+
 namespace systems
 {
 	void entry();
         void terminate();
-}// Namepsace system.
+} // namepsace systems
+
+} // namespace unotui
 
 #endif

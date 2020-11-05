@@ -7,6 +7,9 @@
 #include <unotui\utility\widget.h>
 
 #include <stdio.h>//TODO: DEBUG
+
+namespace unotui {
+
 void w_rectangle::OnRefresh( ValidityState_t )
 {
 	ent_window& the_window = TheWindowManager.Cur();
@@ -34,3 +37,5 @@ void w_rectangle::OnDraw()
     this->Geometry.Draw();
 	
 }
+
+} // namespace unotui

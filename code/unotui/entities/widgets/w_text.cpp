@@ -4,6 +4,8 @@
 #include <unotui\entities\ent_opengl.h>
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
+
 void w_text::OnRefresh( ValidityState_t )
 {
 
@@ -28,3 +30,5 @@ void w_text::OnDraw()
 	this->gText.Draw();
 	
 }
+
+} // namespace unotui

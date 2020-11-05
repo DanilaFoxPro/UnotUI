@@ -7,6 +7,8 @@
 #include <unotui\entities\modules\m_text.h>
 #include <unotui\utility\colors.h>
 
+namespace unotui {
+
 struct w_textbox : public widget, public m_textlines
 {
         //Data.
@@ -110,5 +112,7 @@ public:
         virtual std::vector<split_line> LineMapGet();
         virtual std::size_t LineCountGet();
 };
+
+} // namespace unotui
 
 #endif

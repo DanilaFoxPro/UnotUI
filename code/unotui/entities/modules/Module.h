@@ -1,6 +1,8 @@
 #ifndef __UNOTU_ENTITIES_MODULES_MODULE_H_
 #define __UNOTU_ENTITIES_MODULES_MODULE_H_
 
+namespace unotui {
+
 /**
  * @brief Should define general reusable functionality.
  * 
@@ -13,5 +15,7 @@ struct module
 	module() = default;
 	virtual ~module() = default;
 };
+
+} // namespace unotui
 
 #endif

@@ -3,6 +3,8 @@
 
 #include <unotui\entities\widgets\widget.h>
 
+namespace unotui {
+
 struct w_widgethierarcybrowser : public widget
 {
         w_widgethierarcybrowser();
@@ -10,5 +12,7 @@ struct w_widgethierarcybrowser : public widget
         std::weak_ptr<widget> Root;
         std::weak_ptr<widget> Selected;
 };
+
+} // namespace unotui
 
 #endif

@@ -3,6 +3,8 @@
 
 #include <unotui\entities\widgets\widget.h>
 
+namespace unotui {
+
 struct w_scrollbar : public widget
 {
 
@@ -68,5 +70,7 @@ public:
         double OffsetRatio() const;
         
 };
+
+} // namespace unotui
 
 #endif

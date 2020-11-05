@@ -3,6 +3,8 @@
 
 #include <unotui\utility\unit.h>
 
+namespace unotui {
+
 struct fpoint;
 /** @brief Represents a UI point. Stored as Ratio+Pixels.
  */
@@ -28,5 +30,7 @@ point operator/( const point& , const point& );
 
 point operator*( const point& , const int& );
 point operator/( const point& , const int& );
+
+} // namespace unotui
 
 #endif

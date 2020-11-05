@@ -3,6 +3,8 @@
 
 #include <unotui\utility\point.h>
 
+namespace unotui {
+
 struct fpoint
 {
 	float x, y;
@@ -31,5 +33,7 @@ fpoint operator*( const fpoint, const float );
 fpoint operator/( const fpoint, const float );
 fpoint operator*( const float, const fpoint );
 fpoint operator/( const float, const fpoint );
+
+} // namespace unotui
 
 #endif

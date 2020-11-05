@@ -13,7 +13,7 @@
 
 #include <cmath> // Remainder.
 
-using namespace unotui;
+namespace unotui {
 
 w_editabletext::w_editabletext( const point& Position, const point& Size, const int Layer )
 {
@@ -297,3 +297,5 @@ std::string* w_editabletext::TextGetRef()
 {
         return &this->Text;
 }
+
+} // namespace unotui

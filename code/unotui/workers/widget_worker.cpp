@@ -12,6 +12,8 @@
 #include <unotui\utility\shortcuts.h>
 #include <unotui\utility\widget.h>
 
+namespace unotui {
+
 //:: Interface actions.
 
 void ProcessWidgetInput()
@@ -349,3 +351,5 @@ void ScrollTrace( const std::vector< std::weak_ptr<widget> >& Colliding )
                 }
         }
 }
+
+} // namespace unotui

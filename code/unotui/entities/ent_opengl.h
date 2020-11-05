@@ -7,6 +7,8 @@
 
 #include <unotui\utility\types.h>
 
+namespace unotui {
+
 namespace chrono = std::chrono;
 
 struct ent_opengl
@@ -25,5 +27,7 @@ struct ent_opengl
 };
 
 extern ent_opengl the_opengl;
+
+} // namespace unotui
 
 #endif

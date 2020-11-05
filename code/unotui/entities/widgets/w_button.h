@@ -5,6 +5,8 @@
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\utility\colors.h>
 
+namespace unotui {
+
 struct w_button : public widget
 {
 //:: Constructors.
@@ -89,5 +91,7 @@ struct w_button : public widget
         virtual void OnDraw();
         
 };
+
+} // namespace unotui
 
 #endif

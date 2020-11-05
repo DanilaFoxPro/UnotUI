@@ -3,6 +3,8 @@
 
 #include <string>
 
+namespace unotui {
+
 struct unit
 {
 	
@@ -48,5 +50,7 @@ unit operator/( const int& ,  const unit& );
 unit pixel( int pixelz );
 unit ratio( float daratio );
 unit percent( float percent );
+
+} // namespace unotui
 
 #endif

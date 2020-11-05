@@ -7,7 +7,7 @@
 #include <unotui\utility\shortcuts.h>
 #include <unotui\workers\widget_worker.h>
 
-using namespace unotui;
+namespace unotui {
 
 ////::Base
 
@@ -243,3 +243,5 @@ void widget::Invalidate( ValidityState_t Reason )
 {
     this->ValidityState |= Reason;
 }
+
+} // namespace unotui

@@ -3,6 +3,8 @@
 
 #include <chrono>
 
+namespace unotui {
+
 struct simple_timer
 {
         
@@ -23,5 +25,7 @@ struct simple_timer
         uint32_t ElapsedMicroseconds();
         
 };
+
+} // namespace unotui
 
 #endif

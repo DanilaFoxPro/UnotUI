@@ -8,6 +8,8 @@
 #include <unotui\entities\ent_window.h>
 #include <unotui\utility\classes\simple_timer.h>
 
+namespace unotui {
+
 struct w_overlay : widget
 {
         
@@ -61,5 +63,7 @@ struct w_overlay : widget
         void OnRefresh( ValidityState_t );
         void OnDraw();
 };
+
+} // namespace unotui
 
 #endif

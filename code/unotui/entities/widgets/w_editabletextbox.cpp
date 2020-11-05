@@ -7,6 +7,8 @@
 
 #include <cmath>
 
+namespace unotui {
+
 //:: Constructors.
 
 w_editabletextbox::w_editabletextbox
@@ -235,4 +237,4 @@ void w_editabletextbox::OnMouseReleased( const int Button, const bool )
         }
 }
 
-
+} // namespace unotui

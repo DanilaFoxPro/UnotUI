@@ -4,9 +4,9 @@
 #include <string>
 #include <memory>
 
-struct widget;
-
 namespace unotui {
+
+struct widget;
 
 struct widget_event
 {

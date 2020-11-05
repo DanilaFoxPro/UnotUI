@@ -3,6 +3,8 @@
 
 #include <unotui\utility\types.h>
 
+namespace unotui {
+
 namespace color
 {
         const rgb	black		= { 0.0f, 0.0f, 0.0f };
@@ -21,5 +23,7 @@ namespace color
         const rgb light_sky_blue	= { 0.529f, 0.808f, 0.98f };
         const rgb pale_silver		= { 0.788f, 0.753f, 0.733f };
 }// namespace color
+
+} // namespace unotui
 
 #endif

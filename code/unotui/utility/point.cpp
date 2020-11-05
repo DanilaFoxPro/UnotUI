@@ -2,6 +2,8 @@
 
 #include <unotui\utility\fpoint.h>
 
+namespace unotui {
+
 point::point()
 {
 	x = pixel(0);
@@ -75,3 +77,5 @@ point operator/( const point& point_1, const int& integer )
 {
 	return point( point_1.x / integer, point_1.y/integer );
 }
+
+} // namespace unotui

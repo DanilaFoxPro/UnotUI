@@ -2,6 +2,8 @@
 
 #include <unotui\utility\shortcuts.h>
 
+namespace unotui {
+
         //:: Shortcuts.
 
 /// @brief Given position and size, calculate second position.
@@ -496,3 +498,5 @@ void RecursivePostConstruct( const std::vector< std::shared_ptr<widget> >& Widge
                 }
         }
 }
+
+} // namespace unotui

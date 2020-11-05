@@ -6,6 +6,8 @@
 #include <unotui\utility\clipboard.h>
 #include <unotui\utility\shortcuts.h>
 
+namespace unotui {
+
 /**
  * @brief Set the text over which the caret is shown.
  * Used for getting the text length when normalizing or moving to end.
@@ -547,3 +549,4 @@ std::vector<split_line> m_caret::GetCaretLineMap()
         }
 }
 
+} // namespace unotui

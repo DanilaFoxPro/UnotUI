@@ -9,6 +9,8 @@
 #include <unotui\utility\colors.h>
 #include <unotui\utility\text.h>
 
+namespace unotui {
+
 struct colored_patch
 {
         colored_patch() = default;
@@ -85,5 +87,7 @@ struct text_geometry : public texture_geometry
         );
         
 };
+
+} // namespace unotui
 
 #endif

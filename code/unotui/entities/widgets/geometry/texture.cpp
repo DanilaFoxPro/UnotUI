@@ -3,6 +3,8 @@
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\ent_opengl.h>
 
+namespace unotui {
+
 //:: Textured Geometry
 
 texture_geometry::texture_geometry( GLenum usage_ )
@@ -94,3 +96,5 @@ void texture_geometry::AddRectangle( const textured_rectangle& rect )
 	Vertices[ vertex_offset++ ] = { rect.x2, rect.y2, rect.tc.x2, rect.tc.y2 }; // Bottom-right.
 	
 }
+
+} // namespace unotui

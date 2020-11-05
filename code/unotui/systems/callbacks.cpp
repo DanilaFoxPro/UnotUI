@@ -4,6 +4,7 @@
 
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
 
 void CallbackKey(GLFWwindow* WindowReference, int Key, int /*Scancode*/, int Action, int Modifiers )
 {
@@ -45,3 +46,5 @@ void CallbackExit()
         
         printf( "}\n" );
 }
+
+} // namespace unotui

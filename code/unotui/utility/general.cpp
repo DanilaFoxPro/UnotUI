@@ -12,6 +12,8 @@
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\ent_opengl.h>
 
+namespace unotui {
+
         //:: Textures.
 
 unsigned int loadTexture( const uint8_t* Data, int Length, GLint internal_format, GLenum format, const std::string& NameHint, bool mipmaps )
@@ -163,3 +165,5 @@ point Localize( const point& origin, const point& position )
 {
 	return position-origin;
 }
+
+} // namespace unotui

@@ -7,6 +7,8 @@
 
 #include <unotui\utility\types.h>
 
+namespace unotui {
+
 struct texture_geometry : geometry
 {
         std::vector<textured_vertex> Vertices;
@@ -20,5 +22,7 @@ struct texture_geometry : geometry
         virtual void Clear(void);
         void AddRectangle( const textured_rectangle& );
 };
+
+} // namespace unotui
 
 #endif

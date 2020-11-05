@@ -3,6 +3,8 @@
 #include <unotui\utility\coordinates.h>
 #include <unotui\entities\ent_window.h>
 
+namespace unotui {
+
 //:: RGB operators.
 
 rgb operator+( const rgb& Color1, const rgb& Color2 )
@@ -244,3 +246,5 @@ textured_rectangle::textured_rectangle( float x1_, float y1_, float x2_, float y
 	tc = tc_;
 	
 }
+
+} // namespace unotui

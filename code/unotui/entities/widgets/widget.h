@@ -21,6 +21,8 @@
 #include <unotui\entities\widgets\geometry\texture.h>
 #include <unotui\entities\widgets\geometry\text.h>
 
+namespace unotui {
+
 //::Utility.
 
 typedef uint8_t ValidityState_t;
@@ -184,5 +186,7 @@ bool operator<=( const widget&, const widget& );
 
 bool operator>( const widget&, const widget& );
 bool operator>=( const widget&, const widget& );
+
+} // namespace unotui
 
 #endif

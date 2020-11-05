@@ -3,6 +3,8 @@
 #include <unotui\utility\widget.h>
 #include <unotui\utility\text.h>
 
+namespace unotui {
+
         //:: Constructors.
 
 w_button::w_button (
@@ -172,3 +174,5 @@ void w_button::OnDraw()
         this->gColor.Draw();
         this->gText.Draw();
 }
+
+} // namespace unotui

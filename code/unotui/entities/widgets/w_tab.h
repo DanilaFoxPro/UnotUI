@@ -5,6 +5,8 @@
 
 #include <unotui\utility\colors.h>
 
+namespace unotui {
+
 struct w_tab : widget
 {
 	w_tab( const std::string& = "" );
@@ -13,5 +15,7 @@ struct w_tab : widget
 	std::string Title;
         rgba Background = color::white;
 };
+
+} // namespace unotui
 
 #endif

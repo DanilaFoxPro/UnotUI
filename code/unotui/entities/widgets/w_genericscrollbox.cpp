@@ -4,7 +4,7 @@
 #include <unotui\utility\widget.h>
 #include <unotui\utility\shortcuts.h>
 
-using namespace unotui;
+namespace unotui {
 
 w_genericscrollbox::w_genericscrollbox( point Position, point Size, unit ItemHeight, int ItemPadding )
 {
@@ -236,3 +236,4 @@ void w_genericscrollbox::SetBackgroundColor( const rgba& Color )
         this->Buffer->Invalidate( ValidityState::ParametersUpdated );
 }
 
+} // namespace unotui

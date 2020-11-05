@@ -1,5 +1,7 @@
 #include <unotui\entities\widgets\w_tab.h>
 
+namespace unotui {
+
 w_tab::w_tab( const std::string& Title )
 {
         this->Position	= point( 0.0f, 1.0f );
@@ -7,3 +9,5 @@ w_tab::w_tab( const std::string& Title )
 
         this->Title = Title;
 }
+
+} // namespace unotui
