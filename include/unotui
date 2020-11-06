@@ -1,6 +1,8 @@
 #ifndef __UNOTUI_LIBRARY_
 #define __UNOTUI_LIBRARY_
 
+#include <unotui\entities\interface\ent_interface.h>
+
 #include <unotui\entities\widgets\w_buffer.h>
 #include <unotui\entities\widgets\w_button.h>
 #include <unotui\entities\widgets\w_editabletext.h>
