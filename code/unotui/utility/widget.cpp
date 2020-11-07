@@ -9,9 +9,7 @@ namespace unotui {
 /// @brief Given position and size, calculate second position.
 point SecondPosition( const point& Position, const point& Size )
 {
-        return
-        point
-        (
+        return point (
                 Position.x + Size.x,
                 Position.y - Size.y
         );
@@ -20,9 +18,7 @@ point SecondPosition( const point& Position, const point& Size )
 /// @brief Given position and size, calculate second position.
 fpoint SecondPosition( const fpoint Position, const fpoint Size )
 {
-        return
-        fpoint
-        (
+        return fpoint (
                 Position.x + Size.x,
                 Position.y - Size.y
         );
@@ -32,9 +28,7 @@ fpoint SecondPosition( const fpoint Position, const fpoint Size )
 point AreaSize( const point& begin, const point& end )
 {
 // FIXME: Seems broken.
-        return
-        point
-        (
+        return point (
                 end.x - begin.x,
                 begin.y - end.y
         );
@@ -60,11 +54,12 @@ std::pair< point, point > OutlineAdjustedArea
 }
 
 /**
-*  @brief  Return what the content area would be depending on outline thickness.
-*  
-*  Returns position and position2 as a pair.
-*  
-* */
+ *  @brief  Return what the content area would be depending on outline thickness.
+ *  
+ *  Returns position and position2 as a pair.
+ *  
+ *
+ */
 std::pair< point, point > OutlineAdjustedArea
 (
         const point& Position,
@@ -76,15 +71,13 @@ std::pair< point, point > OutlineAdjustedArea
         const point Offset = SecondPosition( point(0), OutlineThickness );
         std::pair< point, point > oArea = std::make_pair( Position, Position2 );
         
-        if( OutlineThickness.x.xratio() > pixel(0).xratio() )
-        {
-                oArea.first.x += Offset.x;
+        if( OutlineThickness.x.xratio() > pixel(0).xratio() ) {
+                oArea.first.x  += Offset.x;
                 oArea.second.x -= Offset.x;
         }
         
-        if( OutlineThickness.y.yratio() > pixel(0).yratio() )
-        {
-                oArea.first.y += Offset.y;
+        if( OutlineThickness.y.yratio() > pixel(0).yratio() ) {
+                oArea.first.y  += Offset.y;
                 oArea.second.y -= Offset.y;
         }
         
@@ -100,11 +93,10 @@ std::pair< point, point > OutlineAdjustedArea
 * */
 std::pair< point, point > ApplyPadding( const point& Position, const point& Position2, const point& Padding )
 {
-        return std::make_pair
-                        (
-                                SecondPosition( Position, Padding ),
-                                SecondPosition( Position2, -Padding )
-                        );
+        return std::make_pair (
+                SecondPosition( Position, Padding ),
+                SecondPosition( Position2, -Padding )
+        );
         
 }
 
@@ -161,19 +153,14 @@ void SynchronizeButtons( std::vector<std::shared_ptr<w_button>> Buttons )
 std::weak_ptr<widget> WidgetByPointer( const std::vector< std::shared_ptr<widget> >& Widgets, widget* const Widget )
 {
         
-        for( std::size_t i = 0; i < Widgets.size(); i++ )
-        {
+        for( std::size_t i = 0; i < Widgets.size(); i++ ) {
                 widget* const Current = Widgets[i].get();  
-                if( Current == Widget )
-                {
+                if( Current == Widget ) {
                         return std::weak_ptr<widget>( Widgets[i] );
-                }
-                else
-                {
+                } else {
                         // Recursively check children.
                         std::weak_ptr<widget> MatchingChild = WidgetByPointer( Current->Children, Widget );
-                        if( !MatchingChild.expired() )
-                        {
+                        if( !MatchingChild.expired() ) {
                                 return MatchingChild;
                         }
                 }
@@ -202,8 +189,7 @@ bool ContainsPointer( const std::vector<std::weak_ptr<widget> >& Widgets, const 
 bool ContainsPointer( const std::vector< widget* >& Widgets, widget* const Widget )
 {
         
-        for( std::size_t i = 0; i < Widgets.size(); i++ )
-        {
+        for( std::size_t i = 0; i < Widgets.size(); i++ ) {
                 widget* const Current = Widgets[i];  
                 if( Current == Widget ) {
                         return true;
@@ -218,8 +204,7 @@ bool ContainsPointer( const std::vector< widget* >& Widgets, widget* const Widge
 * */
 bool ContainsPointerRecursive( const std::vector< widget* >& Widgets, widget* const Widget )
 {
-        for( std::size_t i = 0; i < Widgets.size(); i++ )
-        {
+        for( std::size_t i = 0; i < Widgets.size(); i++ ) {
                 widget* const Current = Widgets[i];  
                 if( Current == Widget ) {
                         return true;
@@ -283,8 +268,7 @@ std::shared_ptr<widget> HintCollisionTrace( point Position, const std::vector<st
 
 bool DoesCollideRectangle( point Position, point XY1, point XY2 )
 {
-        return
-        (
+        return (
                 XY1.x.xratio() < Position.x.xratio() &&
                 XY1.y.yratio() > Position.y.yratio() &&
                 XY2.x.xratio() > Position.x.xratio() &&
@@ -311,8 +295,7 @@ void UpdateMouseOverState
 )
 {
 
-        for( std::size_t i = 0; i < Widgets.size(); i++ )
-        {
+        for( std::size_t i = 0; i < Widgets.size(); i++ ) {
                 std::shared_ptr<widget> const Current = Widgets[i];
                 
                 if( !Current )
@@ -337,8 +320,7 @@ void UpdateMouseOverState
                 } else if( Current->bMouseOver ) {
                         Current->bMouseOver = false;
                         Current->OnMouseLeave();
-                        if( Current->bInvalidateOnMousePass )
-                        {
+                        if( Current->bInvalidateOnMousePass ) {
                                 Current->Invalidate( ValidityState::Mouse );
                         }
                 }
@@ -351,29 +333,25 @@ void UpdateMouseOverState
 
 void InvalidateWidgets( const std::vector< std::shared_ptr<widget> >& Widgets, ValidityState_t Reason )
 {
-for( std::size_t i = 0; i < Widgets.size(); i++ )
-{
-        const std::shared_ptr<widget> Current = Widgets[i];
-        
-        if( Current )
-        {
-        Current->Invalidate( Reason );
-        
-        if( Current->bInvalidateChildren && Current->Children.size() != 0 )
-        {
-                InvalidateWidgets( Current->Children, Reason );
+        for( std::size_t i = 0; i < Widgets.size(); i++ ) {
+                const std::shared_ptr<widget> Current = Widgets[i];
+                
+                if( Current ) {
+                        Current->Invalidate( Reason );
+                        
+                        if( Current->bInvalidateChildren && Current->Children.size() != 0 )
+                                InvalidateWidgets( Current->Children, Reason );
+                }
+                
         }
-        }
-        
-}
 }
 
 /**
-* @brief Validates supplied widgets recursively.
-* 
-* @note Sorts children if any of them were invalid.
-*       Same with initially supplied batch.
-*/
+ * @brief Validates supplied widgets recursively.
+ * 
+ * @note Sorts children if any of them were invalid.
+ *       Same with initially supplied batch.
+ */
 bool RefreshWidgets( std::vector<std::shared_ptr<widget>>& Widgets )
 {
 
@@ -460,12 +438,10 @@ void PrintWidgetHierarchy( const std::vector<std::shared_ptr<widget> >& Widgets,
 void SortWidgets( std::vector<std::shared_ptr<widget> >& Widgets )
 {
         
-        for( std::size_t x = 0; x < Widgets.size(); x++ )
-        {
+        for( std::size_t x = 0; x < Widgets.size(); x++ ) {
                 std::shared_ptr<widget>& curx = Widgets[x];
                 
-                for( std::size_t y = x+1; y < Widgets.size(); y++ )
-                {
+                for( std::size_t y = x+1; y < Widgets.size(); y++ ) {
                         std::shared_ptr<widget>& cury = Widgets[y];
                         
                         if( *curx > *cury && curx && cury )
@@ -478,22 +454,19 @@ void SortWidgets( std::vector<std::shared_ptr<widget> >& Widgets )
 
 void RecursivePostConstruct( const std::vector< std::shared_ptr<widget> >& Widgets )
 {
-        for( std::size_t i = 0; i < Widgets.size(); i++ )
-        {
-                const std::shared_ptr<widget> Current = Widgets[i];
-                if( !Current  )
-                {
-                        continue;
-                }
+        for( std::size_t i = 0; i < Widgets.size(); i++ ) {
                 
-                if( !Current->bConstructed )
-                {
+                const std::shared_ptr<widget> Current = Widgets[i];
+                
+                if( !Current  )
+                        continue;
+                
+                if( !Current->bConstructed ) {
                         Current->PostConstruct();
                         Current->bConstructed = true;
                 }
                 
-                if( Current->Children.size() != 0 )
-                {
+                if( Current->Children.size() != 0 ) {
                         RecursivePostConstruct( Current->Children );
                 }
         }
