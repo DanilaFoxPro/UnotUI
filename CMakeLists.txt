@@ -45,7 +45,7 @@ endfunction()
 #    ██    ██   ██ ███████     ██      ██   ██  ██████   █████  ███████  ██████    ██
 
 project ( UnotUI CXX ASM )
-set( APP_NAME ${CMAKE_PROJECT_NAME} )
+set( APP_NAME ${PROJECT_NAME} )
 set( APP_LIBRARY_NAME ${APP_NAME}Static )
 set( APP_DYNAMIC_LIBRARY_NAME ${APP_NAME} )
 
