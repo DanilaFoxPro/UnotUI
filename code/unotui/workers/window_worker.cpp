@@ -16,18 +16,27 @@ namespace unotui {
 /** Doesn't create the window right away, but schedules its
 *  creation to an appropriate time.
 */
-void CreatePendingWindow()
+void CreateWindow()
 {
         pending_window PendingWindow;
         TheWindowManager.PendingWindows.push_back( PendingWindow );
 }
 
+void CreatePendingWindows()
+{
+        //:: Pending windows.
+        for( auto Pending : TheWindowManager.PendingWindows ){
+                CreateWindowImmediately();
+        }
+        TheWindowManager.PendingWindows.clear();
+}
+
 /** Shouldn't be called directly, since it creates the window right away.
-*  Use CreatePendingWindow() instead.
+*  Use CreateWindow() instead.
 * 
 *  @note Sets the newly created window as current.
 */
-void CreateWindow()
+void CreateWindowImmediately()
 {
         
         TheWindowManager.Windows.push_back( ent_window() );

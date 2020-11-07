@@ -217,7 +217,8 @@ namespace systems
                 
                 //:: Window.
                 
-                CreatePendingWindow();
+                CreateWindow();
+                CreatePendingWindows();
                 
                 printf("}\n");
         }
@@ -242,11 +243,7 @@ namespace systems
                 
                 if( TheApplication.Interface ) TheApplication.Interface->OnCycleWindow();
                 
-                //:: Pending windows.
-                for( auto Pending : TheWindowManager.PendingWindows ){
-                        CreateWindow();
-                }
-                TheWindowManager.PendingWindows.clear();
+                CreatePendingWindows();
                 
                 //::Window events.
                 

@@ -22,6 +22,8 @@ struct ent_interface
 //      virtual void OnCycleInput();
 //      virtual void OnCycleInterface();
 //      virtual void OnCycleRender();
+//      
+//      virtual void OnExit();
         
         //
         
@@ -48,6 +50,8 @@ struct ent_interface
         virtual void OnCycleInterface() {};
                 /** Called at render cycle stage. */
         virtual void OnCycleRender() {};
+                /** Called when terminating UnotUI. */
+        virtual void OnExit() {};
 };
 
 } // namespace unotui
