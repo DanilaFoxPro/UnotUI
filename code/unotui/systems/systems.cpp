@@ -72,6 +72,8 @@ namespace systems
                 setup_variables();
                 setup_callbacks();
                 setup_window();
+                
+                if( TheApplication.Interface ) TheApplication.Interface->PostSetup();
         
         }
         
@@ -215,7 +217,8 @@ namespace systems
                 
                 //:: Window.
                 
-                CreatePendingWindow();
+                CreateWindow();
+                CreatePendingWindows();
                 
                 printf("}\n");
         }
@@ -238,11 +241,9 @@ namespace systems
         void cycle_window()
         {
                 
-                //:: Pending windows.
-                for( auto Pending : TheWindowManager.PendingWindows ){
-                        CreateWindow();
-                }
-                TheWindowManager.PendingWindows.clear();
+                if( TheApplication.Interface ) TheApplication.Interface->OnCycleWindow();
+                
+                CreatePendingWindows();
                 
                 //::Window events.
                 
@@ -259,6 +260,7 @@ namespace systems
         
         void cycle_input()
         {
+                if( TheApplication.Interface ) TheApplication.Interface->OnCycleInput();
                 CheckMouseInput();
                 ProcessWidgetInput();
         }
@@ -266,7 +268,7 @@ namespace systems
         void cycle_interface()
         {
                 
-                //:: Normal stuff.
+                if( TheApplication.Interface ) TheApplication.Interface->OnCycleInterface();
                 
                 UpdateWidgetHints();
                 TickWidgets();
@@ -277,6 +279,8 @@ namespace systems
         
         void cycle_render()
         {
+                if( TheApplication.Interface ) TheApplication.Interface->OnCycleRender();
+                
                 //:: Draw stuff.
                 
                 if( AnyWindowVisible() ) {

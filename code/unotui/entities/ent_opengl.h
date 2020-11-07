@@ -1,5 +1,5 @@
-#ifndef __ENT_OPENGL_H_
-#define __ENT_OPENGL_H_
+#ifndef __UNOTUI_ENTITIES_ENT_OPENGL_H_
+#define __UNOTUI_ENTITIES_ENT_OPENGL_H_
 
 #include <unotui\utility\deps\opengl_includes.h> // GLuint.
 #include <vector>

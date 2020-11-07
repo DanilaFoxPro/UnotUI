@@ -9,7 +9,7 @@ namespace systems
 {
 	void entry();
         void terminate();
-} // namepsace systems
+} // namespace systems
 
 } // namespace unotui
 

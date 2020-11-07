@@ -13,5 +13,6 @@ target_sources_local(
 )
 
 add_subdirectory( events )
+add_subdirectory( interface )
 add_subdirectory( modules )
 add_subdirectory( widgets )

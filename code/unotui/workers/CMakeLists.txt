@@ -1,9 +1,11 @@
 target_sources_local(
   ${APP_LIBRARY_NAME}
   PUBLIC
+    interface_worker.h
     widget_worker.h
     window_worker.h
   PRIVATE
+    interface_worker.cpp
     widget_worker.cpp
     window_worker.cpp
 )
