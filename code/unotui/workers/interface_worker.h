@@ -12,6 +12,8 @@ namespace unotui {
  */
 void RegisterInterface( std::unique_ptr<ent_interface> Interface );
 
+void RunUnotUI();
+
 } // namespace unotui
 
 #endif
