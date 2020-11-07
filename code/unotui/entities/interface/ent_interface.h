@@ -1,6 +1,8 @@
 #ifndef __UNOTUI_ENTITIES_INTERFACE_ENT_INTERFACE_H_
 #define __UNOTUI_ENTITIES_INTERFACE_ENT_INTERFACE_H_
 
+#include <unotui\entities\ent_window.h>
+
 namespace unotui {
 
 /** @brief Public interface of the library, with functions to be called when certain events occur.
@@ -24,6 +26,8 @@ struct ent_interface
 //      virtual void OnCycleRender();
 //      
 //      virtual void OnExit();
+//
+//      virtual void OnNewWindow( ent_window& Window );
         
         //
         
@@ -52,6 +56,12 @@ struct ent_interface
         virtual void OnCycleRender() {};
                 /** Called when terminating UnotUI. */
         virtual void OnExit() {};
+        
+                /** @brief Called for each new window.
+                 *  A good opportunity to switch tab.
+                 */
+        virtual void OnNewWindow( ent_window& Window ) {};
+        
 };
 
 } // namespace unotui

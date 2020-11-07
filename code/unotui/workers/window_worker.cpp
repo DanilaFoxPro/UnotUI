@@ -79,6 +79,10 @@ void CreateWindowImmediately()
         //Wireframe mode.
         //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         
+        //:: Interface callback.
+        
+        if( TheApplication.Interface ) TheApplication.Interface->OnNewWindow( TheWindow );
+        
 }
 
 void UpdateWindows()
