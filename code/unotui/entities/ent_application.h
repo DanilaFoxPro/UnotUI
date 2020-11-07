@@ -1,5 +1,5 @@
-#ifndef __UNOTU_ENTITIES_ENT_APPLICATION_H_
-#define __UNOTU_ENTITIES_ENT_APPLICATION_H_
+#ifndef __UNOTUI_ENTITIES_ENT_APPLICATION_H_
+#define __UNOTUI_ENTITIES_ENT_APPLICATION_H_
 
 #include <string>
 #include <memory>

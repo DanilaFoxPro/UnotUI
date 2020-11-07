@@ -1,5 +1,5 @@
-#ifndef __ENT_WINDOW_H_
-#define __ENT_WINDOW_H_
+#ifndef __UNOTUI_ENTITIES_ENT_WINDOW_H_
+#define __UNOTUI_ENTITIES_ENT_WINDOW_H_
 
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\utility\fpoint.h>
