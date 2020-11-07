@@ -11,6 +11,6 @@ target_link_libraries( ${APP_LIBRARY_NAME} PUBLIC glew_s )
 # Why do I have to do that? Libraries should have been found!
 target_include_directories(
         ${APP_LIBRARY_NAME}
-        PRIVATE
+        PUBLIC
                 glew-2.1.0/include
 )
