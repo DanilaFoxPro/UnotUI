@@ -2,6 +2,7 @@
 #define __UNOTUI_LIBRARY_
 
 #include <unotui\entities\interface\ent_interface.h>
+#include <unotui\workers\interface_worker.h>
 
 #include <unotui\entities\widgets\w_buffer.h>
 #include <unotui\entities\widgets\w_button.h>
