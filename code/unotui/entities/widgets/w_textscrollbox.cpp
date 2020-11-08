@@ -35,7 +35,7 @@ w_textscrollbox::w_textscrollbox
         //:: Textbox.
         this->TextBox->TextSet( text );
         this->TextBox->FontSize = font_size;
-        this->TextBox->FontColor = text_color;
+        this->TextBox->TextColor = text_color;
         this->TextBox->BackgroundColor = rgba( color::black, 0.0f );
         this->TextBox->OutlineThickness = 0;
         

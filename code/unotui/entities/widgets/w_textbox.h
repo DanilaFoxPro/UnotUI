@@ -17,7 +17,7 @@ private:
         bool bTextInvalidated = true;
 public:
         int FontSize = 16;
-        rgba FontColor = TheTheme.Text;
+        rgba TextColor = TheTheme.Text;
         double Offset = 0.0f;
 
         rgba BackgroundColor    = color::transparent;
@@ -63,7 +63,7 @@ public:
                 //:: Text.
                 this->TextSet( Text );
                 this->FontSize	= FontSize;
-                this->FontColor	= FontColor;
+                this->TextColor	= FontColor;
                 
                 this->Offset = 0.0f;
                 

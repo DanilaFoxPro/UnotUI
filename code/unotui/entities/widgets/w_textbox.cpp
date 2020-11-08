@@ -116,7 +116,7 @@ void w_textbox::OnRefresh( ValidityState_t Reason )
                 text_coord FirstOffset        = VerticallyOffsetTextCoord( First, static_cast<std::ptrdiff_t>(-Offset) );
                 const text_coord SecondOffset = VerticallyOffsetTextCoord( Second, static_cast<std::ptrdiff_t>(-Offset) );
                 
-                const rgba InvFontColor = rgba( ~this->FontColor, this->FontColor.alpha );
+                const rgba InvFontColor = rgba( ~this->TextColor, this->TextColor.alpha );
         
                 gText.AddText(
                         this->Text,
@@ -124,9 +124,9 @@ void w_textbox::OnRefresh( ValidityState_t Reason )
                         this->FontSize,
                         TextArea.first,
                         {
-                                {{0, 0}, this->FontColor},
-                                {FirstOffset, InvFontColor, this->FontColor},
-                                {SecondOffset, this->FontColor},
+                                {{0, 0}, this->TextColor},
+                                {FirstOffset, InvFontColor, this->TextColor},
+                                {SecondOffset, this->TextColor},
                         },
                         TopCut,
                         BottomCut
@@ -138,7 +138,7 @@ void w_textbox::OnRefresh( ValidityState_t Reason )
                         CutLinesLoc,
                         FontSize,
                         TextArea.first,
-                        this->FontColor,
+                        this->TextColor,
                         TopCut,
                         BottomCut
                 );

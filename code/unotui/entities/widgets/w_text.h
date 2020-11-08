@@ -2,6 +2,7 @@
 #define __W_TEXT_H_
 
 #include <unotui\entities\widgets\widget.h>
+#include <unotui\entities\ent_window.h> // Theme.
 #include <unotui\utility\colors.h>
 #include <stdio.h>
 
@@ -11,9 +12,9 @@ struct w_text : widget
 {
 	//Data.
 	
-	std::string text;
-	rgba color;
-	int font_size;
+	std::string Text;
+	rgba Color;
+	int FontSize;
 	
 	text_geometry gText;
 	
@@ -21,30 +22,29 @@ struct w_text : widget
 	
 	w_text(void)
 	{
-		color = color::black;
-		font_size = 16;
-		
-		Position = point( 0, 0 );
-		Size = point( 16, 16 ); // Updated on 'UpdateGeometry()'.
-		Layer = 0;
+                Color    = TheTheme.Text;
+                FontSize = 16;
+
+                Position = point( 0, 0 );
+                Size     = point( 16, 16 ); // Updated on 'UpdateGeometry()'.
+                Layer    = 0;
 	}
 	w_text(
-		point position_,
-		std::string text_ = "",
-		int font_size_ = 32,
-		int layer_ = 0,
-		rgb color_ = {0.0f, 0.0f, 0.0f},
-		float alpha = 1.0f
+		point Position,
+		std::string Text = "",
+		int FontSize     = 32,
+		int Layer        = 0,
+		rgb Color        = TheTheme.Text,
+		float Alpha      = 1.0f
 	)
 	{
-		text = text_;
-		color = rgba( color_, alpha );
-		font_size = font_size_;
-		
-		//Size is set on 'updateGeometry()'.
-		Position = position_;
-		Layer = layer_;
-		bSolid = false;//TODO: Just testing.
+                this->Text     = Text;
+                this->Color    = rgba( Color, Alpha );
+                this->FontSize = FontSize;
+        
+		// Size is updated on 'OnRefresh()'.
+		this->Position = Position;
+		this->Layer    = Layer;
 	}
 	
 	//Functions.
