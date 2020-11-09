@@ -198,6 +198,9 @@ void w_textscrollbox::SetScrollOffset( std::size_t Line )
 void w_textscrollbox::ScrollIntoView( std::size_t Line )
 {
         
+        // Make sure that scrollbar is the right length.
+        this->ScrollBar->ScrollLengthSet( this->TextBox->LineCount() );
+        
         const double FirstVisibleLine = this->ScrollBar->ScrollOffsetGet();
         const double LastVisibleLine  = FirstVisibleLine + this->ScrollBar->ScrollViewzoneGet();
         
