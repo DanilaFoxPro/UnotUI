@@ -21,9 +21,9 @@ struct w_genericscrollbox : public widget
         int XPadding = 8;
         
                 /** How many milliseconds it takes for scrolling to arrive at target. */
-        unsigned int ScrollSpeed = 200;
+        unsigned int ScrollDelay = 200;
         simple_timer ScrollTimer;
-        double ScrollOffset = 0.0f;
+        double ScrollOffset = 0.0;
         
         std::shared_ptr<w_buffer> Buffer;
         std::shared_ptr<w_scrollbar> Scrollbar;
@@ -38,6 +38,8 @@ struct w_genericscrollbox : public widget
 //:: Functions.
         void AddItem( std::shared_ptr<widget> );
         void ClearItems();
+        
+        std::size_t ItemCount();
         
         float ItemHeightRatio();
         float ItemYPaddingRatio();
