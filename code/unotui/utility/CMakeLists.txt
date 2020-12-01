@@ -4,6 +4,7 @@ ${APP_LIBRARY_NAME}
                 clipboard.h
                 colors.h
                 coordinates.h
+                dpoint.h
                 font_symbols.h
                 fpoint.h
                 general.h
@@ -17,6 +18,7 @@ ${APP_LIBRARY_NAME}
                 window.h
         PRIVATE
                 clipboard.cpp
+                dpoint.cpp
                 fpoint.cpp
                 general.cpp
                 point.cpp

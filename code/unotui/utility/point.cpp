@@ -28,7 +28,6 @@ point::point( const fpoint& FPoint )
         this->y = FPoint.y;
 }
 
-
 std::string point::string() const
 {
 	return "< "

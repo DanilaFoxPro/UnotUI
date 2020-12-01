@@ -112,11 +112,10 @@ void w_button::OnRefresh(
                 this->bOverrideSizeFragile = false;
         }
         
-        const fpoint TextOrigin =
-                fpoint(
-                        Center.x - ((int)this->Text.size()*FontSize)*Pixel.x/4.0f,
-                        Center.y + FontSize*Pixel.y/2.0f
-                );
+        const fpoint TextOrigin = fpoint(
+                Center.x - ((int)this->Text.size()*FontSize)*Pixel.x/4.0f,
+                Center.y + FontSize*Pixel.y/2.0f
+        );
         
         
         this->gColor.Clear();
