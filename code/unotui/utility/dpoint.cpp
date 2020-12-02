@@ -94,14 +94,14 @@ dpoint operator/( const int Integer, const dpoint Point )
 }
 
 
-dpoint operator*( const dpoint Point, const float Float )
+dpoint operator*( const dpoint Point, const double Double )
 {
-        return dpoint( Point.x*Float, Point.y*Float );
+        return dpoint( Point.x*Double, Point.y*Double );
 }
 
-dpoint operator/( const dpoint Point, const float Float )
+dpoint operator/( const dpoint Point, const double Double )
 {
-        return dpoint( Point.x/Float, Point.y/Float );
+        return dpoint( Point.x/Double, Point.y/Double );
 }
 
 dpoint operator*( const double Double, const dpoint Point )
