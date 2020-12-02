@@ -188,8 +188,12 @@ void w_editabletext::OnCharacterInput( const std::string& Input )
 	}
 }
 
-void w_editabletext::OnKeyInput( const int& Key, const int& Modifiers )
+void w_editabletext::OnKeyInput( const int& Action, const int& Key, const int& Modifiers )
 {
+        
+        if( Action == GLFW_RELEASE )
+                return;
+        
 	if ( this->ProcessKeyInput( Key, Modifiers ) ) {
                 this->ThrowEvent( std::make_shared<we_textupdated>() );
 		this->Invalidate();	

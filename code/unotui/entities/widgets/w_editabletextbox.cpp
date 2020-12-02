@@ -187,8 +187,11 @@ void w_editabletextbox::OnCharacterInput( const std::string& Input )
         }
 }
 
-void w_editabletextbox::OnKeyInput( const int& Key, const int& Modifiers )
+void w_editabletextbox::OnKeyInput( const int& Action, const int& Key, const int& Modifiers )
 {
+        if( Action == GLFW_RELEASE )
+                return;
+        
         if( this->ProcessKeyInput( Key, Modifiers ) )
         {
                 this->Invalidate( ValidityState::ParametersUpdated );	

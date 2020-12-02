@@ -62,7 +62,7 @@ struct w_editabletext : public widget, public m_caret, public m_text
         virtual void OnKeyboardFocused() final;
         
         virtual void OnCharacterInput( const std::string& ) final;
-        virtual void OnKeyInput( const int&, const int& ) final;
+        virtual void OnKeyInput( const int& Action, const int&, const int& ) final;
         
         virtual void OnMousePressed( const int Button ) final;
         virtual void OnMouseReleased( const int Button, const bool bFocusingClick ) final;

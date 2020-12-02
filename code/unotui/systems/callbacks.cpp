@@ -8,13 +8,9 @@ namespace unotui {
 
 void CallbackKey(GLFWwindow* WindowReference, int Key, int /*Scancode*/, int Action, int Modifiers )
 {
-        // NOTE: Only handles 'OnKeyInput()' for now. No 'OnPressed()' and 'OnReleased()' here.
-        
         // Possible actions: GLFW_PRESS, GLFW_RELEASE and GLFW_REPEAT.
-        if( Action != GLFW_RELEASE ){
-                ent_window& TheWindow = TheWindowManager[WindowReference];
-                TheWindow.PendingKeys.WriteBuffer().push_back( key_item( Key, Modifiers ) );
-        }
+        ent_window& TheWindow = TheWindowManager[WindowReference];
+        TheWindow.PendingKeys.WriteBuffer().push_back( key_item( Action, Key, Modifiers ) );
 }
 
 

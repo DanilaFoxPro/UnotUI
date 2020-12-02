@@ -142,7 +142,7 @@ struct widget
         virtual void OnKeyboardFocused() {};
         virtual void OnLostKeyboardFocus() {};
         virtual void OnCharacterInput( const std::string& ) {};
-        virtual void OnKeyInput( const int& Key, const int& Modifiers ) {};
+        virtual void OnKeyInput( const int& Action, const int& Key, const int& Modifiers ) {};
 
         //
 

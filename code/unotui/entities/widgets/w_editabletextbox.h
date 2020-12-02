@@ -38,7 +38,7 @@ struct w_editabletextbox : public w_textscrollbox, public m_caret
 	virtual void OnKeyboardFocused();
 	
 	virtual void OnCharacterInput( const std::string& ) final;
-	virtual void OnKeyInput( const int&, const int& ) final;
+	virtual void OnKeyInput( const int&, const int&, const int& ) final;
         
         virtual void OnMousePressed( const int Button ) final;
         virtual void OnMouseReleased( const int Button, const bool bFocusingClick ) final;

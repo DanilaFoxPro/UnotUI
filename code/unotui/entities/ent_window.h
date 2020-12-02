@@ -15,11 +15,13 @@ namespace unotui {
 
 struct key_item
 {
-	key_item( int Key, int Modifier )
+	key_item( int Action, int Key, int Modifier )
 	{
+                this->Action = Action;
 		this->Key = Key;
 		this->Modifier = Modifier;
 	}
+	int Action;
 	int Key;
 	int Modifier;
 };
