@@ -6,8 +6,8 @@ namespace unotui {
 
 dpoint::dpoint()
 {
-        this->x = 0.0f;
-        this->y = 0.0f;
+        this->x = 0.0;
+        this->y = 0.0;
 }
 
 dpoint::dpoint( const double x, const double y )

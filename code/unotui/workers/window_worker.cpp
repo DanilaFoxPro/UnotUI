@@ -210,4 +210,14 @@ point MousePosition( const ent_window& Window )
         return point( ratio( Position.first / (double)Window.x ), ratio(1.0f)-ratio( Position.second / (double)Window.y ) );
 }
 
+int KeyState( const int Key )
+{
+        return glfwGetKey( TheWindowManager.Cur().Reference, Key );
+}
+
+bool IsKeyPressed( const int Key )
+{
+        return KeyState( Key ) == GLFW_PRESS;
+}
+
 } // namespace unotui
