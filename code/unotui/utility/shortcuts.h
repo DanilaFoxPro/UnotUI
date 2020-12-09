@@ -85,7 +85,7 @@ std::vector< Type* > ResolveShared( const std::vector<std::shared_ptr<Type>>& Sh
 
 //:: Multithreading.
 
-/*
+/**
  * @brief Simple double buffer implementation.
  * 
  * I'm not sure if it's thread safe at all.
@@ -129,7 +129,7 @@ struct double_buffer
 
 //:: Other.
 
-std::string DemangleClassName( const char* );
+using uint = unsigned int;
 
 template< class T >
 std::string ClassName( const T& Class )
