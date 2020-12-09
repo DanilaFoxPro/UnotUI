@@ -169,7 +169,7 @@ void w_textbox::UpdateSplitText()
         
         const float SpaceWidth = TextAreaSize.x.xratio() / fFontSize.x;
         
-        this->SplitTextCache = SplitTextNew( Text, (std::size_t)SpaceWidth ); // !!!
+        this->SplitTextCache = SplitText( Text, (std::size_t)SpaceWidth ); // !!!
         
         this->TotalLineCount = SplitTextCache.size();
         this->VisibleRatio = clamp (

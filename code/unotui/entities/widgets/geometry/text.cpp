@@ -74,7 +74,7 @@ void text_geometry::AddText(
 {
         return this->AddText(
                 Text,
-                SplitTextNew( Text, std::size_t(-1) ),
+                SplitText( Text, std::size_t(-1) ),
                 FontSize,
                 Origin,
                 Color,

@@ -131,6 +131,8 @@ struct double_buffer
 
 using uint = unsigned int;
 
+std::string DemangleClassName( const char* );
+
 template< class T >
 std::string ClassName( const T& Class )
 {
