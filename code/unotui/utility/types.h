@@ -119,6 +119,7 @@ struct colored_rectangle : public rectangle
 	
 	//Utility functions.
         colored_rectangle() = default;
+        colored_rectangle( const rectangle&, rgba );
         colored_rectangle( float, float, float, float, rgba = rgba() );
         colored_rectangle( const fpoint&, const fpoint&, rgba = rgba() );
         colored_rectangle( point, point, rgba );

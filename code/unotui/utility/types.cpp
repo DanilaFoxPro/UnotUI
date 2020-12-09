@@ -179,6 +179,17 @@ rectangle::rectangle( const point& Position, const point& Position2 )
 
         //:: Colored rectangle constructors.
 
+colored_rectangle::colored_rectangle( const rectangle& Rectangle, rgba Color )
+{
+        this->x1 = Rectangle.x1;
+        this->y1 = Rectangle.y1;
+        
+        this->x2 = Rectangle.x2;
+        this->y2 = Rectangle.y2;
+        
+        this->color = Color;
+}
+
 colored_rectangle::colored_rectangle( float x1_, float y1_, float x2_, float y2_, rgba color_ )
 {
 	x1 = x1_;
