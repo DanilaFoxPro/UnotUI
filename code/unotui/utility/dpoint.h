@@ -13,7 +13,9 @@ struct dpoint
 	dpoint( const point& );
         dpoint( const unit& );
 	
-	std::string string() const;
+        double Length() const;
+        
+	std::string String() const;
 };
 
 dpoint operator+( const dpoint& , const dpoint& );

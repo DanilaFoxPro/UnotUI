@@ -2,6 +2,7 @@
 
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\ent_opengl.h>
+#include <math.h>
 
 namespace unotui {
 
@@ -66,6 +67,20 @@ void color_geometry::Clear()
 	Vertices.clear();
 	Indices.clear();
 	this->EnableBlend = false;
+}
+
+void color_geometry::AddLine( const point Start, const point End, const uint Thickness )
+{
+        const dpoint DStart     = Start;
+        const dpoint DEnd       = End;
+        const dpoint DThickness = pixel(Thickness);
+        
+        const dpoint DVector         = DEnd-DStart;
+        const double DLength         = DVector.Length();
+        
+        // TODO: Get right vector and use that to get corner points.
+        
+        
 }
 
 void color_geometry::AddRectangle( const colored_rectangle& rect )

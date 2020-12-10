@@ -1,4 +1,5 @@
 #include <unotui\utility\dpoint.h>
+#include <math.h> // sqrt()
 
 namespace unotui {
 
@@ -28,8 +29,12 @@ dpoint::dpoint( const unit& Unit )
         this->y = Unit.yratio();
 }
 
+double dpoint::Length() const
+{
+        return sqrt( this->x*this->x + this->y*this->y );
+}
 
-std::string dpoint::string() const
+std::string dpoint::String() const
 {
 	return "< " + std::to_string( this->x ) + ", " + std::to_string( this->y ) + " >"; 
 }
