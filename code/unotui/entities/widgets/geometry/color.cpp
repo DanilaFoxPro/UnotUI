@@ -105,12 +105,10 @@ void color_geometry::AddLine( const point Start, const point End, const uint Thi
         Vertices[ VertexOffset++ ] = { (unotui::vertex)StartLeft, Color }; // Start-left.
         Vertices[ VertexOffset++ ] = { (unotui::vertex)StartRight, Color }; // Start-right.
 
-// 	if( Color.alpha < 1.0f )
-// 	{
-// 		this->EnableBlend = true;
-// 	}
-        
-        this->EnableBlend = true;
+	if( Color.alpha < 1.0f )
+	{
+		this->EnableBlend = true;
+	}
         
 }
 
@@ -136,12 +134,11 @@ void color_geometry::AddRectangle( const colored_rectangle& rect )
 	Vertices[ vertex_offset++ ] = { rect.x1, rect.y2, rect.color }; // Bottom-left.
 	Vertices[ vertex_offset++ ] = { rect.x2, rect.y2, rect.color }; // Bottom-right.
 	
-// 	if( rect.color.alpha < 1.0f )
-// 	{
-// 		this->EnableBlend = true;
-// 	}
-	
-	this->EnableBlend = true;
+	// Alpha check was disabled, forgot why. (Blending was unconditionally enabled.)
+	if( rect.color.alpha < 1.0f )
+	{
+		this->EnableBlend = true;
+	}
 	
 }
 
