@@ -1,5 +1,6 @@
 #include <unotui\utility\dpoint.h>
 #include <math.h> // sqrt()
+#include <stdexcept>
 
 namespace unotui {
 
@@ -32,6 +33,48 @@ dpoint::dpoint( const unit& Unit )
 double dpoint::Length() const
 {
         return sqrt( this->x*this->x + this->y*this->y );
+}
+
+/** If dpoint represents a vector, this would return the vector rotated 90 degrees clockwise. */
+dpoint dpoint::RightVector() const
+{
+        return dpoint( this->y, -this->x );
+}
+
+/** Assuming dpoint represents a vector, makes length 1.0 while preserving direction.
+ *  @note Precision is not guaranteed, length may be a bit off. (Bit in non-formal sense.)
+ *  @note Zero-vector isn't normalized.
+ */
+dpoint dpoint::Normalize() const
+{
+        dpoint Result = dpoint( 0.0, 0.0 );
+        
+        const double Length = this->Length();
+        
+        if( Length != 0.0 ) {
+                // This is faster than dividing by length, since division is generally
+                // faster than multiplication. And in this case, there would be two
+                // divisions. So they're turned into one division, and two
+                // multiplications. Could also use '-freciprocal-math' when compiling,
+                // but that would turn every 'x/y' into 'x*(1.0/y)'.
+                //
+                // Additionally, IEEE says: 'x/x=1 for all finite nonzero x', while
+                // this optimization doesn't have that guarantee. I still choose the
+                // optimization, since I already f**ked the precision by using 'sqrt()'
+                // in 'Length()'.
+                Result = (*this)*(1.0/Length);
+                
+                if( Result.Length() > 1.0 ) {
+                        throw std::logic_error(
+                                "Vector normalization resulted in a non-normalized vector. "
+                                "(Length " + std::to_string( Result.Length()) + ".)\n"
+                                "For vector: " + this->String() + "."
+                        );
+                }
+                
+        }
+        
+        return Result;
 }
 
 std::string dpoint::String() const
@@ -106,6 +149,10 @@ dpoint operator*( const dpoint Point, const double Double )
 
 dpoint operator/( const dpoint Point, const double Double )
 {
+        // TODO: Consider making use of x/y -> x*(1/y).
+        //       It would turn two divisions into one division
+        //       and two multiplications and decrease the
+        //       precision, while possibly being faster.
         return dpoint( Point.x/Double, Point.y/Double );
 }
 

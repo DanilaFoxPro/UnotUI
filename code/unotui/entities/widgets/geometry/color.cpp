@@ -69,17 +69,48 @@ void color_geometry::Clear()
 	this->EnableBlend = false;
 }
 
-void color_geometry::AddLine( const point Start, const point End, const uint Thickness )
+void color_geometry::AddLine( const point Start, const point End, const uint Thickness, const rgba Color )
 {
         const dpoint DStart     = Start;
         const dpoint DEnd       = End;
         const dpoint DThickness = pixel(Thickness);
-        
+
         const dpoint DVector         = DEnd-DStart;
-        const double DLength         = DVector.Length();
+        const dpoint DRightVector    = DVector.RightVector().Normalize();
+
+        // By which vector to shift rectangle points, relative to the line.
+        const dpoint DPointOffset    = DRightVector*DThickness/2.0;
+
+        const dpoint EndLeft    = DEnd  -DPointOffset;
+        const dpoint EndRight   = DEnd  +DPointOffset;
+        const dpoint StartLeft  = DStart-DPointOffset;
+        const dpoint StartRight = DStart+DPointOffset;
+
+        std::size_t VertexOffset = this->Vertices.size();
+        std::size_t IndexOffset  = this->Indices.size();
+
+        Vertices.resize( Vertices.size()+4 );
+        Indices.resize( Indices.size()+6 );
+
+        Indices[ IndexOffset++ ] = VertexOffset+0;
+        Indices[ IndexOffset++ ] = VertexOffset+1;
+        Indices[ IndexOffset++ ] = VertexOffset+2;
+
+        Indices[ IndexOffset++ ] = VertexOffset+2;
+        Indices[ IndexOffset++ ] = VertexOffset+1;
+        Indices[ IndexOffset++ ] = VertexOffset+3;
+
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndLeft, Color }; // End-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndRight, Color }; // End-right.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartLeft, Color }; // Start-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartRight, Color }; // Start-right.
+
+// 	if( Color.alpha < 1.0f )
+// 	{
+// 		this->EnableBlend = true;
+// 	}
         
-        // TODO: Get right vector and use that to get corner points.
-        
+        this->EnableBlend = true;
         
 }
 
@@ -109,8 +140,8 @@ void color_geometry::AddRectangle( const colored_rectangle& rect )
 // 	{
 // 		this->EnableBlend = true;
 // 	}
-
-        this->EnableBlend = true;
+	
+	this->EnableBlend = true;
 	
 }
 

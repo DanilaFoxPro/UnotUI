@@ -66,11 +66,11 @@ struct rgba : public rgb
 	}
 };
 
-struct vertex
+struct vertex : public fpoint
 {
         vertex() = default;
-        vertex( float x, float y ) : x{x}, y{y} {};
-        float x, y;
+        vertex( float x, float y ) : fpoint{x, y} {};
+        vertex( const fpoint& Point ) : fpoint{Point} {};
 };
 
 vertex operator+( const vertex&, const vertex& );

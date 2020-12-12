@@ -14,6 +14,8 @@ struct dpoint
         dpoint( const unit& );
 	
         double Length() const;
+        dpoint RightVector() const;
+        dpoint Normalize() const;
         
 	std::string String() const;
 };
