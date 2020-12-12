@@ -63,15 +63,6 @@ dpoint dpoint::Normalize() const
                 // optimization, since I already f**ked the precision by using 'sqrt()'
                 // in 'Length()'.
                 Result = (*this)*(1.0/Length);
-                
-                if( Result.Length() > 1.0 ) {
-                        throw std::logic_error(
-                                "Vector normalization resulted in a non-normalized vector. "
-                                "(Length " + std::to_string( Result.Length()) + ".)\n"
-                                "For vector: " + this->String() + "."
-                        );
-                }
-                
         }
         
         return Result;
