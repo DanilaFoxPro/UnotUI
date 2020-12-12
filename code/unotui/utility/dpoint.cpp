@@ -42,10 +42,33 @@ dpoint dpoint::RightVector() const
 }
 
 /** Assuming dpoint represents a vector, makes length 1.0 while preserving direction.
+ *  Performs operation directly on dpoint.
+ * 
  *  @note Precision is not guaranteed, length may be a bit off. (Bit in non-formal sense.)
  *  @note Zero-vector isn't normalized.
  */
-dpoint dpoint::Normalize() const
+dpoint& dpoint::Normalize()
+{
+        const double Length = this->Length();
+        
+        if( Length != 0.0 ) {
+                // See `dpoint::Normalized()` for why it's multiplied by inverse, instead
+                // of just divided.
+                (*this)=(*this)*(1.0/Length);
+        } else {
+                // If length is computed as 0.0 anyway, make it a true <0, 0> vector.
+                (*this) = dpoint();
+        }
+        return (*this);
+}
+
+/** Assuming dpoint represents a vector, makes length 1.0 while preserving direction,
+ *  and returns the result.
+ * 
+ *  @note Precision is not guaranteed, length may be a bit off. (Bit in non-formal sense.)
+ *  @note Zero-vector isn't normalized.
+ */
+dpoint dpoint::Normalized() const
 {
         dpoint Result = dpoint( 0.0, 0.0 );
         

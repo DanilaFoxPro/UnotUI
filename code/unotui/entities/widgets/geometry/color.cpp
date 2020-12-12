@@ -76,7 +76,7 @@ void color_geometry::AddLine( const point Start, const point End, const uint Thi
         const dpoint DThickness = pixel(Thickness);
 
         const dpoint DVector         = DEnd-DStart;
-        const dpoint DRightVector    = DVector.RightVector().Normalize();
+        const dpoint DRightVector    = DVector.RightVector().Normalized();
 
         // By which vector to shift rectangle points, relative to the line.
         const dpoint DPointOffset    = DRightVector*DThickness/2.0;

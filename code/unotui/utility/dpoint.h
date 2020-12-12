@@ -13,9 +13,10 @@ struct dpoint
 	dpoint( const point& );
         dpoint( const unit& );
 	
-        double Length() const;
-        dpoint RightVector() const;
-        dpoint Normalize() const;
+        double  Length() const;
+        dpoint  RightVector() const;
+        dpoint& Normalize();
+        dpoint  Normalized() const;
         
 	std::string String() const;
 };
