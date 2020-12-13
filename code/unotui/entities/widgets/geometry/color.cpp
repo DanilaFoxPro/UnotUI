@@ -69,7 +69,7 @@ void color_geometry::Clear()
 	this->EnableBlend = false;
 }
 
-void color_geometry::AddLine( const point Start, const point End, const uint Thickness, const rgba Color )
+void color_geometry::AddLineSegment( const point Start, const point End, const uint Thickness, const rgba Color )
 {
         const dpoint DStart     = Start;
         const dpoint DEnd       = End;
