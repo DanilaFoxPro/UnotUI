@@ -22,7 +22,21 @@ struct color_geometry : geometry
         virtual void Draw();
         
         virtual void Clear();
-        void AddLineSegment( const point Start, const point End, const uint Thinkness, const rgba Color = color::black );
+        void AddLineSegment( const point Beginning, const point End, const uint Thinkness, const rgba Color = color::black );
+        void AddArrow(
+                const point Beginning,
+                const point End,
+                const uint Thickness,
+                const rgba Color = color::black
+        );
+        void AddArrow(
+                const point Beginning,
+                const point End,
+                const uint Thickness,
+                const uint TipWidth,
+                const uint TipHeight,
+                const rgba Color = color::black
+        );
         void AddRectangle( const colored_rectangle& );
         void AddOutline( const rectangle& Bounds, int Thickness, rgba Left, rgba Right, rgba Top, rgba Bottom );
         void AddOutline( const colored_rectangle&, int = 5);
