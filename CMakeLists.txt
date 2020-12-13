@@ -74,6 +74,8 @@ target_include_directories(
     include
 )
 
+add_compile_definitions( UNOTUI_INTERNAL=TRUE )
+
 add_subdirectory(code)
 add_subdirectory(data)
 

@@ -39,6 +39,7 @@
 #include <unotui\workers\widget_worker.h>
 
 #include <unotui\utility\clipboard.h>
+#include <unotui\utility\debug.h>
 #include <unotui\utility\colors.h>
 #include <unotui\utility\coordinates.h>
 #include <unotui\utility\font_symbols.h>
