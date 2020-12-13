@@ -177,6 +177,17 @@ rectangle::rectangle( const point& Position, const point& Position2 )
 	
 }
 
+fpoint rectangle::Center() const
+{
+        fpoint Center;
+        
+        Center.x = x1+((x2-x1)*0.5);
+        Center.y = y1+((y2-y1)*0.5);
+        
+        return Center;
+        
+}
+
         //:: Colored rectangle constructors.
 
 colored_rectangle::colored_rectangle( const rectangle& Rectangle, rgba Color )

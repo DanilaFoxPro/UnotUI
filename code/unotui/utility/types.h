@@ -111,6 +111,9 @@ struct rectangle
         rectangle( float, float, float, float );
         rectangle( const fpoint&, const fpoint& );
         rectangle( const point&, const point& );
+        
+        fpoint Center() const;
+        
 };
 struct colored_rectangle : public rectangle
 {
