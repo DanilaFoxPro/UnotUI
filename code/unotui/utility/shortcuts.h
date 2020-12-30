@@ -68,6 +68,13 @@ std::vector<Type, Allocator>& operator+=( std::vector<Type, Allocator>& A, const
 	return A;
 }
 
+template < class Type, class Allocator >
+std::vector<Type, Allocator>& operator+=( std::vector<Type, Allocator>& Vector, const Type& Item )
+{
+	Vector.push_back( Item );
+	return Vector;
+}
+
 //:: Vector.
 
 template < class Type >
