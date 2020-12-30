@@ -10,6 +10,7 @@
 
 #include <atomic>
 #include <unotui\entities\ent_tab.h>
+#include <unotui\entities\entity.h>
 
 namespace unotui {
 
@@ -42,7 +43,7 @@ struct theme
         rgba Accent = color::yellow;
 };
 
-struct ent_window
+struct UNOTUI_ENTITY(ent_window)
 {
 	GLFWwindow *Reference;
 	union { int Width ; int x; };

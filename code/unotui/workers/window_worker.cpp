@@ -102,8 +102,8 @@ void UpdateWindows()
                 if( glfwWindowShouldClose(TheWindow.Reference) )
                 {
                         printf(
-                                "    Destroying window index '%i' (of %i)..",
-                               (int)i, (int)TheWindowManager.Windows.size()-1
+                                "    Destroying window index '%i' (of %i total)..",
+                               (int)i, (int)TheWindowManager.Windows.size()
                         );
                         glfwDestroyWindow( TheWindow.Reference );
                         printf( " Removing from window manager.." );

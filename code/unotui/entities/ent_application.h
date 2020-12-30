@@ -9,7 +9,7 @@
 
 namespace unotui {
 
-struct ent_application
+struct UNOTUI_ENTITY(ent_application)
 {
                 /** Timer that counts the time it takes to render a frame. */
         simple_timer FrameTimer;

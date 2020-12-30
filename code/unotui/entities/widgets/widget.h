@@ -12,6 +12,7 @@
 
 //Mine.
 
+#include <unotui\entities\entity.h>
 #include <unotui\entities\events\widget_event.h>
 #include <unotui\utility\coordinates.h>
 #include <unotui\utility\types.h>
@@ -44,7 +45,7 @@ namespace ValidityState
 
 //::Base.
 
-struct widget
+struct UNOTUI_ENTITY(widget)
 {
 //:: Data.
 

@@ -1,6 +1,7 @@
 #ifndef __UNOTUI_ENTITIES_INTERFACE_ENT_INTERFACE_H_
 #define __UNOTUI_ENTITIES_INTERFACE_ENT_INTERFACE_H_
 
+#include <unotui\entities\entity.h>
 #include <unotui\entities\ent_window.h>
 
 namespace unotui {
@@ -11,7 +12,7 @@ namespace unotui {
  *  `RegisterInterface()`.
  *  @see RegisterInterface()
  */
-struct ent_interface
+struct UNOTUI_ENTITY(ent_interface)
 {
         virtual ~ent_interface() = default;
         

@@ -5,6 +5,7 @@
 #include <vector>
 #include <atomic>
 
+#include <unotui\entities\entity.h>
 #include <unotui\entities\widgets\widget.h>
 #include <unotui\entities\widgets\w_tab.h>
 
@@ -17,7 +18,7 @@ struct release_listener
         bool bFocusingPress;
 };
 
-struct ent_tab
+struct UNOTUI_ENTITY(ent_tab)
 {
         //::Widgets.
         w_tab* PendingTab = nullptr;
