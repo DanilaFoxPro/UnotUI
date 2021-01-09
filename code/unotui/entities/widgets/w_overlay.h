@@ -1,7 +1,6 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_W_OVERLAY_H_
 #define __UNOTU_ENTITIES_WIDGETS_W_OVERLAY_H_
 
-#include <climits>
 #include <chrono>
 
 #include <unotui\entities\widgets\widget.h>
@@ -31,7 +30,7 @@ struct w_overlay : widget
                 this->Size     = point( 1.0f, 1.0f );
                 
                 this->bSolid = false;
-                this->Layer  = INT_MAX;
+                this->Layer  = LayerReference::Frontmost;
                 
                 this->bInvalidateOnMouseOver = true;
                 

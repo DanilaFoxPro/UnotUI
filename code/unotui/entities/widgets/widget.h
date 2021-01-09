@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <climits>
 
 //OpenGL.
 #include <unotui\utility\deps\opengl_includes.h>
@@ -42,6 +43,13 @@ namespace ValidityState
         RefreshEverything  = ValidityState_t(-1),
     };
 }// namespace RefreshReason
+
+enum LayerReference
+{
+        Frontmost  = INT_MAX,
+        Backmost   = INT_MIN,
+        Middlemost = 0,
+};
 
 //::Base.
 

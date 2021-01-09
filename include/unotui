@@ -16,6 +16,7 @@
 #include <unotui\entities\widgets\w_text.h>
 #include <unotui\entities\widgets\w_textbox.h>
 #include <unotui\entities\widgets\w_textscrollbox.h>
+#include <unotui\entities\widgets\w_verticalbox.h>
 #include <unotui\entities\widgets\w_widgethierarchybrowser.h>
 #include <unotui\entities\widgets\widget.h>
 
