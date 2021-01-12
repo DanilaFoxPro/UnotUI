@@ -41,7 +41,7 @@ void w_verticalbox::OnRefresh( ValidityState_t Reason )
         }
         
         // Sum of all spaces the widgets will occupy, minus the padding.
-        const float PaddedRange = Range.second-Range.first-Padding.y*(this->Children.size()-1);
+        const float PaddedRange = Range.first-Range.second-Padding.y*(this->Children.size()-1);
         // This always results in a valid size when multiplied by any child's weight.
         const float WeightedRange = PaddedRange / TotalWeight;
         
@@ -50,10 +50,10 @@ void w_verticalbox::OnRefresh( ValidityState_t Reason )
         for( std::size_t i = 0; i < this->Children.size(); i++ ) {
                 std::shared_ptr<widget>& Current = this->Children[i];
                 
-                const fpoint Position = fpoint( CurrentOffset, FPosition.x-Padding.x );
-                const fpoint Size = fpoint( WeightedRange*this->Weights[i], FSize.x-Padding.x*2.0f );
+                const fpoint Position = fpoint( FPosition.x-Padding.x, CurrentOffset );
+                const fpoint Size = fpoint( FSize.x-Padding.x*2.0f, WeightedRange*this->Weights[i] );
                 
-                CurrentOffset += Size.y+Padding.y;
+                CurrentOffset -= Size.y+Padding.y;
                 
                 Current->Position = Position;
                 Current->Size = Size;
