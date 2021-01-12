@@ -36,8 +36,8 @@ void w_verticalbox::OnRefresh( ValidityState_t Reason )
         // Range of the space on which to put widgets. (Takes care of Y padding.)
         std::pair<float, float> Range = std::make_pair( FPosition.y, FPosition2.y );
         if( this->bPadSides ) {
-                Range.first += Padding.y;
-                Range.second -= Padding.y;
+                Range.first  -= Padding.y;
+                Range.second += Padding.y;
         }
         
         // Sum of all spaces the widgets will occupy, minus the padding.
@@ -50,7 +50,7 @@ void w_verticalbox::OnRefresh( ValidityState_t Reason )
         for( std::size_t i = 0; i < this->Children.size(); i++ ) {
                 std::shared_ptr<widget>& Current = this->Children[i];
                 
-                const fpoint Position = fpoint( FPosition.x-Padding.x, CurrentOffset );
+                const fpoint Position = fpoint( FPosition.x+Padding.x, CurrentOffset );
                 const fpoint Size = fpoint( FSize.x-Padding.x*2.0f, WeightedRange*this->Weights[i] );
                 
                 CurrentOffset -= Size.y+Padding.y;
