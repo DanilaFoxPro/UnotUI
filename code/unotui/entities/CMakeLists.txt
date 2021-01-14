@@ -5,7 +5,6 @@ target_sources_local(
     ent_tab.h
     ent_opengl.h
     ent_window.h
-    entity.h
   PRIVATE
     ent_application.cpp
     ent_tab.cpp

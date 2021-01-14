@@ -5,14 +5,13 @@
 #include <vector>
 #include <chrono>
 
-#include <unotui\entities\entity.h>
 #include <unotui\utility\types.h>
 
 namespace unotui {
 
 namespace chrono = std::chrono;
 
-struct UNOTUI_ENTITY(ent_opengl)
+struct ent_opengl
 {
 	// Shaders.
 	GLuint ColorShader;

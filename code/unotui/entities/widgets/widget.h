@@ -13,7 +13,6 @@
 
 //Mine.
 
-#include <unotui\entities\entity.h>
 #include <unotui\entities\events\widget_event.h>
 #include <unotui\utility\coordinates.h>
 #include <unotui\utility\types.h>
@@ -53,7 +52,7 @@ enum LayerReference
 
 //::Base.
 
-struct UNOTUI_ENTITY(widget)
+struct widget
 {
 //:: Data.
 
