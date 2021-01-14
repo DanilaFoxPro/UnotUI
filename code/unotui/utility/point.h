@@ -20,6 +20,13 @@ struct point
 	std::string string() const;
 	
 	void rationalize( int x_limit, int y_limit );
+        
+        int xpixels()  const { return x.xpixels(); }
+        int ypixels()  const { return y.ypixels(); }
+        
+        float xratio() const { return x.xratio(); }
+        float yratio() const { return y.yratio(); }
+        
 };
 
 point operator+( const point& , const point& );

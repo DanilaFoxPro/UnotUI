@@ -9,15 +9,15 @@ namespace unotui {
 void w_text::OnRefresh( ValidityState_t )
 {
 
-        Size = point( (int)text.size()*font_size/2, font_size );
+        Size = point( (int)Text.size()*FontSize/2, FontSize );
 
         gText.Clear();
         
         gText.AddText(
-                this->text,
-                this->font_size,
+                this->Text,
+                this->FontSize,
                 this->Position,
-                this->color
+                this->Color
         );
 
         gText.Update();

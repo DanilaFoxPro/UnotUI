@@ -66,11 +66,11 @@ struct rgba : public rgb
 	}
 };
 
-struct vertex
+struct vertex : public fpoint
 {
         vertex() = default;
-        vertex( float x, float y ) : x{x}, y{y} {};
-        float x, y;
+        vertex( float x, float y ) : fpoint{x, y} {};
+        vertex( const fpoint& Point ) : fpoint{Point} {};
 };
 
 vertex operator+( const vertex&, const vertex& );
@@ -111,6 +111,9 @@ struct rectangle
         rectangle( float, float, float, float );
         rectangle( const fpoint&, const fpoint& );
         rectangle( const point&, const point& );
+        
+        fpoint Center() const;
+        
 };
 struct colored_rectangle : public rectangle
 {
@@ -119,6 +122,7 @@ struct colored_rectangle : public rectangle
 	
 	//Utility functions.
         colored_rectangle() = default;
+        colored_rectangle( const rectangle&, rgba );
         colored_rectangle( float, float, float, float, rgba = rgba() );
         colored_rectangle( const fpoint&, const fpoint&, rgba = rgba() );
         colored_rectangle( point, point, rgba );

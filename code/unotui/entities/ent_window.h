@@ -15,11 +15,13 @@ namespace unotui {
 
 struct key_item
 {
-	key_item( int Key, int Modifier )
+	key_item( int Action, int Key, int Modifier )
 	{
+                this->Action = Action;
 		this->Key = Key;
 		this->Modifier = Modifier;
 	}
+	int Action;
 	int Key;
 	int Modifier;
 };
@@ -91,25 +93,26 @@ struct ent_window_manager
         theme Theme;
         
         std::vector<pending_window> PendingWindows;
-	std::vector<ent_window> Windows;
+        std::vector<ent_window> Windows;
         std::vector<GLFWimage> IconLayers;
         
-	ent_window& operator[]( std::size_t index );
-	ent_window& operator[]( GLFWwindow* const );
-	ent_window& Cur( void );
+        ent_window& operator[]( std::size_t index );
+        ent_window& operator[]( GLFWwindow* const );
+        ent_window& Cur( void );
         std::size_t CurIndex();
-	ent_window& Last( void );
-	ent_window* Focused();
+        ent_window& Last( void );
+        ent_window* Focused();
         
         void SetCurrent( std::size_t Index );
         bool SetCurrent( ent_window* const Window );
         
-	//:: Input
-	const std::vector<int> ButtonsToCheck =
-	{
-		GLFW_MOUSE_BUTTON_LEFT,
-		GLFW_MOUSE_BUTTON_RIGHT,
-	};
+        //:: Input
+        const std::vector<int> ButtonsToCheck =
+        {
+                GLFW_MOUSE_BUTTON_LEFT,
+                GLFW_MOUSE_BUTTON_RIGHT,
+                GLFW_MOUSE_BUTTON_MIDDLE
+        };
         
 };
 

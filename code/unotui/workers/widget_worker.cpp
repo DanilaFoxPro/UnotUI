@@ -45,7 +45,7 @@ void ProcessWidgetInput()
                                         ResetKeyboardFocus();
                                         break;
                                 }
-                                Widget->OnKeyInput( Key.Key, Key.Modifier );
+                                Widget->OnKeyInput( Key.Action, Key.Key, Key.Modifier );
                         }
                 }
         }

@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <climits>
 
 //OpenGL.
 #include <unotui\utility\deps\opengl_includes.h>
@@ -41,6 +42,13 @@ namespace ValidityState
         RefreshEverything  = ValidityState_t(-1),
     };
 }// namespace RefreshReason
+
+enum LayerReference
+{
+        Frontmost  = INT_MAX,
+        Backmost   = INT_MIN,
+        Middlemost = 0,
+};
 
 //::Base.
 
@@ -142,7 +150,7 @@ struct widget
         virtual void OnKeyboardFocused() {};
         virtual void OnLostKeyboardFocus() {};
         virtual void OnCharacterInput( const std::string& ) {};
-        virtual void OnKeyInput( const int& Key, const int& Modifiers ) {};
+        virtual void OnKeyInput( const int& Action, const int& Key, const int& Modifiers ) {};
 
         //
 

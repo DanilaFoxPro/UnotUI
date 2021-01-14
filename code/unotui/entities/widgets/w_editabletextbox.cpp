@@ -38,7 +38,7 @@ w_editabletextbox::w_editabletextbox
         // Textbox.
         this->TextBox->TextSet( Text );
         this->TextBox->FontSize = FontSize;
-        this->TextBox->FontColor = TextColor;
+        this->TextBox->TextColor = TextColor;
         this->TextBox->BackgroundColor = rgba( color::black, 0.0f );
         this->TextBox->OutlineThickness = 0;
         
@@ -150,7 +150,7 @@ void w_editabletextbox::OnRefresh( ValidityState_t Reason )
                         std::string( 1, fsym::caret ),
                         this->TextBox->FontSize,
                         CaretOrigin,
-                        this->TextBox->FontColor,
+                        this->TextBox->TextColor,
                         FinalTopCut,
                         FinalBottomCut
                 );
@@ -187,8 +187,11 @@ void w_editabletextbox::OnCharacterInput( const std::string& Input )
         }
 }
 
-void w_editabletextbox::OnKeyInput( const int& Key, const int& Modifiers )
+void w_editabletextbox::OnKeyInput( const int& Action, const int& Key, const int& Modifiers )
 {
+        if( Action == GLFW_RELEASE )
+                return;
+        
         if( this->ProcessKeyInput( Key, Modifiers ) )
         {
                 this->Invalidate( ValidityState::ParametersUpdated );	

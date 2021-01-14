@@ -3,6 +3,7 @@
 #include <unotui\entities\widgets\w_textbox.h>
 #include <unotui\utility\widget.h>
 #include <unotui\utility\shortcuts.h>
+#include <math.h>
 
 namespace unotui {
 
@@ -28,11 +29,11 @@ void w_genericscrollbox::OnTick()
         
         const auto ElapsedMilliseconds = this->ScrollTimer.ElapsedMilliseconds();
         
-        if( ElapsedMilliseconds < this->ScrollSpeed ) {
+        if( ElapsedMilliseconds < this->ScrollDelay ) {
                 const double Offset = lerp(
                         this->ScrollOffset,
                         this->Scrollbar->ScrollOffsetGet(),
-                        (double)ElapsedMilliseconds/(double)this->ScrollSpeed
+                        (double)ElapsedMilliseconds/(double)this->ScrollDelay
                 );
                 
                 this->ScrollOffset = Offset;
@@ -66,21 +67,25 @@ void w_genericscrollbox::OnRefresh( ValidityState_t Reason )
                 this->Scrollbar->Invalidate( ValidityState::ParametersUpdated );
         }
         
-        // Update scrollbar.
+        const double ItemPlusPadding    = this->ItemHeight.yratio()+pixel(this->ItemPadding).yratio();
+        const double PaddingAsItemRatio = pixel(this->ItemPadding).yratio()/ItemPlusPadding;
         
-        this->Scrollbar->ScrollLengthSet( this->ScrollLength() );
-        this->Scrollbar->ScrollViewzoneSet( this->Size.y.yratio() );
+        //:: Update scrollbar.
         
-        // Prepare.
+        // Account for the last item having padding after it.
+        this->Scrollbar->ScrollLengthSet( this->ItemCount()+PaddingAsItemRatio );
+        this->Scrollbar->ScrollViewzoneSet( this->VisibleItemsCount() );
+        
+        //:: Prepare.
         
         InvalidateWidgets( this->Items, Reason );
         
         const double VisibleItems = this->VisibleItemsCount();
-        const double Offset = this->ScrollOffset;
+        const double Offset       = this->ScrollOffset;
         
-        const std::pair< std::size_t, std::size_t > Visible = std::make_pair( this->NextItem( Offset-this->ItemHeight.yratio() ), ((std::size_t)VisibleItems)+2 );
+        const std::pair< std::size_t, std::size_t > Visible = std::make_pair( (std::size_t)floor( Offset ), ((std::size_t)VisibleItems)+2 );
         
-        // Refill buffer.
+        //:: Refill buffer.
         
         this->Buffer->ClearChildren();
         
@@ -89,7 +94,10 @@ void w_genericscrollbox::OnRefresh( ValidityState_t Reason )
                 
                 this->Buffer->AddChild( Current );
                 
-                Current->Position = point( this->Position.x + pixel( this->XPadding ), (float)(this->Position.y.yratio()-(this->ItemOffset( i )-Offset)) );
+                Current->Position = point(
+                        this->Position.x + pixel( this->XPadding ),
+                        (float)(this->Position.y.yratio()-(this->ItemOffset( i )-Offset*ItemPlusPadding))
+                );
                 Current->SetSecondPosition( point(
                         Position2.x-this->XPadding-w_scrollbar::IdealPreviewWidth,
                         Current->Position.y-this->ItemHeight
@@ -112,7 +120,7 @@ void w_genericscrollbox::OnEvent( std::shared_ptr<widget_event> Event )
         we_scrolllines* ScrollLines = dynamic_cast<we_scrolllines*>(Event.get());
         if( ScrollLines ) {
                 this->Scrollbar->Offset(
-                        -(this->ItemHeight.yratio()+pixel(this->ItemPadding).yratio()) * ScrollLines->Lines
+                        -ScrollLines->Lines
                 );
                 this->ScrollTimer.Start();
                 this->Invalidate( ValidityState::ParametersUpdated );
@@ -134,6 +142,7 @@ std::shared_ptr<widget>& w_genericscrollbox::operator[]( std::size_t Position )
         return this->Items[Position];
 }
 
+/** @brief Append an item to the scroll space. */
 void w_genericscrollbox::AddItem( std::shared_ptr<widget> Item )
 {
         if( Item ) {
@@ -142,10 +151,20 @@ void w_genericscrollbox::AddItem( std::shared_ptr<widget> Item )
         }
 }
 
+/** @brief Remove all items from the scroll space. */
 void w_genericscrollbox::ClearItems()
 {
         this->Items.clear();
         this->Invalidate( ValidityState::ParametersUpdated );
+}
+
+/** @brief Total count of items currently in the scroll space.
+ *  @note  For amount of visible items use: 'VisibleItemsCount()'.
+ *  @see   VisibleItemsCount()
+ */
+std::size_t w_genericscrollbox::ItemCount()
+{
+        return this->Items.size();
 }
 
 /** @brief Item height as a fraction of total scroll. */

@@ -1,5 +1,7 @@
 #include <unotui\utility\fpoint.h>
 
+#include <unotui\utility\dpoint.h>
+
 namespace unotui {
 
 //:: Constructors.
@@ -16,10 +18,16 @@ fpoint::fpoint( const float x, const float y )
         this->y = y;
 }
 
-fpoint::fpoint( const point& p )
+fpoint::fpoint( const point& Point )
 {
-        this->x = p.x.xratio();
-        this->y = p.y.yratio();
+        this->x = Point.x.xratio();
+        this->y = Point.y.yratio();
+}
+
+fpoint::fpoint( const dpoint& DPoint )
+{
+        this->x = DPoint.x;
+        this->y = DPoint.y;
 }
 
 fpoint::fpoint( const unit& Unit )

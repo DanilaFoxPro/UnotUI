@@ -5,12 +5,15 @@
 
 namespace unotui {
 
+struct dpoint;
+
 struct fpoint
 {
 	float x, y;
 	fpoint();
 	fpoint( const float, const float );
 	fpoint( const point& );
+        fpoint( const dpoint& );
         fpoint( const unit& );
 	
 	std::string string() const;

@@ -2,6 +2,7 @@
 
 #include <unotui\entities\ent_window.h>
 #include <unotui\entities\ent_opengl.h>
+#include <math.h>
 
 namespace unotui {
 
@@ -68,6 +69,130 @@ void color_geometry::Clear()
 	this->EnableBlend = false;
 }
 
+void color_geometry::AddLineSegment( const point Beginning, const point End, const uint Thickness, const rgba Color )
+{
+        const dpoint DStart     = Beginning;
+        const dpoint DEnd       = End;
+        const dpoint DThickness = pixel(Thickness);
+
+        const dpoint DVector         = DEnd-DStart;
+        const dpoint DRightVector    = DVector.RightVector().Normalized();
+
+        // By which vector to shift rectangle points, relative to the line.
+        const dpoint DPointOffset    = DRightVector*DThickness/2.0;
+
+        const dpoint EndLeft    = DEnd  -DPointOffset;
+        const dpoint EndRight   = DEnd  +DPointOffset;
+        const dpoint StartLeft  = DStart-DPointOffset;
+        const dpoint StartRight = DStart+DPointOffset;
+
+        std::size_t VertexOffset = this->Vertices.size();
+        std::size_t IndexOffset  = this->Indices.size();
+
+        Vertices.resize( Vertices.size()+4 );
+        Indices.resize( Indices.size()+6 );
+
+        Indices[ IndexOffset++ ] = VertexOffset+0;
+        Indices[ IndexOffset++ ] = VertexOffset+1;
+        Indices[ IndexOffset++ ] = VertexOffset+2;
+
+        Indices[ IndexOffset++ ] = VertexOffset+2;
+        Indices[ IndexOffset++ ] = VertexOffset+1;
+        Indices[ IndexOffset++ ] = VertexOffset+3;
+
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndLeft, Color }; // End-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndRight, Color }; // End-right.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartLeft, Color }; // Start-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartRight, Color }; // Start-right.
+
+	if( Color.alpha < 1.0f )
+	{
+		this->EnableBlend = true;
+	}
+        
+}
+
+void color_geometry::AddArrow( const point Beginning, const point End, const uint Thickness, const rgba Color )
+{
+        return this->AddArrow( Beginning, End, Thickness, Thickness*2, Thickness*3, Color );
+}
+
+void color_geometry::AddArrow(
+        const point Beginning,
+        const point End,
+        const uint Thickness,
+        const uint TipWidth,
+        const uint TipHeight,
+        const rgba Color
+)
+{
+        const dpoint DStart     = Beginning;
+        const dpoint DEnd       = End;
+        const dpoint DThickness = pixel(Thickness);
+        const dpoint DTipWidth  = pixel(TipWidth);
+        const dpoint DTipHeight = pixel(TipHeight);
+
+        const dpoint DVector         = DEnd-DStart;
+        const dpoint DRightVector    = DVector.RightVector().Normalized();
+
+        // By which vector to shift rectangle points, relative to the line.
+        const dpoint DPointOffset    = DRightVector*DThickness*0.5;
+        
+        // Arrow pointy thing base offset, relative to the line.
+        const dpoint DArrowPointOffset = DRightVector*DTipWidth*0.5;
+        
+        const dpoint DLineEnd   = DEnd-DVector.Normalized()*DTipHeight;
+        
+        const dpoint EndLeft    = DLineEnd-DPointOffset;
+        const dpoint EndRight   = DLineEnd+DPointOffset;
+        const dpoint StartLeft  = DStart  -DPointOffset;
+        const dpoint StartRight = DStart  +DPointOffset;
+        
+        const dpoint EndArrowBaseLeft  = DLineEnd-DArrowPointOffset;
+        const dpoint EndArrowBaseRight = DLineEnd+DArrowPointOffset;
+        const dpoint EndArrowTip       = DEnd;
+
+        std::size_t VertexOffset = this->Vertices.size();
+        std::size_t IndexOffset  = this->Indices.size();
+
+        Vertices.resize( Vertices.size()+4+3 );
+        Indices.resize ( Indices.size() +6+3 );
+        
+        // Rectangle that represents the line segment.
+        
+        Indices[ IndexOffset++ ] = VertexOffset+0;
+        Indices[ IndexOffset++ ] = VertexOffset+1;
+        Indices[ IndexOffset++ ] = VertexOffset+2;
+
+        Indices[ IndexOffset++ ] = VertexOffset+2;
+        Indices[ IndexOffset++ ] = VertexOffset+1;
+        Indices[ IndexOffset++ ] = VertexOffset+3;
+        
+        // The pointy bit.
+        
+        Indices[ IndexOffset++ ] = VertexOffset+6;
+        Indices[ IndexOffset++ ] = VertexOffset+5;
+        Indices[ IndexOffset++ ] = VertexOffset+4;
+        
+        // Vertices for the rectangle.
+
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndLeft, Color };       // End-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndRight, Color };     // End-right.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartLeft, Color };   // Start-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartRight, Color }; // Start-right.
+        
+        // Vertices for the triangle.
+        
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowBaseLeft, Color };
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowBaseRight, Color };
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowTip, Color };
+
+	if( Color.alpha < 1.0f )
+	{
+		this->EnableBlend = true;
+	}
+}
+
 void color_geometry::AddRectangle( const colored_rectangle& rect )
 {
 	
@@ -90,12 +215,11 @@ void color_geometry::AddRectangle( const colored_rectangle& rect )
 	Vertices[ vertex_offset++ ] = { rect.x1, rect.y2, rect.color }; // Bottom-left.
 	Vertices[ vertex_offset++ ] = { rect.x2, rect.y2, rect.color }; // Bottom-right.
 	
-// 	if( rect.color.alpha < 1.0f )
-// 	{
-// 		this->EnableBlend = true;
-// 	}
-
-        this->EnableBlend = true;
+	// Alpha check was disabled, forgot why. (Blending was unconditionally enabled.)
+	if( rect.color.alpha < 1.0f )
+	{
+		this->EnableBlend = true;
+	}
 	
 }
 

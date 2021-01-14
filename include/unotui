@@ -16,6 +16,7 @@
 #include <unotui\entities\widgets\w_text.h>
 #include <unotui\entities\widgets\w_textbox.h>
 #include <unotui\entities\widgets\w_textscrollbox.h>
+#include <unotui\entities\widgets\w_verticalbox.h>
 #include <unotui\entities\widgets\w_widgethierarchybrowser.h>
 #include <unotui\entities\widgets\widget.h>
 
@@ -39,6 +40,7 @@
 #include <unotui\workers\widget_worker.h>
 
 #include <unotui\utility\clipboard.h>
+#include <unotui\utility\debug.h>
 #include <unotui\utility\colors.h>
 #include <unotui\utility\coordinates.h>
 #include <unotui\utility\font_symbols.h>

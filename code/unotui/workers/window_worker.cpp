@@ -102,8 +102,8 @@ void UpdateWindows()
                 if( glfwWindowShouldClose(TheWindow.Reference) )
                 {
                         printf(
-                                "    Destroying window index '%i' (of %i)..",
-                               (int)i, (int)TheWindowManager.Windows.size()-1
+                                "    Destroying window index '%i' (of %i total)..",
+                               (int)i, (int)TheWindowManager.Windows.size()
                         );
                         glfwDestroyWindow( TheWindow.Reference );
                         printf( " Removing from window manager.." );
@@ -208,6 +208,16 @@ point MousePosition( const ent_window& Window )
         glfwGetCursorPos(Window.Reference, &Position.first, &Position.second);
         
         return point( ratio( Position.first / (double)Window.x ), ratio(1.0f)-ratio( Position.second / (double)Window.y ) );
+}
+
+int KeyState( const int Key )
+{
+        return glfwGetKey( TheWindowManager.Cur().Reference, Key );
+}
+
+bool IsKeyPressed( const int Key )
+{
+        return KeyState( Key ) == GLFW_PRESS;
 }
 
 } // namespace unotui

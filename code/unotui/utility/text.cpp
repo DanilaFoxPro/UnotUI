@@ -7,58 +7,7 @@
 
 namespace unotui {
 
-std::string SplitText( std::string String, std::size_t Limit )
-{
-        
-        if( Limit == 0 ) {
-                return "";
-        }
-        
-        //
-        
-        int LastSpace = -1;
-        int LastSplit = 0;
-        
-        //
-        
-        for( std::size_t i = 0; i < String.size(); i++ ) {
-                
-                switch( String[i] ) {
-                        case ' ': {
-                                LastSpace = i;
-                                break;
-                        }
-                        case '\n': {
-                                LastSpace = i;
-                                LastSplit = i;
-                                break;
-                        }
-                        // There may be more things that affect the split in the future.
-                }
-                
-                //
-                
-                const std::size_t SinceLastSplit = i-LastSplit;
-                if( SinceLastSplit == Limit ) {
-                        
-                        if( ( LastSpace == -1 ) or ( i-LastSpace >= Limit ) ) {
-                                // Split on i.
-                                        String.insert( i, 1, '\n' );
-                                        LastSplit = i;
-                        } else {
-                                //Split on last_space
-                                        String[LastSpace] = '\n';
-                                        LastSplit = LastSpace;
-                        }
-                }
-                
-        }
-        
-        return String;
-                
-}
-
-std::vector<split_line> SplitTextNew( const std::string& String, std::size_t WidthLimit )
+std::vector<split_line> SplitText( const std::string& String, std::size_t WidthLimit )
 {
         
         if( WidthLimit == 0 ) {
@@ -636,6 +585,17 @@ std::size_t LongestLine( const std::string& String )
         
         return MaxStreak;
         
+}
+
+std::size_t LongestLine( const std::vector<split_line>& Lines )
+{
+        std::size_t Longest = 0;
+        for( const auto& Line : Lines ) {
+                if( Line.Length() > Longest ) {
+                        Longest = Line.Length();
+                }
+        }
+        return Longest;
 }
 
 } // namespace unotui

@@ -68,6 +68,13 @@ std::vector<Type, Allocator>& operator+=( std::vector<Type, Allocator>& A, const
 	return A;
 }
 
+template < class Type, class Allocator >
+std::vector<Type, Allocator>& operator+=( std::vector<Type, Allocator>& Vector, const Type& Item )
+{
+	Vector.push_back( Item );
+	return Vector;
+}
+
 //:: Vector.
 
 template < class Type >
@@ -85,7 +92,7 @@ std::vector< Type* > ResolveShared( const std::vector<std::shared_ptr<Type>>& Sh
 
 //:: Multithreading.
 
-/*
+/**
  * @brief Simple double buffer implementation.
  * 
  * I'm not sure if it's thread safe at all.
@@ -128,6 +135,8 @@ struct double_buffer
 };
 
 //:: Other.
+
+using uint = unsigned int;
 
 std::string DemangleClassName( const char* );
 

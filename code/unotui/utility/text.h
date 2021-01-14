@@ -46,8 +46,7 @@ struct split_line
         
 };
 
-std::string SplitText( std::string, std::size_t );
-std::vector<split_line> SplitTextNew( const std::string&, std::size_t );
+std::vector<split_line> SplitText( const std::string&, std::size_t );
 
 std::string CutText( const std::string&, const int& = INT_MAX, const int& = 0 );
 std::vector<split_line> CutLines(
@@ -103,6 +102,7 @@ std::size_t CountCharacter( const std::string& String, const char Character );
 std::size_t CountCharacterBefore( const std::string& String, const char Character, const std::size_t Length );
 char* ZeroTerminate( const char*, const int );
 std::size_t LongestLine( const std::string& String );
+std::size_t LongestLine( const std::vector<split_line>& Lines );
 
 } // namespace unotui
 
