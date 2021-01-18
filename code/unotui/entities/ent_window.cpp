@@ -10,11 +10,16 @@ void ent_window::SwitchTab( w_tab* Tab )
         if( Tab == nullptr ){
                 return;
         }
-        this->ActiveTab.SwitchTab( Tab );
+        this->Tab.SwitchTab( Tab );
         if( Tab->Title.size() != 0 )
         {
                 glfwSetWindowTitle( this->Reference, Tab->Title.c_str() );
         }
+}
+
+std::shared_ptr<w_overlay> ent_window::OverlayGet()
+{
+        return Tab.OverlayGet();
 }
 
 bool ent_window::Visible()

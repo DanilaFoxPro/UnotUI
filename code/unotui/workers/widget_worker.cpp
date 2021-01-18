@@ -7,7 +7,6 @@
 #include <stdio.h>//TODO: DEBUG.
 
 #include <unotui\entities\ent_window.h>
-#include <unotui\entities\widgets\w_overlay.h>
 #include <unotui\workers\window_worker.h>
 #include <unotui\utility\shortcuts.h>
 #include <unotui\utility\widget.h>
@@ -65,7 +64,7 @@ void UpdateWidgetHints()
 
 void UpdateWidgetHint( ent_window& TheWindow )
 {
-        ent_tab& TheTab = TheWindow.ActiveTab;
+        ent_tab& TheTab = TheWindow.Tab;
         point MousePos = MousePosition(TheWindow);
         const std::shared_ptr<widget> HintedWidget = HintCollisionTrace( MousePos, TheTab.Widgets );
         
@@ -89,7 +88,7 @@ void UpdateWidgetHint( ent_window& TheWindow )
 void TickWidgets()
 {
         for( std::size_t i = 0; i < TheWindowManager.Windows.size(); i++ ) {
-                ent_tab& TheTab = TheWindowManager[i].ActiveTab;
+                ent_tab& TheTab = TheWindowManager[i].Tab;
                 TickWidgets( TheTab.Widgets );
         }
 }
@@ -105,7 +104,7 @@ void RefreshWidgets()
 {
         for( std::size_t i = 0; i < TheWindowManager.Windows.size(); i++ ) {
                 TheWindowManager.SetCurrent(i);
-                ent_tab& the_interface = TheWindowManager.Cur().ActiveTab;
+                ent_tab& the_interface = TheWindowManager.Cur().Tab;
                 RefreshWidgets( the_interface.Widgets );
         }
 }
@@ -119,7 +118,7 @@ void RefreshWidgets()
 void InvalidateAllWidgets( const std::size_t Window, const ValidityState_t Reason )
 {
         
-        ent_tab const& the_tab = TheWindowManager[Window].ActiveTab;
+        ent_tab const& the_tab = TheWindowManager[Window].Tab;
         return InvalidateWidgets( the_tab.Widgets, Reason );
         
 }
@@ -127,16 +126,10 @@ void InvalidateAllWidgets( const std::size_t Window, const ValidityState_t Reaso
 void SwitchTabs()
 {
         for( std::size_t i = 0; i < TheWindowManager.Windows.size(); i++ ) {
-                ent_tab& TheTab = TheWindowManager[i].ActiveTab;
+                ent_tab& TheTab = TheWindowManager[i].Tab;
                 
                 // Switch to pending tab.
-                if( TheTab.PendingTab ) {
-                        printf( "Switch to '%s'!\n", ClassName( *TheTab.PendingTab ).c_str() );
-                        TheTab.Widgets.clear();
-                        TheTab.AddWidget( new w_overlay() );
-                        TheTab.AddWidget( TheTab.PendingTab );
-                        TheTab.PendingTab = nullptr;
-                }
+                TheTab.SwitchTabToPending();
                 
         }
 }
@@ -161,7 +154,7 @@ void DrawWidgets( const std::size_t& WindowIndex )
         TheWindowManager.SetCurrent(WindowIndex);
         
         ent_window& TheWindow = TheWindowManager.Cur();
-        ent_tab& TheInterface = TheWindow.ActiveTab;
+        ent_tab& TheInterface = TheWindow.Tab;
         
         w_tab* TheTab = nullptr;
         if( TheInterface.Widgets.size() > 0
@@ -244,7 +237,7 @@ std::weak_ptr<widget> GetKeyboardFocus( ent_window& TheWindow )
 * */
 std::weak_ptr<widget> WidgetByPointer( widget* const Widget )
 {
-        ent_tab& the_interface = TheWindowManager.Cur().ActiveTab;
+        ent_tab& the_interface = TheWindowManager.Cur().Tab;
         
         return WidgetByPointer( the_interface.Widgets, Widget );
 }
@@ -254,7 +247,7 @@ std::weak_ptr<widget> WidgetByPointer( widget* const Widget )
 std::vector< std::weak_ptr<widget> > CollisionTrace( point Position )
 {
         
-        const ent_tab& the_interface = TheWindowManager.Cur().ActiveTab;
+        const ent_tab& the_interface = TheWindowManager.Cur().Tab;
         return CollisionTrace( Position, the_interface.Widgets );
         
 }
@@ -263,14 +256,14 @@ std::vector< std::weak_ptr<widget> > CollisionTrace( point Position )
 void mouseMoveTrace( point Position, const std::vector< std::weak_ptr<widget> >& Colliding )
 {
         
-        const ent_tab& TheInterface = TheWindowManager.Cur().ActiveTab;
+        const ent_tab& TheInterface = TheWindowManager.Cur().Tab;
         
         UpdateMouseOverState( Position, TheInterface.Widgets, Colliding );
 }
 
 void mouseButtonTrace( int Button, const std::vector< std::weak_ptr<widget> >& Colliding )
 {
-        ent_tab& the_interface = TheWindowManager.Cur().ActiveTab;
+        ent_tab& the_interface = TheWindowManager.Cur().Tab;
         
         for( std::weak_ptr<widget> current : Colliding )
         {
@@ -299,7 +292,7 @@ void mouseButtonTrace( int Button, const std::vector< std::weak_ptr<widget> >& C
 
 void mouseButtonRelease( int Button )
 {
-        ent_tab& the_interface = TheWindowManager.Cur().ActiveTab;
+        ent_tab& the_interface = TheWindowManager.Cur().Tab;
         
         auto& listeners = the_interface.MouseReleaseListeners;
         

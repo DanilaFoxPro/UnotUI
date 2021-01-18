@@ -4,7 +4,6 @@
 #include <chrono>
 
 #include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\ent_window.h>
 #include <unotui\utility\classes\simple_timer.h>
 
 namespace unotui {

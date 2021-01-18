@@ -5,11 +5,11 @@
 #include <unotui\utility\fpoint.h>
 #include <unotui\utility\shortcuts.h>
 #include <unotui\utility\colors.h>
+#include <unotui\entities\ent_tab.h>
 
 #include <unotui\utility\deps\opengl_includes.h>
 
 #include <atomic>
-#include <unotui\entities\ent_tab.h>
 
 namespace unotui {
 
@@ -57,7 +57,7 @@ struct ent_window
         uint32_t CurrentFrame = 0;
         
 	//:: Interface.
-	ent_tab ActiveTab;
+	ent_tab Tab;
         
 	//::Input.
 	
@@ -79,6 +79,7 @@ struct ent_window
         //
         
         void SwitchTab( w_tab* );
+        std::shared_ptr<w_overlay> OverlayGet();
         
         bool Visible();
     
