@@ -157,6 +157,9 @@ void widget::SetSecondPosition( const point& position2 )
 	this->Size = AreaSize( Position, position2 );
 }
 
+/** @brief Sets parent of the widget to specified pointer, if valid.
+ *  @warning Doesn't add the widget to parent's widget list, for internal use only.
+ */
 void widget::SetParent( std::weak_ptr<widget> Parent )
 {
         const std::shared_ptr<widget> Old = this->Parent.lock();
@@ -170,6 +173,9 @@ void widget::SetParent( std::weak_ptr<widget> Parent )
 	}
 }
 
+/** @brief Sets parent of the widget to specified pointer, if valid.
+ *  @warning Doesn't add the widget to parent's widget list, for internal use only.
+ */
 bool widget::SetParent( widget* const Parent )
 {
 	std::weak_ptr<widget> Pointer = WidgetByPointer( Parent );
@@ -238,6 +244,7 @@ void widget::ClearChildren()
         this->Children.clear();
 }
 
+/** @brief Removes the widget from its parent. */
 void widget::Remove()
 {
         std::shared_ptr<widget> SelfPointer = WidgetByPointer( this ).lock();

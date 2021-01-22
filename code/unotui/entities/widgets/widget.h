@@ -162,9 +162,9 @@ struct widget
 
         void SimpleCopy( const widget& );
 
-        void SetSecondPosition( const point& position2 );
-        void SetParent( std::weak_ptr<widget> parent_ );
-        bool SetParent( widget* parent_ );
+        void SetSecondPosition( const point& Position2 );
+        void SetParent( std::weak_ptr<widget> Parent );
+        bool SetParent( widget* Parent );
         std::shared_ptr<widget> AddChild( std::shared_ptr<widget> );
         std::shared_ptr<widget> AddChild( widget* );
         template< class T >
