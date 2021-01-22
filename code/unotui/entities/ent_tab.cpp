@@ -11,6 +11,17 @@ std::weak_ptr<widget> ent_tab::AddWidget( widget* const widget_ )
         return std::weak_ptr<widget>( SharedPointer );
 }
 
+void ent_tab::RemoveWidget( widget* const Widget )
+{
+        for( std::size_t i = this->Widgets.size(); i != 0;) {
+                i--;
+                if( this->Widgets[i].get() == Widget ) {
+                        this->Widgets.erase( this->Widgets.begin()+i );
+                        return;
+                }
+        }
+}
+
 void ent_tab::SwitchTab( w_tab* Tab )
 {
         if( this->PendingTab ){

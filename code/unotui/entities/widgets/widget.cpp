@@ -157,12 +157,12 @@ void widget::SetSecondPosition( const point& position2 )
 	this->Size = AreaSize( Position, position2 );
 }
 
-void widget::SetParent( std::weak_ptr<widget> parent_ )
+void widget::SetParent( std::weak_ptr<widget> Parent )
 {
         const std::shared_ptr<widget> Old = this->Parent.lock();
-	if( !parent_.expired() )
+	if( !Parent.expired() )
 	{
-		this->Parent = parent_;
+		this->Parent = Parent;
                 
                 if( Old ) {
                         Old->Invalidate( ValidityState::ChildrenUpdated );
@@ -170,11 +170,11 @@ void widget::SetParent( std::weak_ptr<widget> parent_ )
 	}
 }
 
-bool widget::SetParent( widget* const parent_ )
+bool widget::SetParent( widget* const Parent )
 {
-	std::weak_ptr<widget> pointer = WidgetByPointer( parent_ );
-	this->SetParent( pointer );
-	return !pointer.expired();
+	std::weak_ptr<widget> Pointer = WidgetByPointer( Parent );
+	this->SetParent( Pointer );
+	return !Pointer.expired();
 }
 
 std::shared_ptr<widget> widget::AddChild( std::shared_ptr<widget> Child )
@@ -221,10 +221,10 @@ void widget::RemoveChild( widget* Child )
 
 void widget::RemoveChild( const std::size_t& Index )
 {
-	const widget* Child = this->Children[Index].get();
+	widget* const Child = this->Children[Index].get();
 	if( Child )
 	{
-		Child->Parent.lock() = nullptr;
+		Child->Parent.reset();
 	}
 	this->Children.erase( this->Children.begin()+Index );
         this->Invalidate( ValidityState::ChildrenUpdated );
@@ -238,6 +238,20 @@ void widget::ClearChildren()
         this->Children.clear();
 }
 
+void widget::Remove()
+{
+        std::shared_ptr<widget> SelfPointer = WidgetByPointer( this ).lock();
+        std::shared_ptr<widget> Parent      = this->Parent.lock();
+        
+        if( Parent ) {
+                Parent->RemoveChild( this );
+        } else {
+                TheWindowManager.Cur().Tab.RemoveWidget( this );
+        }
+        
+        // SelfPointer should get destroyed here.
+        
+}
 
 void widget::Invalidate( ValidityState_t Reason )
 {

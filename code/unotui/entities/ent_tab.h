@@ -34,6 +34,7 @@ struct ent_tab
         
         //::Functions.
         std::weak_ptr<widget> AddWidget( widget* const );
+        void                  RemoveWidget( widget* const );
         
         void SwitchTab( w_tab* );
         void SwitchTabToPending();

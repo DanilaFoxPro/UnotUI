@@ -179,6 +179,7 @@ struct widget
         void RemoveChild( widget* Child );
         void RemoveChild( const std::size_t& Index );
         void ClearChildren();
+        void Remove();
 
         //
 
