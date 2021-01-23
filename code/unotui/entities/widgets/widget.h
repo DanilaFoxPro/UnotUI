@@ -38,6 +38,7 @@ namespace ValidityState
         ParametersUpdated  = ValidityState_t(4),
         Mouse              = ValidityState_t(8),
         ChildrenUpdated    = ValidityState_t(16),
+        WindowRepositioned = ValidityState_t(32),
         
         RefreshEverything  = ValidityState_t(-1),
     };

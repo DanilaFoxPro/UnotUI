@@ -137,9 +137,38 @@ void UpdateWindows()
                                 printf( "Window[%i] buffer resized to: %i %i\n", (int)i, TheWindow.x, TheWindow.y );
                                 
                                 // Widget geometry is no longer valid.
-                                const int window_index = i;
-                                InvalidateAllWidgets( window_index, ValidityState::Resized );
+                                const int WindowIndex = i;
+                                InvalidateAllWidgets( WindowIndex, ValidityState::Resized );
                         }
+                }
+                
+                //::Get position.
+                {
+                        float ScaleX, ScaleY;
+                        
+                        const int OldPositionX = TheWindow.PositionX;
+                        const int OldPositionY = TheWindow.PositionY;
+                        
+                        glfwGetWindowPos(
+                                TheWindow.Reference,
+                                &TheWindow.PositionX,
+                                &TheWindow.PositionY
+                        );
+                        glfwGetWindowContentScale(
+                                TheWindow.Reference,
+                                &ScaleX,
+                                &ScaleY
+                        );
+                        TheWindow.PositionX *= ScaleX;
+                        TheWindow.PositionY  = -(TheWindow.y+TheWindow.PositionY*ScaleY);
+                        
+                        if( OldPositionX != TheWindow.PositionX
+                            || OldPositionY != TheWindow.PositionY
+                        ) {
+                                const int WindowIndex = i;
+                                InvalidateAllWidgets( WindowIndex, ValidityState::WindowRepositioned );
+                        }
+                        
                 }
                 
         }//for each window.

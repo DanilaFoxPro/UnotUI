@@ -56,7 +56,7 @@ widget::widget( const widget& Widget )
 				ClassName(*this) +
 				" invoked with a " +
 				ClassName(*this) +
-				" that has a children.";
+				" that has children.";
 		throw std::invalid_argument( Message.c_str() );
 	}
 }

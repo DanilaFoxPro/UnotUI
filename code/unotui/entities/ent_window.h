@@ -47,7 +47,10 @@ struct ent_window
 	GLFWwindow *Reference;
 	union { int Width ; int x; };
 	union { int Height; int y; };
-	
+        
+        int PositionX = 0;
+        int PositionY = 0;
+        
 	  /** Useful for scaling text and widgets. */
 	std::size_t ScaleReference = 1;
 	  /** Pixel size as width and height ratio
