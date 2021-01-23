@@ -9,6 +9,7 @@ ${APP_LIBRARY_NAME}
                 font_symbols.h
                 fpoint.h
                 general.h
+                ipoint.h
                 packed_data.h
                 point.h
                 shortcuts.h
@@ -23,6 +24,7 @@ ${APP_LIBRARY_NAME}
                 dpoint.cpp
                 fpoint.cpp
                 general.cpp
+                ipoint.cpp
                 point.cpp
                 shortcuts.cpp
                 text.cpp

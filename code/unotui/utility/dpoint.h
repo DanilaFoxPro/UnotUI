@@ -21,23 +21,23 @@ struct dpoint
 	std::string String() const;
 };
 
-dpoint operator+( const dpoint& , const dpoint& );
-dpoint operator-( const dpoint& );
-dpoint operator-( const dpoint& , const dpoint& );
+dpoint  operator+( const dpoint& , const dpoint& );
+dpoint  operator-( const dpoint& );
+dpoint  operator-( const dpoint& , const dpoint& );
 dpoint& operator+=( dpoint& , const dpoint& );
 dpoint& operator-=( dpoint& , const dpoint& );
-dpoint operator*( const dpoint& , const dpoint& );
-dpoint operator/( const dpoint& , const dpoint& );
+dpoint  operator*( const dpoint& , const dpoint& );
+dpoint  operator/( const dpoint& , const dpoint& );
 
-dpoint operator*( const dpoint, const int );
-dpoint operator/( const dpoint, const int );
-dpoint operator*( const int, const dpoint );
-dpoint operator/( const int, const dpoint );
+dpoint  operator*( const dpoint, const int );
+dpoint  operator/( const dpoint, const int );
+dpoint  operator*( const int, const dpoint );
+dpoint  operator/( const int, const dpoint );
 
-dpoint operator*( const dpoint, const double );
-dpoint operator/( const dpoint, const double );
-dpoint operator*( const double, const dpoint );
-dpoint operator/( const double, const dpoint );
+dpoint  operator*( const dpoint, const double );
+dpoint  operator/( const dpoint, const double );
+dpoint  operator*( const double, const dpoint );
+dpoint  operator/( const double, const dpoint );
 
 } // namespace unotui
 
