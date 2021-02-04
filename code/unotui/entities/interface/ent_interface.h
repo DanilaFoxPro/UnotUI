@@ -60,7 +60,7 @@ struct ent_interface
                 /** @brief Called for each new window.
                  *  A good opportunity to switch tab.
                  */
-        virtual void OnNewWindow( ent_window& Window ) {};
+        virtual void OnNewWindow( ent_window& Window, void* Context ) {};
         
 };
 

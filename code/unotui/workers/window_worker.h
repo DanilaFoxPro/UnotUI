@@ -9,9 +9,9 @@
 
 namespace unotui {
 
-void CreateWindow();
+void CreateWindow( void* const Context = nullptr );
 void CreatePendingWindows();
-void CreateWindowImmediately();
+void CreateWindowImmediately( const pending_window& Pending );
 void UpdateWindows();
 void CheckMouseInput();
 void CheckMouseInput( const std::size_t window );

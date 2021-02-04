@@ -14,11 +14,13 @@
 namespace unotui {
 
 /** Doesn't create the window right away, but schedules its
-*  creation to an appropriate time.
-*/
-void CreateWindow()
+ *  creation to an appropriate time.
+ */
+void CreateWindow( void* const Context )
 {
         pending_window PendingWindow;
+        PendingWindow.Context = Context;
+        
         TheWindowManager.PendingWindows.push_back( PendingWindow );
 }
 
@@ -26,7 +28,7 @@ void CreatePendingWindows()
 {
         //:: Pending windows.
         for( auto Pending : TheWindowManager.PendingWindows ){
-                CreateWindowImmediately();
+                CreateWindowImmediately( Pending );
         }
         TheWindowManager.PendingWindows.clear();
 }
@@ -36,7 +38,7 @@ void CreatePendingWindows()
 * 
 *  @note Sets the newly created window as current.
 */
-void CreateWindowImmediately()
+void CreateWindowImmediately( const pending_window& Pending )
 {
         
         TheWindowManager.Windows.push_back( ent_window() );
@@ -81,7 +83,7 @@ void CreateWindowImmediately()
         
         //:: Interface callback.
         
-        if( TheApplication.Interface ) TheApplication.Interface->OnNewWindow( TheWindow );
+        if( TheApplication.Interface ) TheApplication.Interface->OnNewWindow( TheWindow, Pending.Context );
         
 }
 

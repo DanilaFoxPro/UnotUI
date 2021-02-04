@@ -28,6 +28,10 @@ struct key_item
 
 struct pending_window
 {
+                /** @brief Additional information associated with the window.
+                 *  @note  Passed to `ent_interface::OnNewWindow()` callback.
+                 */
+        void* Context = nullptr;
 };
 
 struct theme
