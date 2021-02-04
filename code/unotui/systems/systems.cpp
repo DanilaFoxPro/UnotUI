@@ -39,7 +39,6 @@ namespace systems
                 void setup_shaders();
                 void setup_variables();
                 void setup_callbacks();
-                void setup_window();
         void cycle();
                 void cycle_window();
                 void cycle_input();
@@ -71,7 +70,6 @@ namespace systems
                 setup_shaders();
                 setup_variables();
                 setup_callbacks();
-                setup_window();
                 
                 if( TheApplication.Interface ) TheApplication.Interface->PostSetup();
         
@@ -209,18 +207,6 @@ namespace systems
         {
                 // Window callbacks are setup within 'CreateWindow()'.
                 std::atexit( CallbackExit );
-        }
-        
-        void setup_window()
-        {
-                printf("Creating window\n{\n");
-                
-                //:: Window.
-                
-                CreateWindow();
-                CreatePendingWindows();
-                
-                printf("}\n");
         }
         
         void cycle()
