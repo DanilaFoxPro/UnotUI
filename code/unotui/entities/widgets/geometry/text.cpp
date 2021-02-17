@@ -176,7 +176,11 @@ void text_geometry::AddText(
                                 
                                 const auto ColorChange = Colors[CurColorChange];
                                 const std::size_t SinceLast = TotalCharactersAdded-LastColorChangeChar;
-                        
+                                
+                                // Adds a new colored patch or replaces an existing one,
+                                // depending on if current colored patch is on the same
+                                // character as the previous one.
+                                //
                                 if( SinceLast != 0 ) {
                                         const std::size_t IndicesSinceLast = SinceLast*6;
                                         this->Patches.push_back(
