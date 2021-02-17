@@ -11,6 +11,10 @@
 
 namespace unotui {
 
+/**
+ *  @brief Colored patch structure used to store color changes inside
+ *         'text_geometry'.
+ */
 struct colored_patch
 {
         colored_patch() = default;

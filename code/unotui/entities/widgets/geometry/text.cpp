@@ -171,16 +171,14 @@ void text_geometry::AddText(
                 int RightShift = 0;
                 for( std::size_t i = 0; i <= SplitLine.Length(); i++, TotalCharactersAdded++ ) {
                         
+                        // Add or update colored patch which represents previous color change
+                        // when encountering present color change.
                         while( Colors.size() > CurColorChange+1
                                 && Colors[CurColorChange+1].Position == text_coord{Line, i} ) {
                                 
                                 const auto ColorChange = Colors[CurColorChange];
                                 const std::size_t SinceLast = TotalCharactersAdded-LastColorChangeChar;
                                 
-                                // Adds a new colored patch or replaces an existing one,
-                                // depending on if current colored patch is on the same
-                                // character as the previous one.
-                                //
                                 if( SinceLast != 0 ) {
                                         const std::size_t IndicesSinceLast = SinceLast*6;
                                         this->Patches.push_back(
@@ -193,7 +191,7 @@ void text_geometry::AddText(
                                         LastColorChangeChar = TotalCharactersAdded;
                                 } else if( this->Patches.size() != 0 ) {
                                         colored_patch& LastPatch = this->Patches[this->Patches.size()-1];
-                                        LastPatch.Color = ColorChange.Color;
+                                        LastPatch.Color           = ColorChange.Color;
                                         LastPatch.BackgroundColor = ColorChange.BackgroundColor;
                                 }
                                 
