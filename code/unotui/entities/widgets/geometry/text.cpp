@@ -65,7 +65,7 @@ void text_geometry::Clear()
 
 void text_geometry::AddText(
         const std::string& Text,
-        int FontSize,
+        unit FontSize,
         fpoint Origin,
         rgba Color,
         float TopCut,
@@ -86,7 +86,7 @@ void text_geometry::AddText(
 void text_geometry::AddText(
         const std::string& Text,
         std::vector<split_line> Lines,
-        int FontSize,
+        unit FontSize,
         fpoint Origin,
         rgba Color,
         float TopCut,
@@ -119,7 +119,7 @@ void text_geometry::AddText(
 void text_geometry::AddText(
         const std::string& Text,
         std::vector<split_line> Lines,
-        int FontSize,
+        unit FontSize,
         fpoint Origin,
         std::vector<color_change> Colors,
         float TopCut,
@@ -131,14 +131,23 @@ void text_geometry::AddText(
          *       Perhaps split into multiple functions.
          */
         
+        // Make sure to change text color to default (black). Otherwise
+        // text color would remain the same as for the previously
+        // rendered text, leading to possible inconsistency.
+        // Clamping cuts, to be safe.
+        // OriginY is decremented with each text line, and keeps track
+        // of where the text should start vertically. OriginX
+        // (constant) and RightShift (integer) are fulfilling the same
+        // task for horizontal offset.
+        // Text coloring is done by grouping into 'colored_patch'es,
+        // see 'text_geometry::Draw()'.
+        //
         if( Colors.size() == 0 ) {
                 Colors = {{{0, 0}, color::black}};
         }
         
-        ent_window& TheWindow = TheWindowManager.Cur();
-        
-        const float FontHeight = pixel(FontSize).ratio( TheWindow.Height );
-        const float FontWidth  = pixel(FontSize).ratio( TheWindow.Width );
+        const float FontWidth  = FontSize.xratio();
+        const float FontHeight = FontSize.yratio();
         
         TopCut    = clamp( TopCut, 0.0f, 1.0f );
         BottomCut = clamp( BottomCut, 0.0f, 1.0f );
@@ -146,8 +155,8 @@ void text_geometry::AddText(
         const float InvTopCut = 1.0f-TopCut;
         const float InvBottomCut = 1.0f-BottomCut;
         
-        const float OriginX = Origin.x;
-              float OriginY = Origin.y;
+        const float& OriginX = Origin.x;
+              float& OriginY = Origin.y;
         
         const std::size_t LastLine = Lines.size()-1;
         std::size_t TotalCharactersAdded = 0;

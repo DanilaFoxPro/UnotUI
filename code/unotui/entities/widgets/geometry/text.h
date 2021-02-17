@@ -59,7 +59,7 @@ struct text_geometry : public texture_geometry
         
         void AddText(
                 const std::string& Text,
-                int FontSize,
+                unit FontSize,
                 fpoint Origin,
                 rgba Color = color::black,
                 float TopCut = 0.0f,
@@ -69,7 +69,7 @@ struct text_geometry : public texture_geometry
         void AddText(
                 const std::string& Text,
                 std::vector<split_line> Lines,
-                int FontSize,
+                unit FontSize,
                 fpoint Origin,
                 rgba Color = color::black,
                 float TopCut = 0.0f,
@@ -79,7 +79,7 @@ struct text_geometry : public texture_geometry
         void AddText(
                 const std::string& Text,
                 std::vector<split_line> Lines,
-                int FontSize,
+                unit FontSize,
                 fpoint Origin,
                 std::vector<color_change> Colors = {{{0, 0}, color::black}},
                 float TopCut = 0.0f,
