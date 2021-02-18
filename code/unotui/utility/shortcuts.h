@@ -90,6 +90,13 @@ std::vector< Type* > ResolveShared( const std::vector<std::shared_ptr<Type>>& Sh
         return Resolved;
 }
 
+/** @brief Returns last index of a vector. Basically the shortcut for `Vector.size()-1`. */
+template < class Type, class Allocator >
+inline std::size_t LastIndex( const std::vector<Type, Allocator>& Vector )
+{
+	return Vector.size()-1;
+}
+
 //:: Multithreading.
 
 /**
