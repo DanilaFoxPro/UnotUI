@@ -3,12 +3,31 @@
 #include <unotui\entities\ent_opengl.h>
 #include <unotui\utility\shortcuts.h>
 #include <unotui\entities\ent_window.h>
+#include <unotui\utility\debug.h>
 
 namespace unotui {
 
 text_geometry::text_geometry( GLenum Usage )
 {
         this->Usage = Usage;
+}
+
+void text_geometry::DrawChangeColor( const rgba Text, const rgba Background )
+{
+        glUniform4f(
+                glGetUniformLocation( the_opengl.TextShader, "fontColor" ),
+                Text.r,
+                Text.g,
+                Text.b,
+                Text.a
+        );
+        glUniform4f(
+                glGetUniformLocation( the_opengl.TextShader, "fontBackgroundColor" ),
+                Background.r,
+                Background.g,
+                Background.b,
+                Background.a
+        );
 }
 
 void text_geometry::Draw()
@@ -24,32 +43,52 @@ void text_geometry::Draw()
         glActiveTexture(GL_TEXTURE0);
         glBindTexture( GL_TEXTURE_2D, the_opengl.FontTexture );
         
-        std::size_t Offset = 0;
-        for( colored_patch Patch : this->Patches ) {
+        // While 'AddText()' already has default color on 0th index,
+        // I want to make sure the possibility of first color change
+        // not being on index 0 is covered. (Future-proof, perhaps.)
+        this->DrawChangeColor( color::black, color::transparent );
+        
+        std::size_t IndexOffset = 0;
+        for( size_t i = 0; i < this->ColorChanges.size(); i++ ) {
                 
-                glUniform4f(
-                        glGetUniformLocation( the_opengl.TextShader, "fontColor" ),
-                        Patch.Color.r,
-                        Patch.Color.g,
-                        Patch.Color.b,
-                        Patch.Color.a
+                // The idea is pretty simple, use color changes to delimit
+                // drawing calls. Change color, then draw everything
+                // between current color change and the next one (or the
+                // end of indices). Repeat.
+                // 
+                
+                const auto Change = this->ColorChanges[i];
+                
+                size_t NextChangeIndex = this->Indices.size();
+                if( i != LastIndex(this->ColorChanges) ) {
+                        NextChangeIndex = this->ColorChanges[i+1].Index;
+                }
+                
+                if( Change.Index == NextChangeIndex ) {
+                        continue;
+                }
+                
+                assert(
+                        NextChangeIndex > Change.Index,
+                        "Changes vector should be sorted. This assert will fail if "
+                        "a color change with lower 'index' occurs later in the "
+                        "vector, thus constituting a retroactive color change, "
+                        "which isn't supported."
                 );
-                glUniform4f(
-                        glGetUniformLocation( the_opengl.TextShader, "fontBackgroundColor" ),
-                        Patch.BackgroundColor.r,
-                        Patch.BackgroundColor.g,
-                        Patch.BackgroundColor.b,
-                        Patch.BackgroundColor.a
-                );
+                
+                this->DrawChangeColor( Change.Color, Change.BackgroundColor );
+                
+                // Number of indices to draw this time.
+                const size_t DrawCount = NextChangeIndex-Change.Index;
                 
                 glDrawElements(
                         GL_TRIANGLES,
-                        Patch.Length,
+                        DrawCount,
                         GL_UNSIGNED_INT,
-                        (void*)(Offset*sizeof(unsigned int))
+                        (void*)(IndexOffset*sizeof(unsigned int))
                 );
                 
-                Offset += Patch.Length;
+                IndexOffset += DrawCount;
         }
 
         if( this->EnableBlend ) {
@@ -60,7 +99,7 @@ void text_geometry::Draw()
 void text_geometry::Clear()
 {
         texture_geometry::Clear();
-        this->Patches.clear();
+        this->ColorChanges.clear();
 }
 
 void text_geometry::AddText(
@@ -142,8 +181,10 @@ void text_geometry::AddText(
         // Text coloring is done by grouping into 'colored_patch'es,
         // see 'text_geometry::Draw()'.
         //
-        if( Colors.size() == 0 ) {
-                Colors = {{{0, 0}, color::black}};
+        
+        if( Colors.size() == 0
+            || Colors[0].Position != text_coord{0, 0} ) {
+                Colors.insert( Colors.begin(), {{{0, 0}, color::black}} );
         }
         
         const float FontWidth  = FontSize.xratio();
@@ -162,7 +203,7 @@ void text_geometry::AddText(
         std::size_t TotalCharactersAdded = 0;
         
         std::size_t CurColorChange = 0;
-        std::size_t LastColorChangeChar = 0;
+        std::size_t LastColorChangeIndex = this->ColorChanges.size() != 0 ? this->ColorChanges[this->ColorChanges.size()-1].Index : -1;
         
         for( std::size_t Line = 0; Line < Lines.size(); Line++ )
         {
@@ -171,31 +212,35 @@ void text_geometry::AddText(
                 int RightShift = 0;
                 for( std::size_t i = 0; i <= SplitLine.Length(); i++, TotalCharactersAdded++ ) {
                         
-                        // Add or update colored patch which represents previous color change
-                        // when encountering present color change.
-                        while( Colors.size() > CurColorChange+1
-                                && Colors[CurColorChange+1].Position == text_coord{Line, i} ) {
+                        // Using a while loop because multiple color changes could be stacked
+                        // on top of each other. In which case, only the last one should
+                        // persist.
+                        while( Colors[CurColorChange].Position == text_coord{ Line, i } ) {
                                 
-                                const auto ColorChange = Colors[CurColorChange];
-                                const std::size_t SinceLast = TotalCharactersAdded-LastColorChangeChar;
+                                const color_change ColorChange  = Colors[CurColorChange];
+                                const size_t       CurrentIndex = this->Indices.size();
                                 
-                                if( SinceLast != 0 ) {
-                                        const std::size_t IndicesSinceLast = SinceLast*6;
-                                        this->Patches.push_back(
-                                                colored_patch(
-                                                        IndicesSinceLast,
+                                if( LastColorChangeIndex == CurrentIndex ) {
+                                        this->ColorChanges[this->ColorChanges.size()-1].Color           = ColorChange.Color;
+                                        this->ColorChanges[this->ColorChanges.size()-1].BackgroundColor = ColorChange.BackgroundColor;
+                                } else if( this->ColorChanges.size() != 0
+                                                && this->ColorChanges[CurColorChange-1].Color           == ColorChange.Color
+                                                && this->ColorChanges[CurColorChange-1].BackgroundColor == ColorChange.BackgroundColor
+                                ) {
+                                        // Don't do anything, this color change isn't actually a change.
+                                } else {
+                                        this->ColorChanges.push_back(
+                                                tg_colored_change(
+                                                        CurrentIndex,
                                                         ColorChange.Color,
                                                         ColorChange.BackgroundColor
                                                 )
                                         );
-                                        LastColorChangeChar = TotalCharactersAdded;
-                                } else if( this->Patches.size() != 0 ) {
-                                        colored_patch& LastPatch = this->Patches[this->Patches.size()-1];
-                                        LastPatch.Color           = ColorChange.Color;
-                                        LastPatch.BackgroundColor = ColorChange.BackgroundColor;
+                                        LastColorChangeIndex = CurrentIndex;
                                 }
                                 
                                 CurColorChange++;
+                                
                         }
                         
                         const char& CurrentChar = Text[SplitLine[i]];
@@ -239,18 +284,6 @@ void text_geometry::AddText(
                 } else {
                         OriginY -= FontHeight;
                 }
-        }
-        
-        const std::size_t SinceLastChange = TotalCharactersAdded-LastColorChangeChar;
-        if( SinceLastChange != 0 ) {
-                const std::size_t IndicesSinceLast = SinceLastChange*6;
-                this->Patches.push_back(
-                        colored_patch(
-                                IndicesSinceLast,
-                                Colors[CurColorChange].Color,
-                                Colors[CurColorChange].BackgroundColor
-                        )
-                );
         }
         
 }

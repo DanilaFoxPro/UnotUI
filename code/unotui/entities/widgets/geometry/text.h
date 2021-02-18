@@ -12,28 +12,31 @@
 namespace unotui {
 
 /**
- *  @brief Colored patch structure used to store color changes inside
- *         'text_geometry'.
+ *  @brief Structure used to store color changes inside 'text_geometry'.
  */
-struct colored_patch
+struct tg_colored_change
 {
-        colored_patch() = default;
-        colored_patch( std::size_t Length, rgba Color )
+        tg_colored_change() = default;
+        tg_colored_change( std::size_t Index, rgba Color )
         {
-                this->Length = Length;
+                this->Index = Index;
                 this->Color = Color;
         }
-        colored_patch( std::size_t Length, rgba Color, rgba BackgroundColor )
+        tg_colored_change( std::size_t Index, rgba Color, rgba BackgroundColor )
         {
-                this->Length = Length;
+                this->Index = Index;
                 this->Color = Color;
                 this->BackgroundColor = BackgroundColor;
         }
-        std::size_t Length;
-        rgba Color = color::black;
+        std::size_t Index = 0;
+        
+        rgba Color           = color::black;
         rgba BackgroundColor = color::transparent;
 };
 
+/**
+ *  @brief Used to describe color changes when calling 'text_geometry::AddText()'.
+ */
 struct color_change
 {
         color_change() = default;
@@ -49,13 +52,13 @@ struct color_change
                 this->BackgroundColor = BackgroundColor;
         }
         text_coord Position = {0, 0};
-        rgba Color = color::black;
+        rgba Color           = color::black;
         rgba BackgroundColor = color::transparent;
 };
 
 struct text_geometry : public texture_geometry
 {
-        std::vector< colored_patch > Patches;
+        std::vector< tg_colored_change > ColorChanges;
         
         text_geometry( GLenum Usage = GL_STATIC_DRAW );
         virtual void Draw(void);
@@ -89,6 +92,10 @@ struct text_geometry : public texture_geometry
                 float TopCut = 0.0f,
                 float BottomCut = 0.0f
         );
+        
+        //:: Internal helper functions.
+        
+        void DrawChangeColor( const rgba Text, const rgba Background );
         
 };
 
