@@ -64,6 +64,7 @@ void text_geometry::Draw()
                         NextChangeIndex = this->ColorChanges[i+1].Index;
                 }
                 
+                // No use changing color to draw zero elements.
                 if( Change.Index == NextChangeIndex ) {
                         continue;
                 }
