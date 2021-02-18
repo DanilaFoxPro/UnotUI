@@ -178,8 +178,9 @@ void text_geometry::AddText(
         // of where the text should start vertically. OriginX
         // (constant) and RightShift (integer) are fulfilling the same
         // task for horizontal offset.
-        // Text coloring is done by grouping into 'colored_patch'es,
-        // see 'text_geometry::Draw()'.
+        // Text coloring is done by storing indices on which to change
+        // color, see 'text_geometry::Draw()'. This function converts
+        // 'color_change' to 'tg_color_change' and removes duplicates.
         //
         
         if( Colors.size() == 0
@@ -230,7 +231,7 @@ void text_geometry::AddText(
                                         // Don't do anything, this color change isn't actually a change.
                                 } else {
                                         this->ColorChanges.push_back(
-                                                tg_colored_change(
+                                                tg_color_change(
                                                         CurrentIndex,
                                                         ColorChange.Color,
                                                         ColorChange.BackgroundColor

@@ -14,15 +14,15 @@ namespace unotui {
 /**
  *  @brief Structure used to store color changes inside 'text_geometry'.
  */
-struct tg_colored_change
+struct tg_color_change
 {
-        tg_colored_change() = default;
-        tg_colored_change( std::size_t Index, rgba Color )
+        tg_color_change() = default;
+        tg_color_change( std::size_t Index, rgba Color )
         {
                 this->Index = Index;
                 this->Color = Color;
         }
-        tg_colored_change( std::size_t Index, rgba Color, rgba BackgroundColor )
+        tg_color_change( std::size_t Index, rgba Color, rgba BackgroundColor )
         {
                 this->Index = Index;
                 this->Color = Color;
@@ -58,7 +58,7 @@ struct color_change
 
 struct text_geometry : public texture_geometry
 {
-        std::vector< tg_colored_change > ColorChanges;
+        std::vector< tg_color_change > ColorChanges;
         
         text_geometry( GLenum Usage = GL_STATIC_DRAW );
         virtual void Draw(void);
