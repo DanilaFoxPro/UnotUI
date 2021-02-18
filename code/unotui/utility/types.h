@@ -26,6 +26,9 @@ struct rgb
         }
 };
 
+bool operator==( const rgb&, const rgb& );
+bool operator!=( const rgb&, const rgb& );
+
 rgb operator+( const rgb&, const rgb& );
 rgb operator-( const rgb&, const rgb& );
 rgb operator/( const rgb&, const rgb& );
@@ -65,6 +68,9 @@ struct rgba : public rgb
 		this->a = a_;
 	}
 };
+
+bool operator==( const rgba&, const rgba& );
+bool operator!=( const rgba&, const rgba& );
 
 struct vertex : public fpoint
 {

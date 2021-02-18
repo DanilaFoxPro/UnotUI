@@ -5,7 +5,21 @@
 
 namespace unotui {
 
-//:: RGB operators.
+        //:: RGB operators.
+
+bool operator==( const rgb& A, const rgb& B )
+{
+        return (
+                A.blue  == B.blue  &&
+                A.green == B.green &&
+                A.blue  == B.blue
+        );
+}
+
+bool operator!=( const rgb& A, const rgb& B )
+{
+        return !operator==( A, B );
+}
 
 rgb operator+( const rgb& Color1, const rgb& Color2 )
 {
@@ -145,6 +159,23 @@ vertex operator-( const vertex& A, const vertex& B )
                 A.x - B.x,
                 A.y - B.y
         );
+}
+
+        //:: RGBA operators.
+
+bool operator==( const rgba& A, const rgba& B )
+{
+        return (
+                A.blue  == B.blue  &&
+                A.green == B.green &&
+                A.blue  == B.blue  &&
+                A.alpha == B.alpha
+        );
+}
+
+bool operator!=( const rgba& A, const rgba& B )
+{
+        return !operator==( A, B );
 }
 
         //:: Rectangle constructors.
