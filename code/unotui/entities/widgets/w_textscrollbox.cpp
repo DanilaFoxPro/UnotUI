@@ -178,7 +178,7 @@ void w_textscrollbox::OnDraw()
  */
 void w_textscrollbox::SetScrollOffset( float Ratio )
 {
-        this->ScrollBar->ScrollOffsetSet( Ratio*this->ScrollBar->MaximumOffset() );
+        this->ScrollBar->ScrollOffsetSet( Ratio*this->ScrollBar->MaximumOffsetGet() );
 	this->Invalidate();
 }
 

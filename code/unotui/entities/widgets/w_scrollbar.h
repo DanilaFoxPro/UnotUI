@@ -20,7 +20,7 @@ private:
 public:
         
 //:: Input.
-        bool bHasMouse = false;
+        bool   bHasMouse       = false;
         
 //:: Geometry.
         color_geometry gColor = color_geometry(GL_STREAM_DRAW);
@@ -64,10 +64,12 @@ public:
         double ScrollOffsetGet() const;
         double ScrollViewzoneGet() const;
         
-        double MaximumOffset() const;
-        double MaximumOffsetRatio() const;
-        double ViewzoneRatio() const;
-        double OffsetRatio() const;
+        double MaximumOffsetGet() const;
+        double MaximumOffsetRatioGet() const;
+        double ViewzoneRatioGet() const;
+        double OffsetRatioGet() const;
+        
+        double PositionAsScrollRatio( const unit ) const;
         
 };
 
