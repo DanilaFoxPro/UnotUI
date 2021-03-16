@@ -127,15 +127,19 @@ void color_geometry::AddArrow(
 )
 {
         
-        // BUG: This function uses ratio coordinates, this means
-        //      that arrows' midpoint gets stretched depending
-        //      on the window aspect ratio.
+        // An old version of this function used ratio coordinates,
+        // this resulted in middle part of the arrow (where the
+        // line and the arrowhead connect) being distorted
+        // depending on the window aspect ratio.
+        // This is solved here by converting everything to pixels
+        // first.
         
-        const dpoint DStart     = Beginning;
-        const dpoint DEnd       = End;
-        const dpoint DThickness = pixel(Thickness);
-        const dpoint DTipWidth  = pixel(TipWidth);
-        const dpoint DTipHeight = pixel(TipHeight);
+        const dpoint DStart     = ipoint( Beginning );
+        const dpoint DEnd       = ipoint( End );
+        const dpoint DThickness = ipoint( pixel(Thickness) );
+        const dpoint DTipWidth  = ipoint( pixel(TipWidth)  );
+        const dpoint DTipHeight = ipoint( pixel(TipHeight) );
+        const dpoint DPixel     = pixel(1);
 
         const dpoint DVector         = DEnd-DStart;
         const dpoint DRightVector    = DVector.RightVector().Normalized();
@@ -181,16 +185,16 @@ void color_geometry::AddArrow(
         
         // Vertices for the rectangle.
 
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndLeft, Color };       // End-left.
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndRight, Color };     // End-right.
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartLeft, Color };   // Start-left.
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartRight, Color }; // Start-right.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndLeft * DPixel, Color };       // End-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndRight * DPixel, Color };     // End-right.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartLeft * DPixel, Color };   // Start-left.
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)StartRight * DPixel, Color }; // Start-right.
         
         // Vertices for the triangle.
         
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowBaseLeft, Color };
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowBaseRight, Color };
-        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowTip, Color };
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowBaseLeft * DPixel, Color };
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowBaseRight * DPixel, Color };
+        Vertices[ VertexOffset++ ] = { (unotui::vertex)EndArrowTip * DPixel, Color };
 
 	if( Color.alpha < 1.0f )
 	{

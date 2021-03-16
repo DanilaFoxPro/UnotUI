@@ -5,6 +5,8 @@
 
 namespace unotui {
 
+struct ipoint;
+
 struct dpoint
 {
 	double x, y;
@@ -12,6 +14,8 @@ struct dpoint
 	dpoint( const double, const double );
 	dpoint( const point& );
         dpoint( const unit& );
+        
+        dpoint( const ipoint& );
 	
         double  Length() const;
         dpoint  RightVector() const;

@@ -1,4 +1,6 @@
 #include <unotui\utility\dpoint.h>
+
+#include <unotui\utility\ipoint.h>
 #include <math.h> // sqrt()
 #include <stdexcept>
 
@@ -28,6 +30,12 @@ dpoint::dpoint( const unit& Unit )
 {
         this->x = Unit.xratio();
         this->y = Unit.yratio();
+}
+
+dpoint::dpoint( const ipoint& Point )
+{
+        this->x = Point.x;
+        this->y = Point.y;
 }
 
 double dpoint::Length() const
