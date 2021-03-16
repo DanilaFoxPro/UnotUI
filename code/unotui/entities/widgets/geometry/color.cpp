@@ -126,6 +126,11 @@ void color_geometry::AddArrow(
         const rgba Color
 )
 {
+        
+        // BUG: This function uses ratio coordinates, this means
+        //      that arrows' midpoint gets stretched depending
+        //      on the window aspect ratio.
+        
         const dpoint DStart     = Beginning;
         const dpoint DEnd       = End;
         const dpoint DThickness = pixel(Thickness);
