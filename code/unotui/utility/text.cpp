@@ -145,8 +145,10 @@ std::vector<split_line> CutLines( const std::vector<split_line>& Lines, const si
  */
 std::pair<float, float> TextCutsFromArea( const std::size_t LineCount, const float SpaceHeight, const double Offset )
 {
-        const float TopCut    = modf( Offset, nullptr );
-        const float BottomCut = clamp( (float)modf( LineCount-Offset-SpaceHeight, nullptr ), 0.0f, 1.0f );
+        
+        double Useless;
+        const float TopCut    = modf( Offset, &Useless );
+        const float BottomCut = clamp( (float)modf( LineCount-Offset-SpaceHeight, &Useless ), 0.0f, 1.0f );
         
         return { TopCut, BottomCut };
         
