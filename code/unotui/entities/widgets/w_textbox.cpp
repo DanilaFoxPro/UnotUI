@@ -1,15 +1,15 @@
 #include "w_textbox.h"
 
-#include <unotui\utility\text.h>
-#include <unotui\workers\widget_worker.h>
-#include <unotui\utility\shortcuts.h>
+#include <unotui/utility/text.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/utility/shortcuts.h>
 
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\ent_opengl.h>
-#include <unotui\entities\modules\m_caret.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/ent_opengl.h>
+#include <unotui/entities/modules/m_caret.h>
 
-#include <unotui\utility\colors.h>
-#include <unotui\utility\widget.h>
+#include <unotui/utility/colors.h>
+#include <unotui/utility/widget.h>
 
 #include <stdio.h> //TODO: DEBUG.
 #include <cmath>

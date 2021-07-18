@@ -1,13 +1,13 @@
 #ifndef __UNOTUI_ENTITIES_ENT_WINDOW_H_
 #define __UNOTUI_ENTITIES_ENT_WINDOW_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\utility\fpoint.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\utility\colors.h>
-#include <unotui\entities\ent_tab.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/utility/fpoint.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/utility/colors.h>
+#include <unotui/entities/ent_tab.h>
 
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
 #include <atomic>
 

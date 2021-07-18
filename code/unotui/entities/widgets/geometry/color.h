@@ -1,13 +1,13 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_GEOMETRY_COLOR_H_
 #define __UNOTU_ENTITIES_WIDGETS_GEOMETRY_COLOR_H_
 
-#include <unotui\entities\widgets\geometry\base.h>
+#include <unotui/entities/widgets/geometry/base.h>
 
 #include <vector>
 
-#include <unotui\utility\types.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\utility\colors.h>
+#include <unotui/utility/types.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/utility/colors.h>
 
 namespace unotui {
 

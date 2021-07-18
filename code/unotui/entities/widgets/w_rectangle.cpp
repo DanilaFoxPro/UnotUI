@@ -1,10 +1,10 @@
-#include <unotui\entities\widgets\w_rectangle.h>
+#include <unotui/entities/widgets/w_rectangle.h>
 
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\ent_opengl.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/ent_opengl.h>
 
-#include <unotui\workers\widget_worker.h>
-#include <unotui\utility\widget.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/utility/widget.h>
 
 #include <stdio.h>//TODO: DEBUG
 

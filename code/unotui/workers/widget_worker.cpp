@@ -1,15 +1,15 @@
-#include <unotui\workers\widget_worker.h>
+#include <unotui/workers/widget_worker.h>
 
-#include <unotui\entities\ent_tab.h>
-#include <unotui\entities\ent_opengl.h>
+#include <unotui/entities/ent_tab.h>
+#include <unotui/entities/ent_opengl.h>
 
 #include <cassert>
 #include <stdio.h>//TODO: DEBUG.
 
-#include <unotui\entities\ent_window.h>
-#include <unotui\workers\window_worker.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\utility\widget.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/workers/window_worker.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/utility/widget.h>
 
 namespace unotui {
 
@@ -39,7 +39,7 @@ void ProcessWidgetInput()
                 if( KeyInput.size() ) {
                         for( key_item& Key : KeyInput )
                         {
-                                if( Key.Key == GLFW_KEY_ESCAPE && Widget->bLoseFocusOnESC )
+                                if( Key.Key == GLFW_KEY_ESCAPE && Widget->boLoseFocusOnESC )
                                 {
                                         ResetKeyboardFocus();
                                         break;
@@ -71,14 +71,14 @@ void UpdateWidgetHint( ent_window& TheWindow )
         const bool Changed = HintedWidget != TheTab.LastHint;
         
         if( Changed && TheTab.LastHint ) {
-                TheTab.LastHint->bHintFocused = false;
+                TheTab.LastHint->bsHintFocused = false;
                 TheTab.LastHint->OnHintLeave();
         }
         
         TheTab.LastHint = HintedWidget;
         
         if( Changed && HintedWidget ) {
-                HintedWidget->bHintFocused = true;
+                HintedWidget->bsHintFocused = true;
                 HintedWidget->OnHintEnter();
         }
         
@@ -191,14 +191,14 @@ void SetKeyboardFocus( std::weak_ptr<widget> WeakWidget, ent_window& TheWindow )
         if( Widget )
         {
                 
-                if( !Widget->bKeyboardFocusable )
+                if( !Widget->boKeyboardFocusable )
                 {
                         return;
                 }
                 
-                Widget->bKeyboardFocused = true;
+                Widget->bsKeyboardFocused = true;
                 Widget->OnKeyboardFocused();
-                if( Widget->bInvalidateOnKeyboardFocus )
+                if( Widget->boInvalidateOnKeyboardFocus )
                 {
                         Widget->Invalidate();
                 }
@@ -212,9 +212,9 @@ void ResetKeyboardFocus( ent_window& TheWindow )
         {
                 std::shared_ptr<widget> Widget = TheWindow.KeyboardFocus.lock();
                 
-                Widget->bKeyboardFocused = false;
+                Widget->bsKeyboardFocused = false;
                 Widget->OnLostKeyboardFocus();
-                if( Widget->bInvalidateOnKeyboardFocus )
+                if( Widget->boInvalidateOnKeyboardFocus )
                 {
                         Widget->Invalidate();
                 }
@@ -276,8 +276,8 @@ void mouseButtonTrace( int Button, const std::vector< std::weak_ptr<widget> >& C
                 Locked->OnMousePressed( Button );
                 
                 const bool bShouldFocus = (
-                           Locked->bKeyboardFocusable
-                        && !Locked->bKeyboardFocused
+                           Locked->boKeyboardFocusable
+                        && !Locked->bsKeyboardFocused
                         && Button == GLFW_MOUSE_BUTTON_1
                 );
                 the_interface.MouseReleaseListeners.push_back( {current, Button, bShouldFocus} );
@@ -329,7 +329,7 @@ void ScrollTrace( const std::vector< std::weak_ptr<widget> >& Colliding )
                 auto Current = Colliding[i];
                 std::shared_ptr<widget> Locked;
                 
-                if( (Locked = Current.lock()) && Locked->bAcceptExternalScroll ) {
+                if( (Locked = Current.lock()) && Locked->boAcceptExternalScroll ) {
                         const bool bControlPressed = (
                                 glfwGetKey( TheWindow.Reference, GLFW_KEY_LEFT_CONTROL ) == GLFW_PRESS
                                 || glfwGetKey( TheWindow.Reference, GLFW_KEY_RIGHT_CONTROL ) == GLFW_PRESS

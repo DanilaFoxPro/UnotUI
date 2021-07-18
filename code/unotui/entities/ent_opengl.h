@@ -1,11 +1,11 @@
 #ifndef __UNOTUI_ENTITIES_ENT_OPENGL_H_
 #define __UNOTUI_ENTITIES_ENT_OPENGL_H_
 
-#include <unotui\utility\deps\opengl_includes.h> // GLuint.
+#include <unotui/utility/deps/opengl_includes.h> // GLuint.
 #include <vector>
 #include <chrono>
 
-#include <unotui\utility\types.h>
+#include <unotui/utility/types.h>
 
 namespace unotui {
 

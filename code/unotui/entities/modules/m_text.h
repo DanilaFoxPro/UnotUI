@@ -1,12 +1,12 @@
 #ifndef __UNOTU_ENTITIES_MODULES_M_TEXT_H_
 #define __UNOTU_ENTITIES_MODULES_M_TEXT_H_
 
-#include <unotui\entities\modules\module.h>
+#include <unotui/entities/modules/module.h>
 
 #include <string>
 #include <vector>
 
-#include <unotui\utility\text.h>
+#include <unotui/utility/text.h>
 
 namespace unotui {
 

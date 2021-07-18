@@ -9,18 +9,18 @@
 #include <climits>
 
 //OpenGL.
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
 //Mine.
 
-#include <unotui\entities\events\widget_event.h>
-#include <unotui\utility\coordinates.h>
-#include <unotui\utility\types.h>
+#include <unotui/entities/events/widget_event.h>
+#include <unotui/utility/coordinates.h>
+#include <unotui/utility/types.h>
 
-#include <unotui\entities\widgets\geometry\base.h>
-#include <unotui\entities\widgets\geometry\color.h>
-#include <unotui\entities\widgets\geometry\texture.h>
-#include <unotui\entities\widgets\geometry\text.h>
+#include <unotui/entities/widgets/geometry/base.h>
+#include <unotui/entities/widgets/geometry/color.h>
+#include <unotui/entities/widgets/geometry/texture.h>
+#include <unotui/entities/widgets/geometry/text.h>
 
 namespace unotui {
 
@@ -71,41 +71,41 @@ struct widget
 //:: State.
 
         // General.
-        bool bConstructed = false; // Becomes true after 'PostConstruct()' is called.
+        bool bsConstructed = false; // Becomes true after 'PostConstruct()' is called.
 
         // Collision.
-        bool bMouseOver = false;
-        bool bHintFocused = false;
+        bool bsMouseOver = false;
+        bool bsHintFocused = false;
 
         // Input.
 
-        bool bKeyboardFocused = false;
+        bool bsKeyboardFocused = false;
 
 //:: Options.
                 /** Consume input. */
-        bool bSolid = true;
+        bool boSolid = true;
                 /** Draw all the children after this widget is drawn. */
-        bool bDrawRecursive = true;
+        bool boDrawRecursive = true;
                 /** Refresh the children after this widget is refreshed. */
-        bool bRefreshRecurisve = true;
+        bool boRefreshRecurisve = true;
                 /** Tick the children after this widget is tick'ed. */
-        bool bTickRecursive = true;
+        bool boTickRecursive = true;
                 /** Auto-validate widget after updating the geometry. */
-        bool bValidateOnRefresh = true;
+        bool boValidateOnRefresh = true;
                 /** Invalidate the widget when mouse enters or leaves collision. */
-        bool bInvalidateOnMousePass = false;
+        bool boInvalidateOnMousePass = false;
                 /** Invalidate the widget each frame the mouse hovers over it. */
-        bool bInvalidateOnMouseOver = false;
+        bool boInvalidateOnMouseOver = false;
                 /** Invalidate the widget when it gains or losses keyboard focus. */
-        bool bInvalidateOnKeyboardFocus = false;
+        bool boInvalidateOnKeyboardFocus = false;
                 /** Invalidate children when invalidating via 'InvalidateWidgets()'. */
-        bool bInvalidateChildren = true;
+        bool boInvalidateChildren = true;
                 /** Can accept keyboard focus. ( Via LMB. ) */
-        bool bKeyboardFocusable = false;
+        bool boKeyboardFocusable = false;
                 /** Would accept mouse scroll wheel scroll. */
-        bool bAcceptExternalScroll = false;
+        bool boAcceptExternalScroll = false;
                 /** Lose keyboard focus when ESC is pressed. */
-        bool bLoseFocusOnESC = true;
+        bool boLoseFocusOnESC = true;
 
 //:: Functions.
 

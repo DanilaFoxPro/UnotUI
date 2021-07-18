@@ -1,4 +1,4 @@
-#include <unotui\entities\widgets\geometry\base.h>
+#include <unotui/entities/widgets/geometry/base.h>
 
 namespace unotui {
 

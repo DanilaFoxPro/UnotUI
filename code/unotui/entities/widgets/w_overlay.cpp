@@ -1,12 +1,12 @@
-#include <unotui\entities\widgets\w_overlay.h>
+#include <unotui/entities/widgets/w_overlay.h>
 
-#include <unotui\utility\text.h>
-#include <unotui\workers\widget_worker.h>
-#include <unotui\workers\window_worker.h> // Mouse position.
-#include <unotui\utility\widget.h>
-#include <unotui\entities\widgets\w_editabletextbox.h>
+#include <unotui/utility/text.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/workers/window_worker.h> // Mouse position.
+#include <unotui/utility/widget.h>
+#include <unotui/entities/widgets/w_editabletextbox.h>
 
-#include <unotui\utility\colors.h>
+#include <unotui/utility/colors.h>
 
 namespace unotui {
 

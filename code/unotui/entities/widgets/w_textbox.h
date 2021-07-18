@@ -1,11 +1,11 @@
 #ifndef __W_TEXTBOX_H
 #define __W_TEXTBOX_H
 
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\widgets\widget.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/widgets/widget.h>
 
-#include <unotui\entities\modules\m_text.h>
-#include <unotui\utility\colors.h>
+#include <unotui/entities/modules/m_text.h>
+#include <unotui/utility/colors.h>
 
 namespace unotui {
 

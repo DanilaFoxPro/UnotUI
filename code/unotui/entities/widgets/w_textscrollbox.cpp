@@ -1,10 +1,10 @@
-#include <unotui\entities\widgets\w_textscrollbox.h>
+#include <unotui/entities/widgets/w_textscrollbox.h>
 
-#include <unotui\workers\widget_worker.h>
-#include <unotui\workers\window_worker.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/workers/window_worker.h>
 
-#include <unotui\utility\widget.h>
-#include <unotui\utility\shortcuts.h>
+#include <unotui/utility/widget.h>
+#include <unotui/utility/shortcuts.h>
 
 #include <math.h> // floor
 
@@ -48,7 +48,7 @@ w_textscrollbox::w_textscrollbox
 
 void w_textscrollbox::PostConstruct()
 {
-        this->bAcceptExternalScroll = true;
+        this->boAcceptExternalScroll = true;
 	this->AddChild( this->TextBox );
 	this->AddChild( this->ScrollBar );
 }

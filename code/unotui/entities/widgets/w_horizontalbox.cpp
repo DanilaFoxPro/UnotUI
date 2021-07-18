@@ -1,6 +1,6 @@
-#include <unotui\entities\widgets\w_horizontalbox.h>
+#include <unotui/entities/widgets/w_horizontalbox.h>
 
-#include <unotui\utility\widget.h>
+#include <unotui/utility/widget.h>
 
 namespace unotui {
 

@@ -5,7 +5,7 @@
 #define GLEW_STATIC // ( The upper header guard doesn't work! )
 #endif
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 #endif

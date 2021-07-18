@@ -1,6 +1,6 @@
-#include <unotui\utility\widget.h>
+#include <unotui/utility/widget.h>
 
-#include <unotui\utility\shortcuts.h>
+#include <unotui/utility/shortcuts.h>
 
 namespace unotui {
 
@@ -114,7 +114,7 @@ void DrawWidgets( const std::vector<std::shared_ptr<widget>>& Widgets )
                 widget* current = Widgets[i].get();
                 if(current) {
                         current->OnDraw();
-                        if( current->bDrawRecursive ) {
+                        if( current->boDrawRecursive ) {
                                 DrawWidgets( current->Children );
                         }
                 }
@@ -236,7 +236,7 @@ std::vector< std::weak_ptr<widget> > CollisionTrace( point Position, const std::
                         
                         Output += CollisionTrace( Position, Current->Children );
                         
-                        if( Current->bSolid )
+                        if( Current->boSolid )
                                 break;
                         
                 }
@@ -304,23 +304,23 @@ void UpdateMouseOverState
                 // Collides.
                 if( ContainsPointer( Colliding, Current ) ) {
                         // Wasn't colliding before.
-                        if( !Current->bMouseOver ) {
-                                Current->bMouseOver = true;
+                        if( !Current->bsMouseOver ) {
+                                Current->bsMouseOver = true;
                                 Current->OnMouseEnter();
-                                if( Current->bInvalidateOnMousePass )
+                                if( Current->boInvalidateOnMousePass )
                                 {
                                         Current->Invalidate( ValidityState::Mouse );
                                 }
                         }
-                        if( Current->bInvalidateOnMouseOver ) {
+                        if( Current->boInvalidateOnMouseOver ) {
                                 Current->Invalidate( ValidityState::Mouse );
                         }
                         Current->OnMouseOver( Position );
                 // Doesn't collide, but was colliding before.
-                } else if( Current->bMouseOver ) {
-                        Current->bMouseOver = false;
+                } else if( Current->bsMouseOver ) {
+                        Current->bsMouseOver = false;
                         Current->OnMouseLeave();
-                        if( Current->bInvalidateOnMousePass ) {
+                        if( Current->boInvalidateOnMousePass ) {
                                 Current->Invalidate( ValidityState::Mouse );
                         }
                 }
@@ -339,7 +339,7 @@ void InvalidateWidgets( const std::vector< std::shared_ptr<widget> >& Widgets, V
                 if( Current ) {
                         Current->Invalidate( Reason );
                         
-                        if( Current->bInvalidateChildren && Current->Children.size() != 0 )
+                        if( Current->boInvalidateChildren && Current->Children.size() != 0 )
                                 InvalidateWidgets( Current->Children, Reason );
                 }
                 
@@ -370,7 +370,7 @@ bool RefreshWidgets( std::vector<std::shared_ptr<widget>>& Widgets )
                 if( CurValidity != ValidityState::Valid ) {
                         Current->OnRefresh( CurValidity );
                         
-                        if( Current->bValidateOnRefresh ) {
+                        if( Current->boValidateOnRefresh ) {
                                 Current->ValidityState = ValidityState::Valid;
                         }
                         
@@ -379,7 +379,7 @@ bool RefreshWidgets( std::vector<std::shared_ptr<widget>>& Widgets )
                 }
                 
                 bool ChildrenRefreshed = false;
-                if( Current->bRefreshRecurisve
+                if( Current->boRefreshRecurisve
                 && Current->Children.size() != 0 ) {
                         ChildrenRefreshed = RefreshWidgets( Current->Children );
                         AnyInvalid |= ChildrenRefreshed;
@@ -409,7 +409,7 @@ void TickWidgets( const std::vector< std::shared_ptr<widget> >& Widgets )
                 }
                 
                 Current->OnTick();
-                if( Current->bTickRecursive ) {
+                if( Current->boTickRecursive ) {
                         TickWidgets( Current->Children );
                 }
                 
@@ -461,9 +461,9 @@ void RecursivePostConstruct( const std::vector< std::shared_ptr<widget> >& Widge
                 if( !Current  )
                         continue;
                 
-                if( !Current->bConstructed ) {
+                if( !Current->bsConstructed ) {
                         Current->PostConstruct();
-                        Current->bConstructed = true;
+                        Current->bsConstructed = true;
                 }
                 
                 if( Current->Children.size() != 0 ) {

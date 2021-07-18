@@ -3,8 +3,8 @@
 
 #include <chrono>
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\utility\classes\simple_timer.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/utility/classes/simple_timer.h>
 
 namespace unotui {
 
@@ -28,10 +28,10 @@ struct w_overlay : widget
                 this->Position = point( 0.0f, 1.0f );
                 this->Size     = point( 1.0f, 1.0f );
                 
-                this->bSolid = false;
+                this->boSolid = false;
                 this->Layer  = LayerReference::Frontmost;
                 
-                this->bInvalidateOnMouseOver = true;
+                this->boInvalidateOnMouseOver = true;
                 
                 this->AverageFPS = 1.0/0.0;
                 

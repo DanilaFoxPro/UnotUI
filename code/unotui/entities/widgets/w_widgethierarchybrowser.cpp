@@ -1,4 +1,4 @@
-#include <unotui\entities\widgets\w_widgethierarchybrowser.h>
+#include <unotui/entities/widgets/w_widgethierarchybrowser.h>
 
 namespace unotui {
 

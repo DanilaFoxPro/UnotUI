@@ -1,15 +1,15 @@
-#include <unotui\entities\widgets\w_editabletext.h>
+#include <unotui/entities/widgets/w_editabletext.h>
 
-#include <unotui\entities\ent_opengl.h>
-#include <unotui\workers\widget_worker.h>
-#include <unotui\workers\window_worker.h>
+#include <unotui/entities/ent_opengl.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/workers/window_worker.h>
 
-#include <unotui\utility\text.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\utility\widget.h>
+#include <unotui/utility/text.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/utility/widget.h>
 
-#include <unotui\entities\events\widget_event.h>
-#include <unotui\utility\font_symbols.h>
+#include <unotui/entities/events/widget_event.h>
+#include <unotui/utility/font_symbols.h>
 
 #include <cmath> // Remainder.
 
@@ -25,8 +25,8 @@ w_editabletext::w_editabletext( const point& Position, const point& Size, const 
 
 void w_editabletext::PostConstruct()
 {
-        this->bKeyboardFocusable = true;
-	this->bInvalidateOnKeyboardFocus = true;
+        this->boKeyboardFocusable = true;
+        this->boInvalidateOnKeyboardFocus = true;
         
         std::shared_ptr<widget> Lock = WidgetByPointer( this ).lock();
         std::shared_ptr<m_text> Cast = std::dynamic_pointer_cast<m_text>(Lock);
@@ -45,7 +45,7 @@ void w_editabletext::OnTick()
 			( CurrentTime - this->LastCaretBump < 0.5f )
 		)
 		and
-		this->bKeyboardFocused
+		this->bsKeyboardFocused
 	);
         
 	if( bTextCaretVisible != bCaretShouldBeVisible )
@@ -83,7 +83,7 @@ void w_editabletext::OnRefresh( ValidityState_t )
 	// Outline.
 	if( this->OutlineColor.alpha > 0.0f ) {
 		this->gColor.AddOutline (
-			         colored_rectangle( Position, Position2, this->bKeyboardFocused ? TheTheme.Accent : OutlineColor ),
+			         colored_rectangle( Position, Position2, this->bsKeyboardFocused ? TheTheme.Accent : OutlineColor ),
 			OutlineThickness
 		);
 	}
@@ -208,7 +208,7 @@ void w_editabletext::OnKeyInput( const int& Action, const int& Key, const int& M
 
 void w_editabletext::OnMousePressed( const int Button )
 {
-        if( Button == GLFW_MOUSE_BUTTON_1 && this->bKeyboardFocused ) {
+        if( Button == GLFW_MOUSE_BUTTON_1 && this->bsKeyboardFocused ) {
                 const text_coord TextCoord = this->PositionToTextCoord( MousePosition() );
                 
                 this->VoidCaretSelection();

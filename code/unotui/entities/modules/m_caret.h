@@ -1,9 +1,9 @@
 #ifndef __UNOTU_ENTITIES_MODULES_M_CARET_H_
 #define __UNOTU_ENTITIES_MODULES_M_CARET_H_
 
-#include <unotui\entities\modules\module.h>
-#include <unotui\entities\modules\m_text.h>
-#include <unotui\utility\types.h>
+#include <unotui/entities/modules/module.h>
+#include <unotui/entities/modules/m_text.h>
+#include <unotui/utility/types.h>
 
 #include <string> // 'std::string::npos', 'std::size_t'.
 #include <memory>

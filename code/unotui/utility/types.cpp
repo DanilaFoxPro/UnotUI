@@ -1,7 +1,7 @@
-#include <unotui\utility\types.h>
+#include <unotui/utility/types.h>
 
-#include <unotui\utility\coordinates.h>
-#include <unotui\entities\ent_window.h>
+#include <unotui/utility/coordinates.h>
+#include <unotui/entities/ent_window.h>
 
 namespace unotui {
 

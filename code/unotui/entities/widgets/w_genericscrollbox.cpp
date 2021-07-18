@@ -1,8 +1,8 @@
-#include <unotui\entities\widgets\w_genericscrollbox.h>
+#include <unotui/entities/widgets/w_genericscrollbox.h>
 
-#include <unotui\entities\widgets\w_textbox.h>
-#include <unotui\utility\widget.h>
-#include <unotui\utility\shortcuts.h>
+#include <unotui/entities/widgets/w_textbox.h>
+#include <unotui/utility/widget.h>
+#include <unotui/utility/shortcuts.h>
 #include <math.h>
 
 namespace unotui {
@@ -20,7 +20,7 @@ void w_genericscrollbox::PostConstruct()
 {
         this->Buffer = this->AddChild( new w_buffer() );
         this->Scrollbar = this->AddChild( new w_scrollbar() );
-        this->bAcceptExternalScroll = true;
+        this->boAcceptExternalScroll = true;
 }
 
 void w_genericscrollbox::OnTick()

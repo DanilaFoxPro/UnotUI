@@ -1,13 +1,13 @@
 #ifndef __W_TEXTSCROLLBOX_H_
 #define __W_TEXTSCROLLBOX_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\widgets\w_textbox.h>
-#include <unotui\entities\widgets\w_scrollbar.h>
-#include <unotui\entities\modules\m_text.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/widgets/w_textbox.h>
+#include <unotui/entities/widgets/w_scrollbar.h>
+#include <unotui/entities/modules/m_text.h>
 
-#include <unotui\utility\colors.h>
-#include <unotui\utility\classes\simple_timer.h>
+#include <unotui/utility/colors.h>
+#include <unotui/utility/classes/simple_timer.h>
 
 namespace unotui {
 

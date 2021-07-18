@@ -1,7 +1,7 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_GEOMETRY_BASE_H_
 #define __UNOTU_ENTITIES_WIDGETS_GEOMETRY_BASE_H_
 
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
 namespace unotui {
 

@@ -1,7 +1,7 @@
-#include <unotui\entities\widgets\geometry\texture.h>
+#include <unotui/entities/widgets/geometry/texture.h>
 
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\ent_opengl.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/ent_opengl.h>
 
 namespace unotui {
 

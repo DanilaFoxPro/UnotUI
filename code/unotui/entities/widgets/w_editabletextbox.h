@@ -1,9 +1,9 @@
 #ifndef CODE_ENTITIES_WIDGETS_EDITABLETEXTBOX_H_
 #define CODE_ENTITIES_WIDGETS_EDITABLETEXTBOX_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\widgets\w_textscrollbox.h>
-#include <unotui\entities\modules\m_caret.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/widgets/w_textscrollbox.h>
+#include <unotui/entities/modules/m_caret.h>
 
 namespace unotui {
 

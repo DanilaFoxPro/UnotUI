@@ -1,10 +1,10 @@
-#include <unotui\entities\modules\m_caret.h>
+#include <unotui/entities/modules/m_caret.h>
 
-#include <unotui\utility\deps\opengl_includes.h> // 'glfwGetTime()'.
+#include <unotui/utility/deps/opengl_includes.h> // 'glfwGetTime()'.
 
-#include <unotui\utility\text.h>
-#include <unotui\utility\clipboard.h>
-#include <unotui\utility\shortcuts.h>
+#include <unotui/utility/text.h>
+#include <unotui/utility/clipboard.h>
+#include <unotui/utility/shortcuts.h>
 
 namespace unotui {
 

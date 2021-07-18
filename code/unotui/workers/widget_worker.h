@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\ent_window.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/ent_window.h>
 
 namespace unotui {
 

@@ -1,7 +1,7 @@
-#include <unotui\workers\interface_worker.h>
+#include <unotui/workers/interface_worker.h>
 
-#include <unotui\entities\ent_application.h>
-#include <unotui\systems\systems.h>
+#include <unotui/entities/ent_application.h>
+#include <unotui/systems/systems.h>
 
 namespace unotui {
 

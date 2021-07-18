@@ -4,8 +4,8 @@
 #include <vector>
 #include <memory>
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\widgets\w_button.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/widgets/w_button.h>
 
 namespace unotui {
 

@@ -3,14 +3,14 @@
 #include <system_error> // For throwing exeptions around.
 #include <fstream> // I think I load shader files using that.
 #include <cstring> //strcpy
-#include <unotui\utility\deps\stb_image.h> // For loading images. Duh.
+#include <unotui/utility/deps/stb_image.h> // For loading images. Duh.
 
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
-#include <unotui\utility\coordinates.h> // For coordinates. Come on. (Unit, point.)
+#include <unotui/utility/coordinates.h> // For coordinates. Come on. (Unit, point.)
 
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\ent_opengl.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/ent_opengl.h>
 
 namespace unotui {
 

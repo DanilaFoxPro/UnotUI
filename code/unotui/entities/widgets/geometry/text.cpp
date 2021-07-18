@@ -1,9 +1,9 @@
-#include <unotui\entities\widgets\geometry\text.h>
+#include <unotui/entities/widgets/geometry/text.h>
 
-#include <unotui\entities\ent_opengl.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\entities\ent_window.h>
-#include <unotui\utility\debug.h>
+#include <unotui/entities/ent_opengl.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/utility/debug.h>
 
 namespace unotui {
 

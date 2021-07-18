@@ -5,9 +5,9 @@
 #include <vector>
 #include <chrono>
 
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
-#include <unotui\utility\coordinates.h> // For coordinates. Come on. (Unit, point.)
+#include <unotui/utility/coordinates.h> // For coordinates. Come on. (Unit, point.)
 
 namespace unotui {
 

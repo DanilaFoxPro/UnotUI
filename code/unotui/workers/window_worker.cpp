@@ -1,12 +1,12 @@
-#include <unotui\workers\window_worker.h>
+#include <unotui/workers/window_worker.h>
 
-#include <unotui\entities\ent_application.h>
-#include <unotui\entities\ent_window.h>
-#include <unotui\systems\systems.h>
-#include <unotui\systems\callbacks.h>
-#include <unotui\workers\widget_worker.h>
-#include <unotui\utility\packed_data.h>
-#include <unotui\utility\general.h>
+#include <unotui/entities/ent_application.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/systems/systems.h>
+#include <unotui/systems/callbacks.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/utility/packed_data.h>
+#include <unotui/utility/general.h>
 
 #include <stdio.h> //TODO: DEBUG.
 #include <system_error> // For throwing exeptions around.

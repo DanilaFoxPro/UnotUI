@@ -1,11 +1,11 @@
 #ifndef __W_EDITABLETEXT_H_
 #define __W_EDITABLETEXT_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\modules\m_caret.h>
-#include <unotui\entities\modules\m_text.h>
-#include <unotui\utility\colors.h>
-#include <unotui\utility\types.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/modules/m_caret.h>
+#include <unotui/entities/modules/m_text.h>
+#include <unotui/utility/colors.h>
+#include <unotui/utility/types.h>
 
 namespace unotui {
 

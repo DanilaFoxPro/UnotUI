@@ -1,7 +1,7 @@
 #ifndef __COLORS_H_
 #define __COLORS_H_
 
-#include <unotui\utility\types.h>
+#include <unotui/utility/types.h>
 
 namespace unotui {
 

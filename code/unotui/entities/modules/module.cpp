@@ -1,4 +1,4 @@
-#include <unotui\entities\modules\module.h>
+#include <unotui/entities/modules/module.h>
 
 namespace unotui {
 

@@ -1,19 +1,19 @@
-#include <unotui\entities\widgets\w_scrollbar.h>
+#include <unotui/entities/widgets/w_scrollbar.h>
 
-#include <unotui\entities\ent_opengl.h>
-#include <unotui\entities\ent_window.h>
+#include <unotui/entities/ent_opengl.h>
+#include <unotui/entities/ent_window.h>
 
-#include <unotui\workers\widget_worker.h>
-#include <unotui\workers\window_worker.h>
-#include <unotui\utility\general.h>
-#include <unotui\utility\text.h>
-#include <unotui\utility\colors.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\utility\widget.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/workers/window_worker.h>
+#include <unotui/utility/general.h>
+#include <unotui/utility/text.h>
+#include <unotui/utility/colors.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/utility/widget.h>
 
-#include <unotui\entities\events\widget_event.h>
+#include <unotui/entities/events/widget_event.h>
 
-#include <unotui\utility\font_symbols.h>
+#include <unotui/utility/font_symbols.h>
 
 #include <cmath>
 #include <stdio.h> //TODO: DEBUG.
@@ -238,7 +238,7 @@ void w_scrollbar::OnRefresh( ValidityState_t Reason )
 
 void w_scrollbar::OnDraw()
 {
-        if( this->bHintFocused || this->bHasMouse ) {
+        if( this->bsHintFocused || this->bHasMouse ) {
                 //:: Draw rectangles.
                 this->gColor.Draw();
                 

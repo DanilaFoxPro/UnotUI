@@ -1,9 +1,9 @@
 #ifndef __W_TEXT_H_
 #define __W_TEXT_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\ent_window.h> // Theme.
-#include <unotui\utility\colors.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/ent_window.h> // Theme.
+#include <unotui/utility/colors.h>
 #include <stdio.h>
 
 namespace unotui {

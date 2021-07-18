@@ -1,4 +1,4 @@
-#include <unotui\entities\modules\m_text.h>
+#include <unotui/entities/modules/m_text.h>
 
 namespace unotui {
 

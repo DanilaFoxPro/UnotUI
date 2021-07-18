@@ -1,6 +1,6 @@
-#include <unotui\utility\fpoint.h>
+#include <unotui/utility/fpoint.h>
 
-#include <unotui\utility\dpoint.h>
+#include <unotui/utility/dpoint.h>
 
 namespace unotui {
 

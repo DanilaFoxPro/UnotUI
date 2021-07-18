@@ -1,7 +1,7 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_W_VERTICALBOX_H_
 #define __UNOTU_ENTITIES_WIDGETS_W_VERTICALBOX_H_
 
-#include <unotui\entities\widgets\widget.h>
+#include <unotui/entities/widgets/widget.h>
 
 namespace unotui {
 

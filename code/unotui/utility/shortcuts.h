@@ -5,7 +5,7 @@
 #include <atomic>
 #include <memory>
 
-#include <unotui\utility\point.h>
+#include <unotui/utility/point.h>
 
 namespace unotui {
 

@@ -1,8 +1,8 @@
 #include "w_text.h"
 
-#include <unotui\utility\text.h>
-#include <unotui\entities\ent_opengl.h>
-#include <unotui\entities\ent_window.h>
+#include <unotui/utility/text.h>
+#include <unotui/entities/ent_opengl.h>
+#include <unotui/entities/ent_window.h>
 
 namespace unotui {
 

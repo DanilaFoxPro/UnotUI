@@ -1,4 +1,4 @@
-#include <unotui\utility\shortcuts.h>
+#include <unotui/utility/shortcuts.h>
 
 #include <cmath>
 

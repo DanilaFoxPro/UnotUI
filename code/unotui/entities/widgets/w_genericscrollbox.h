@@ -1,11 +1,11 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_W_GENERICSCROLLBOX_H_
 #define __UNOTU_ENTITIES_WIDGETS_W_GENERICSCROLLBOX_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\widgets\w_buffer.h>
-#include <unotui\entities\widgets\w_scrollbar.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/widgets/w_buffer.h>
+#include <unotui/entities/widgets/w_scrollbar.h>
 
-#include <unotui\utility\classes\simple_timer.h>
+#include <unotui/utility/classes/simple_timer.h>
 
 namespace unotui {
 

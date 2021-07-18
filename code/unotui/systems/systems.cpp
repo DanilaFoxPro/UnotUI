@@ -1,4 +1,4 @@
-#include <unotui\systems\systems.h>
+#include <unotui/systems/systems.h>
 
 //::STD.
 #include <thread>
@@ -8,24 +8,24 @@
 #include <cstdlib> // std::atexit
 
 //::OpenGL.
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
 //::Mine.
-#include <unotui\entities\ent_application.h>
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\ent_opengl.h>
+#include <unotui/entities/ent_application.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/ent_opengl.h>
 
-#include <unotui\systems\callbacks.h>
+#include <unotui/systems/callbacks.h>
 
-#include <unotui\workers\widget_worker.h>
-#include <unotui\workers\window_worker.h>
+#include <unotui/workers/widget_worker.h>
+#include <unotui/workers/window_worker.h>
 
-#include <unotui\utility\general.h>
-#include <unotui\utility\text.h>
-#include <unotui\utility\packed_data.h>
+#include <unotui/utility/general.h>
+#include <unotui/utility/text.h>
+#include <unotui/utility/packed_data.h>
 
-#include <unotui\utility\coordinates.h> // For coordinates. Come on. (Unit, point.)
-#include <unotui\entities\ent_tab.h>
+#include <unotui/utility/coordinates.h> // For coordinates. Come on. (Unit, point.)
+#include <unotui/entities/ent_tab.h>
 
 namespace unotui {
 

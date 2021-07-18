@@ -1,7 +1,7 @@
 #ifndef __FPOINT_H_
 #define __FPOINT_H_
 
-#include <unotui\utility\point.h>
+#include <unotui/utility/point.h>
 
 namespace unotui {
 

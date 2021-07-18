@@ -1,9 +1,9 @@
-#include <unotui\entities\widgets\w_buffer.h>
+#include <unotui/entities/widgets/w_buffer.h>
 
-#include <unotui\entities\ent_window.h>
+#include <unotui/entities/ent_window.h>
 
-#include <unotui\utility\widget.h>
-#include <unotui\utility\window.h>
+#include <unotui/utility/widget.h>
+#include <unotui/utility/window.h>
 
 namespace unotui {
 
@@ -34,7 +34,7 @@ w_buffer::~w_buffer()
 
 void w_buffer::SetOptions()
 {
-        this->bDrawRecursive = false;
+        this->boDrawRecursive = false;
 }
 
 void w_buffer::CreateFramebuffer()

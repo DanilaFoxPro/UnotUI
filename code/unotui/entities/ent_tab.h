@@ -5,9 +5,9 @@
 #include <vector>
 #include <atomic>
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\entities\widgets\w_tab.h>
-#include <unotui\entities\widgets\w_overlay.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/entities/widgets/w_tab.h>
+#include <unotui/entities/widgets/w_overlay.h>
 
 namespace unotui {
 

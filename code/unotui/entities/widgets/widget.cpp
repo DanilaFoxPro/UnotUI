@@ -1,11 +1,11 @@
-#include <unotui\entities\widgets\widget.h>
+#include <unotui/entities/widgets/widget.h>
 
 #include <stdio.h>//TODO: DEBUG
 #include <algorithm>// std::find.
 
-#include <unotui\utility\widget.h>
-#include <unotui\utility\shortcuts.h>
-#include <unotui\workers\widget_worker.h>
+#include <unotui/utility/widget.h>
+#include <unotui/utility/shortcuts.h>
+#include <unotui/workers/widget_worker.h>
 
 namespace unotui {
 
@@ -132,19 +132,17 @@ void widget::SimpleCopy( const widget& Widget )
 	this->Layer = Widget.Layer;
 		
 	// Collision.
-	this->bSolid = Widget.bSolid; // Solid -- consume input.
-	this->bMouseOver = Widget.bMouseOver;
+	this->boSolid = Widget.boSolid; // Solid -- consume input.
 	
 	// Input.
 	
-	this->bKeyboardFocusable = Widget.bKeyboardFocusable;
-	this->bLoseFocusOnESC = Widget.bLoseFocusOnESC;
-	this->bKeyboardFocused = Widget.bKeyboardFocused;
+	this->boKeyboardFocusable = Widget.boKeyboardFocusable;
+	this->boLoseFocusOnESC = Widget.boLoseFocusOnESC;
 	
 	// Other.
-	this->bValidateOnRefresh = Widget.bValidateOnRefresh;
-	this->bInvalidateOnMousePass = Widget.bInvalidateOnMousePass;
-	this->bInvalidateOnKeyboardFocus = Widget.bInvalidateOnKeyboardFocus;
+	this->boValidateOnRefresh = Widget.boValidateOnRefresh;
+	this->boInvalidateOnMousePass = Widget.boInvalidateOnMousePass;
+	this->boInvalidateOnKeyboardFocus = Widget.boInvalidateOnKeyboardFocus;
 	
 	//
 	
@@ -198,7 +196,7 @@ std::shared_ptr<widget> widget::AddChild( std::shared_ptr<widget> Child )
                 }
 		this->Children.push_back( Child );
         
-                if( this->bConstructed && this->Children.size() != 0 ) {
+                if( this->bsConstructed && this->Children.size() != 0 ) {
                         RecursivePostConstruct( this->Children );
                 }
                 

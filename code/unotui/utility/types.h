@@ -1,7 +1,7 @@
 #ifndef __TYPES_H_
 #define __TYPES_H_
 
-#include <unotui\utility\fpoint.h>
+#include <unotui/utility/fpoint.h>
 
 namespace unotui {
 

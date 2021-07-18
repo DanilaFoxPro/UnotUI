@@ -1,7 +1,7 @@
 #ifndef __W_RECTANGLE_H_
 #define __W_RECTANGLE_H_
 
-#include <unotui\entities\widgets\widget.h>
+#include <unotui/entities/widgets/widget.h>
 
 namespace unotui {
 

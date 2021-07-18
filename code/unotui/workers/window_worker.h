@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include <unotui\utility\coordinates.h>
-#include <unotui\entities\ent_window.h>
-#include <unotui\entities\widgets\w_tab.h>
+#include <unotui/utility/coordinates.h>
+#include <unotui/entities/ent_window.h>
+#include <unotui/entities/widgets/w_tab.h>
 
 namespace unotui {
 

@@ -1,4 +1,4 @@
-#include <unotui\entities\events\widget_event.h>
+#include <unotui/entities/events/widget_event.h>
 
 namespace unotui {
 

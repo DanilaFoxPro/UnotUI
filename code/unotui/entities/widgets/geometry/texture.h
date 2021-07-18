@@ -1,11 +1,11 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_GEOMETRY_TEXTURE_H_
 #define __UNOTU_ENTITIES_WIDGETS_GEOMETRY_TEXTURE_H_
 
-#include <unotui\entities\widgets\geometry\base.h>
+#include <unotui/entities/widgets/geometry/base.h>
 
 #include <vector>
 
-#include <unotui\utility\types.h>
+#include <unotui/utility/types.h>
 
 namespace unotui {
 

@@ -1,7 +1,7 @@
-#include <unotui\entities\widgets\w_button.h>
+#include <unotui/entities/widgets/w_button.h>
 
-#include <unotui\utility\widget.h>
-#include <unotui\utility\text.h>
+#include <unotui/utility/widget.h>
+#include <unotui/utility/text.h>
 
 namespace unotui {
 
@@ -68,7 +68,7 @@ void w_button::ConstructorProxy(
 
 void w_button::SetOptions()
 {
-        this->bInvalidateOnMousePass = true;
+        this->boInvalidateOnMousePass = true;
 }
 
         //:: Overrides.
@@ -127,7 +127,7 @@ void w_button::OnRefresh(
                 colored_rectangle(
                         this->Position,
                         SecondPosition( this->Position, this->Size ),
-                        this->bMouseOver ? this->ColorHighlighted : this->Color
+                        this->bsMouseOver ? this->ColorHighlighted : this->Color
                 )
         );
         
@@ -143,7 +143,7 @@ void w_button::OnRefresh(
         const rgba OutlineColor2 = TheTheme.PrimaryBack;
         const rgba OutlineColor2Light = color::gray * 0.8f;
         
-        if( this->bMouseOver ) {
+        if( this->bsMouseOver ) {
                 this->gColor.AddOutline(
                         rectangle( FPosition, FPosition2 ),
                         3,

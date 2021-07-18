@@ -1,4 +1,4 @@
-#include <unotui\entities\ent_tab.h>
+#include <unotui/entities/ent_tab.h>
 
 namespace unotui {
 
@@ -6,7 +6,7 @@ std::weak_ptr<widget> ent_tab::AddWidget( widget* const widget_ )
 {
         const std::shared_ptr<widget> SharedPointer =  std::shared_ptr<widget>( widget_ );
         this->Widgets.push_back( SharedPointer );;
-        widget_->bConstructed = true;
+        widget_->bsConstructed = true;
         widget_->PostConstruct();
         return std::weak_ptr<widget>( SharedPointer );
 }

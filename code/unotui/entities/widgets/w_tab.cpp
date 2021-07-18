@@ -1,4 +1,4 @@
-#include <unotui\entities\widgets\w_tab.h>
+#include <unotui/entities/widgets/w_tab.h>
 
 namespace unotui {
 

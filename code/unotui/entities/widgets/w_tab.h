@@ -1,9 +1,9 @@
 #ifndef __W_TABWIDGET_H_
 #define __W_TABWIDGET_H_
 
-#include <unotui\entities\widgets\widget.h>
+#include <unotui/entities/widgets/widget.h>
 
-#include <unotui\utility\colors.h>
+#include <unotui/utility/colors.h>
 
 namespace unotui {
 

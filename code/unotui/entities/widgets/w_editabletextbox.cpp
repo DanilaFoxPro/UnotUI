@@ -1,9 +1,9 @@
-#include <unotui\entities\widgets\w_editabletextbox.h>
+#include <unotui/entities/widgets/w_editabletextbox.h>
 
-#include <unotui\workers\window_worker.h>
-#include <unotui\utility\text.h>
-#include <unotui\utility\widget.h>
-#include <unotui\utility\font_symbols.h>
+#include <unotui/workers/window_worker.h>
+#include <unotui/utility/text.h>
+#include <unotui/utility/widget.h>
+#include <unotui/utility/font_symbols.h>
 
 #include <cmath>
 
@@ -48,8 +48,8 @@ w_editabletextbox::w_editabletextbox
         this->OutlineThickness = OutlineThickness;
         
         //:: For text editing.
-        this->bKeyboardFocusable = true;
-        this->bInvalidateOnKeyboardFocus = true;
+        this->boKeyboardFocusable = true;
+        this->boInvalidateOnKeyboardFocus = true;
         this->SetCaretTarget( this->TextBox );
         this->bAllowNewlines = true;
 }
@@ -68,7 +68,7 @@ void w_editabletextbox::OnTick()
                         ( CurrentTime - this->LastCaretBump < 0.5f )
                 )
                 and
-                this->bKeyboardFocused
+                this->bsKeyboardFocused
         );
         
         // Dynamic selection visuals.
@@ -207,7 +207,7 @@ void w_editabletextbox::OnMousePressed( const int Button )
         if( this->ScrollBar->DoesCollide( MousePosition() ) )
                 return;
         
-        if( Button == GLFW_MOUSE_BUTTON_1 && this->bKeyboardFocused ) {
+        if( Button == GLFW_MOUSE_BUTTON_1 && this->bsKeyboardFocused ) {
                 text_coord TextCoord = this->TextBox->PositionToTextCoord( MousePosition() );
                 
                 this->VoidCaretSelection();

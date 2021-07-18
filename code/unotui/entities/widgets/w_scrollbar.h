@@ -1,7 +1,7 @@
 #ifndef __W_SCROLLBAR_H_
 #define __W_SCROLLBAR_H_
 
-#include <unotui\entities\widgets\widget.h>
+#include <unotui/entities/widgets/widget.h>
 
 namespace unotui {
 

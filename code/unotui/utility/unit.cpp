@@ -3,9 +3,9 @@
 #include <string>
 #include <cmath>
 
-#include <unotui\entities\ent_window.h>
+#include <unotui/entities/ent_window.h>
 
-#include <unotui\utility\shortcuts.h>
+#include <unotui/utility/shortcuts.h>
 
 namespace unotui {
 

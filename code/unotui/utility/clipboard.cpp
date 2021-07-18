@@ -1,6 +1,6 @@
-#include <unotui\utility\clipboard.h>
+#include <unotui/utility/clipboard.h>
 
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
 namespace unotui {
 

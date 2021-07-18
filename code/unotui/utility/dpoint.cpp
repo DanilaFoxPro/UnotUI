@@ -1,6 +1,6 @@
-#include <unotui\utility\dpoint.h>
+#include <unotui/utility/dpoint.h>
 
-#include <unotui\utility\ipoint.h>
+#include <unotui/utility/ipoint.h>
 #include <math.h> // sqrt()
 #include <stdexcept>
 

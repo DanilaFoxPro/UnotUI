@@ -4,8 +4,8 @@
 #include <string>
 #include <memory>
 
-#include <unotui\utility\classes\simple_timer.h>
-#include <unotui\entities\interface\ent_interface.h>
+#include <unotui/utility/classes/simple_timer.h>
+#include <unotui/entities/interface/ent_interface.h>
 
 namespace unotui {
 

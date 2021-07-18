@@ -1,8 +1,8 @@
 #ifndef __UNOTU_ENTITIES_WIDGETS_W_BUFFER_H_
 #define __UNOTU_ENTITIES_WIDGETS_W_BUFFER_H_
 
-#include <unotui\entities\widgets\widget.h>
-#include <unotui\utility\colors.h>
+#include <unotui/entities/widgets/widget.h>
+#include <unotui/utility/colors.h>
 
 namespace unotui {
 

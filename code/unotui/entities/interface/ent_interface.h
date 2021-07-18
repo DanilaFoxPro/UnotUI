@@ -1,7 +1,7 @@
 #ifndef __UNOTUI_ENTITIES_INTERFACE_ENT_INTERFACE_H_
 #define __UNOTUI_ENTITIES_INTERFACE_ENT_INTERFACE_H_
 
-#include <unotui\entities\ent_window.h>
+#include <unotui/entities/ent_window.h>
 
 namespace unotui {
 

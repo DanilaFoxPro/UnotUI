@@ -1,7 +1,7 @@
 #ifndef __CALLBACKS_H_
 #define __CALLBACKS_H_
 
-#include <unotui\utility\deps\opengl_includes.h>
+#include <unotui/utility/deps/opengl_includes.h>
 
 namespace unotui {
 

@@ -1,7 +1,7 @@
 #ifndef __UNOTUI_CODE_UTILITY_DPOINT_H_
 #define __UNOTUI_CODE_UTILITY_DPOINT_H_
 
-#include <unotui\utility\point.h>
+#include <unotui/utility/point.h>
 
 namespace unotui {
 

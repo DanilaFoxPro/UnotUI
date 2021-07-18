@@ -1,8 +1,8 @@
 #ifndef CODE_UTILITY_TEXT_H_
 #define CODE_UTILITY_TEXT_H_
 
-#include <unotui\utility\coordinates.h>
-#include <unotui\utility\types.h>
+#include <unotui/utility/coordinates.h>
+#include <unotui/utility/types.h>
 
 #include <string>
 #include <vector>

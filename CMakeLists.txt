@@ -57,14 +57,14 @@ target_compile_options(
         PRIVATE
                 "-Wall"
 )
-target_link_options(
-        ${APP_LIBRARY_NAME}
-        PRIVATE
-                "-static"
-                "-lpthread"
-                "-static-libgcc"
-                "-static-libstdc++"
-)
+# target_link_options(
+#         ${APP_LIBRARY_NAME}
+#         PRIVATE
+#                 "-static"
+#                 "-lpthread"
+#                 "-static-libgcc"
+#                 "-static-libstdc++"
+# )
 
 target_include_directories(
   ${APP_LIBRARY_NAME}
